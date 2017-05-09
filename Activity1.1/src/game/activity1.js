@@ -116,8 +116,8 @@ activity1.prototype = {
 //	render: function(){
 //		this.game.debug.text('x: '+this.game.input.x + ' y: ' + this.game.input.y,32,32);
 //		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)') ;
-		},
-	
+//		},
+//	
 	
 //	this function is used to make a grid on the board in the play area
 	placeTiles: function(rows,columns){
