@@ -91,7 +91,7 @@ activity2.prototype = {
 		var Removerow= this.add.button(615,500,'gridFormationButtons',this.decrementor_Rows,this,10,11,9);
 		reset.anchor.setTo(0.5);
 		
-		var Removecolumn = this.add.button(615,540,'gridFormationButtons',this.cleanBoard,this,7,8,6);
+		var Removecolumn = this.add.button(615,540,'gridFormationButtons',this.decrementor_Columns,this,7,8,6);
 		reset.anchor.setTo(0.5);
 		
 		
@@ -129,7 +129,7 @@ activity2.prototype = {
 		this.createModals();
 	
 	},	
-	update: function () {
+	update: function () {	
 	},
 	
 	
@@ -144,16 +144,10 @@ activity2.prototype = {
 	placeTiles: function(rows,columns){
 		var s=0;
 		var noOfRows = rows;
-		var noOfColumns = columns;	
+		var noOfColumns = columns;
 		for (var i=0;i<noOfRows;i++){
 			for (var j=0;j<noOfColumns;j++){
-				gridtile1[s] = this.game.add.sprite(gridTileStartPointX+j*gridTileRectWidth,gridTileStartPointY+i*gridTileRectWidth,'emptyTile',this);
-//				var rectangle = this.add.graphics(gridTileStartPointX+j*gridTileRectWidth,gridTileStartPointY+i*gridTileRectWidth,);
-//				rectangle.lineStyle(2, 0x0000FF, 1);
-//				rectangle.beginFill(0xFFFF0B, 0.5);
-//				rectangle.drawRect(0,0,40,40);
-//				rectangle.endFill();
-				
+				gridtile1.push(this.game.add.image(gridTileStartPointX+j*gridTileRectWidth,gridTileStartPointY+i*gridTileRectWidth,'emptyTile',this));
 				gridtile[s] = new Phaser.Rectangle(gridTileStartPointX+j*gridTileRectWidth,gridTileStartPointY+i*gridTileRectWidth,gridTileRectWidth,gridTileRectWidth);
 				this.game.physics.arcade.enable(gridtile[s]);
 				studentInputArray.push(0);
@@ -483,47 +477,31 @@ activity2.prototype = {
 		}
 	},
 	
-	decrementor_Rows: function (){			
-		for (var tile =0; tile < gridtile1.length; tile++){
-			console.log(gridtile1.length)
-			console.log(gridtile1[tile])
-			console.log(tile)
-			gridtile1[tile].destroy();
-			gridtile1.splice(gridtile1[tile]);
-			console.log(gridtile1[tile])
-		}
+	decrementor_Rows: function (){	
+		var xyz = Number(gridtile1.length);
 		if (rows > 1){
-		console.log(rows);
+		for (var tile =0; tile < xyz; tile++){
+			gridtile1[tile].destroy();
+		}
+		gridtile1=[];
 		rows --;
 		studentInputArray = [];
-		allgridCoordinates = [];
-      	this.placeTiles(rows,columns);
-		console.log(rows)
+		selectedTile = 0;
+		this.placeTiles(rows,columns);
 		}
 	},
 	
-	decrementor_Columns: function (){
+	decrementor_Columns: function (){	
+		var xyz1 = Number(gridtile1.length);
 		if (columns > 1){
-		console.log(columns);
-		columns --;	
-		studentInputArray = [];
-		allgridCoordinates = [];
-		this.placeTiles(rows,columns);
-		console.log(rows)
-		}
-	},
-	
-	checkupdate: function(){
-		this.placeTiles(rows,columns);
-	},
-	
-	cleanBoard: function(){
-		
-		for (var tile =0; tile < gridtile1.length; tile++){
-//			console.log(gridtile1[tile])
-			console.log(tile)
+		for (var tile =0; tile < xyz1; tile++){
 			gridtile1[tile].destroy();
-			
+		}
+		gridtile1=[];
+		columns --;
+		studentInputArray = [];
+		selectedTile = 0;
+		this.placeTiles(rows,columns);
 		}
 	},
 /**************************************************VALIDATION CODE*************************************************************/
@@ -543,6 +521,7 @@ activity2.prototype = {
 	onReset: function (){
 		selectedTile = 0;
 		rows = 0
+		gridtile1 = [];
 		columns = 0;
 		studentInputArray = []
 		this.state.start('activity2')
