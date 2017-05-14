@@ -53,7 +53,7 @@ activity2.prototype = {
 	preload: function () {
 		this.load.image('a2q1Background', 'assets/images/activity2/BACK_GROUND.png');
 		this.load.image('question', 'assets/images/activity2/QUESTION.png');
-		//		this.load.image('answerActivity1','assets/images/activity2/answerActivity1.png');
+		this.load.image('answerActivity2','assets/images/activity2/answeActivity2.png');
 	},
 
 	create: function () {
@@ -294,6 +294,9 @@ activity2.prototype = {
 
 	/********************************Modal Type *****************************************************************************/
 	createModals: function(){
+		
+	/*************************************Validation 2 for tiles placeing *************************************************/
+	/**************************************feedback correct Answer **************************************************/
 	reg.modal.createModal({
             type:"correctAnswer",
             includeBackground: true,
@@ -348,29 +351,34 @@ activity2.prototype = {
                     offsetX:-15
                 },
 				
-				  {
-                    type: "text",
-                    content: "Click NEXT to continue",
-                    fontFamily: "Arial",
-                    fontSize:12,
-                    color: "0xFF0000",
-					align: "left",
-                    offsetY:-40,
-                    offsetX:-90
-                },
+//				  {
+//                    type: "text",
+//                    content: "Click NEXT to continue",
+//                    fontFamily: "Arial",
+//                    fontSize:12,
+//                    color: "0xFF0000",
+//					align: "left",
+//                    offsetY:-40,
+//                    offsetX:-90
+//                },
 				
-				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"",
-					buttonActive:"",
-                    offsetY: -10,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-                      patternsRatio.state.start('activity2q1')
-                 }
-				}
+//				{
+//                    type: "image",
+//                    content:"nextNormal",
+//					buttonHover:"",
+//					buttonActive:"",
+//                    offsetY: -10,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//					selectedTile = 0;
+//					rows = 0
+//					gridtile1 = [];
+//					columns = 0;
+//					studentInputArray = []	
+//					patternsRatio.state.start('activity2q1')
+//                 }
+//				}
 				]
 			}),
 	/****************************************feedback 1 incorrect ***********************************************/ 		
@@ -408,7 +416,7 @@ activity2.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Not quite right.",
+                    content:"You’re close!",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "black",
@@ -417,32 +425,13 @@ activity2.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Your pattern must:",
-                    fontFamily: "Arial",
-                    fontSize:14,
-                    color: "black",
-                    offsetY:-100,
-                    offsetX:-110
-                },
-				{
-                    type: "text",
-                    content:"1. Fill the grid completely.",
+                    content:"You have drawn the grid correctly, but your\npattern does not quite match the original.",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "black",
                     offsetY:-80,
-                    offsetX:-90
-                },
-				{
-                    type: "text",
-                    content:"2. Look like an enlarged version of the original pattern.",
-                    fontFamily: "Arial",
-                    fontSize:14,
-                    color: "black",
-                    offsetY:-60,
-                    offsetX:-0
-                },
-				
+                    offsetX:-40
+                },		
 				{
                     type: "text",
                     content:"Click TRY AGAIN to clear the grid and try again",
@@ -464,6 +453,9 @@ activity2.prototype = {
                     contentScale: 1,
                     callback: function () {
                   		selectedTile = 0;
+						rows = 0
+						gridtile1 = [];
+						columns = 0;
 						studentInputArray = []
 						patternsRatio.state.start('activity2')      
                  }
@@ -488,8 +480,8 @@ activity2.prototype = {
                 },
 				{
                     type: "image",
-                    content: "answerActivity1",
-                    offsetY: 5,
+                    content: "answerActivity2",
+                    offsetY: 0,
                     offsetX: -15,
                     contentScale: 1
                 },	
@@ -506,8 +498,6 @@ activity2.prototype = {
                       reg.modal.hideModal("IncorrectAnswerAttempt2");
                     } 
                 },
-				
-				
 				{
                     type: "image",
                     content: "sadSmiley",
@@ -551,14 +541,118 @@ activity2.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
-                        patternsRatio.state.start("activity2q1")
+						selectedTile = 0;
+						rows = 0
+						gridtile1 = [];
+						columns = 0;
+						studentInputArray = []
+                        patternsRatio.state.start("activity2")
                  }
 				}
 		
 			]
         });
-	},
 	
+	
+	
+	/***************************************** Validation 1 Modals for girdsize testing ****************************************/
+	
+	/*************feedback1 for incorrect answer *****************************/
+	
+	reg.modal.createModal({
+            type:"IncorrectGridAnswerAttempt1",
+            includeBackground: true,
+			backgroundOpacity:0.6,
+//            modalCloseOnInput: true,
+            itemsArr: [
+              {
+                    type: "image",
+                    content: "feedback2",
+                    offsetY: -50,
+                    contentScale: 1
+                },
+				 {
+                    type: "image",
+					content: "closeNormal",
+//                 	buttonActive: "closeNormal",
+//					buttonHover:"closeOver",
+                    offsetY: -170,
+					offsetX: 195,
+					contentScale: 1,
+					callback: function(){
+                      reg.modal.hideModal("IncorrectAnswerAttempt1");
+                    } 
+                },
+				{
+                    type: "image",
+                    content: "sadSmiley",
+                    offsetY: -130,
+					offsetX: -180,
+                    contentScale: 1
+                },
+				{
+                    type: "text",
+                    content:"Not quite right.",
+                    fontFamily: "Arial",
+                    fontSize:14,
+                    color: "black",
+                    offsetY:-130,
+                    offsetX:-110
+                },
+				{
+                    type: "text",
+                    content:"The size of the grid you have drawn is incorrect.",
+                    fontFamily: "Arial",
+                    fontSize:14,
+                    color: "black",
+                    offsetY:-100,
+                    offsetX:-40,
+                },
+				{
+                    type: "text",
+                    content:"Remember, you have to scale up the given pattern by\n a factor of 2,so your grid should be drawn accordingly.",
+                    fontFamily: "Arial",
+                    fontSize:14,
+                    color: "black",
+                    offsetY:-70,
+                    offsetX:-21
+                },
+				{
+                    type: "text",
+                    content:"Click Reset to clear the grid and try again.",
+                    fontFamily: "Arial",
+                    fontSize:12,
+                    color: "0xFF0000",
+                    offsetY:-35,
+                    offsetX:-50
+                },
+				{
+                    type: "image",
+                    content:"tryagainNormal",
+					buttonHover:"tryagainOver",
+					buttonActive:"tryagaintDown",
+                    offsetY: -0,
+                    offsetX: -10,
+                    contentScale: 1,
+                    callback: function () {
+                  		selectedTile = 0;
+						rows = 0
+						gridtile1 = [];
+						columns = 0;
+						studentInputArray = []
+						patternsRatio.state.start('activity2')      
+                 }
+				}
+		
+			]
+        });
+	
+	},
+
+	showModalIncorrectGridAnswerAttempt1: function(){
+		reg.modal.showModal("IncorrectGridAnswerAttempt1");
+//		thememusic.play('',0,1);
+	},
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
 //		thememusic.play('',0,1);
@@ -643,14 +737,26 @@ activity2.prototype = {
 	},
 	/**************************************************VALIDATION CODE*************************************************************/
 	onSubmit: function () {
-		if (this.arraysIdentical(studentInputArray, correctAnswer) == true) {
-			this.showModalCorrectAttempt();
-		} else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount < 2) {
-			attemptCount++;
-			this.showModal_InCorrectAttempt_Lessthan_2();
-		} else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount >= 2) {
+		if (rows == 2 && columns == 6){
+			if (this.arraysIdentical(studentInputArray, correctAnswer) == true) {
+				this.showModalCorrectAttempt();
+			}
+			else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount < 2) {
+				attemptCount++;
+				this.showModal_InCorrectAttempt_Lessthan_2();
+			} 
+		}
+		else if (rows != 2 && columns != 6 && attemptCount < 2){
+			this.showModalIncorrectGridAnswerAttempt1();
+			attemptCount ++
+		}
+		
+		else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount >= 2) {
 			this.showModal_InCorrectAttempt_Morethan_2();
 		}
+		
+					
+		
 	},
 	onReset: function () {
 		selectedTile = 0;

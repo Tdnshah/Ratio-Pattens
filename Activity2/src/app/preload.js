@@ -14,10 +14,10 @@ preload.prototype = {
 		this.load.image('feedback1','assets/images/activity2/1st_feedback_bg.png');
 		this.load.image('feedback2','assets/images/activity2/2nd_feedback_bg.png');
 		this.load.image('feedback3','assets/images/activity2/3rd_feedback_bg.png');
-		this.load.image('simileyHappy','assets/images/activity2/SMILEY_HAPPY.png');
-		this.load.image('simileySad','assets/images/activity2/SMILEY_SAD.png');
-		this.load.image('simileySad','assets/images/activity2/close_button_mouse_over.png');
-		this.load.image('simileySad','assets/images/activity2/SMILEY_SAD.png');
+		this.load.image('happySmiley','assets/images/activity2/SMILEY_HAPPY.png');
+		this.load.image('sadSmiley','assets/images/activity2/SMILEY_SAD.png');
+		this.load.image('closeOver','assets/images/activity2/close_button_mouse_over.png');
+		this.load.image('closeNormal','assets/images/activity2/close_button_normal.png');
 		this.load.image('nextNormal','assets/images/common/NEXT_BUTTON_NORMAL.png');
 		this.load.image('nextOver','assets/images/common/NEXT_BUTTON_MOUSE_OVER.png');
 		this.load.image('nextDown','assets/images/common/NEXT_BUTTON_MOUSE_DOWN.png');
