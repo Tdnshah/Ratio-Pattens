@@ -64,7 +64,7 @@ activity1.prototype = {
 		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a1q1Background');
 		backGround.anchor.setTo(0.5);
 
-		this.soundButton = this.game.add.button(700, -10, 'muted', this.toggleMute, this);
+		this.soundButton = this.game.add.button(30,560, 'muted', this.toggleMute, this);
 		//		this.soundButton.fixedToCamera = true;
 		if (!this.game.sound.mute) {
 			this.soundButton.tint = 16777215;
@@ -118,7 +118,6 @@ activity1.prototype = {
 		//		the below function addes the green tile with all the control logic
 		this.greenTile();
 		this.pinkTile();
-		console.log(selectedTile)
 		this.eventListener();
 
 		reg.modal = new gameModal(patternsRatio);
@@ -136,7 +135,7 @@ activity1.prototype = {
 	//	This is function is used for debugging the point pixel position
 	render: function () {
 		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
-		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)');
+//		this.game.debug.geom(gridtile[3], 'rgba(135,0,0,1)');
 	},
 
 
@@ -160,18 +159,18 @@ activity1.prototype = {
 	},
 
 	//	this is the test function created 
-	test: function (pointer) {
-		for (i in gridtile) {
-			var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
-			if (rectcoordinates == true && selectedTile == 1) {
-				if (pointer.leftButton.isDown == true) {
-					console.log(pointer.leftButton.isDown)
-					console.log([gridtile[i].x, gridtile[i].y]);
-					var tileadded2 = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
-				}
-			}
-		}
-	},
+//	test: function (pointer) {
+//		for (i in gridtile) {
+//			var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
+//			if (rectcoordinates == true && selectedTile == 1) {
+//				if (pointer.leftButton.isDown == true) {
+//					console.log(pointer.leftButton.isDown)
+//					console.log([gridtile[i].x, gridtile[i].y]);
+//					var tileadded2 = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
+//				}
+//			}
+//		}
+//	},
 
 	//	this function is used as a eventlistner which listens the mouse keyboard clicks
 	eventListener: function () {
