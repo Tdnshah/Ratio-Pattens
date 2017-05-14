@@ -6,16 +6,16 @@ var gridTileStartPointY = 48;
 var gridTileRectWidth = 40;
 //	this gridtile array is created to hold the co-ordinates of each tiles place on the game board
 var gridtile = [];
+var gridtile1 = [];
 //	this array is created to hold both x and y co-ordinates of each tiles and then is pushed into allgridCoordinate array created below 	
 var gridCoordinates = [];
 //	this array is created to hold the arrays of x and y co-ordinates of all the tiles this is then used to map the position the tiles.
 var allgridCoordinates = [];
 //this variables are used to define the no of rows and columns on the boards
-var rows = 9;
-var columns = 9;
+var rows = 0;
+var columns = 0;
 //	this array holds the tilePosition sets the default value to 0 and upon students interaction with the grid records his selectedtiles as input
 var studentInputArray = [];
-var muteButton;
 
 
 //this variable is used to hold the value of tiles selected to identify which tile is selected and will placed in the play grids
@@ -32,28 +32,32 @@ var highlighted = [];
 
 // this is a array used to define the correct answer of the pattern and this is used to validate against studentInputArray
 
-var correctAnswer = [1, 1, 1, 1, 1, 1, 1, 1, 1,
-					 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					 1, 1, 1, 2, 2, 2, 1, 1, 1,
-					 1, 1, 1, 2, 2, 2, 1, 1, 1,
-					 1, 1, 1, 2, 2, 2, 1, 1, 1,
-					 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					 1, 1, 1, 1, 1, 1, 1, 1, 1,
+var correctAnswer = [2,2,1,1,1,1,
+					 2,2,1,1,1,1,
+					 1,1,1,1,1,1,
+					 1,1,1,1,1,1,
+					 1,1,1,1,1,1,
+					 1,1,1,1,1,1,
 					 ];
+
+var gridAnswerRows = 2
+var gridAnswerColumns = 6
+
 
 var attemptCount = 0;
 var reg = {};
-var activity1 = function (patternsRatio) {};
+var activity3 = function (patternsRatio) {};
+var inCorrectFeedbackTextAttempt1 = "Not quite right. \n Your pattern must: \n Fill the grid completely. \n Look like an enlarged version of the original pattern. \n Click TRYAGAIN to clear the grid and try again.";
+
 var inCorrectFeedbackTextAttempt2 = "Not quite right. \n After scaling up the original pattern to fill the grid, it looks like this:";
 
 //here we create a phaser function or object which holds all the game logic
-activity1.prototype = {
+activity3.prototype = {
+
 	preload: function () {
-		this.load.image('a1q1Background', 'assets/images/activity1/BACK_GROUND.png');
-		this.load.image('question', 'assets/images/activity1/QUESTION.png');
-		this.load.image('answerActivity1', 'assets/images/activity1/answerActivity1.png');
+		this.load.image('a2q1Background', 'assets/images/activity2/BACK_GROUND.png');
+		this.load.image('question', 'assets/images/activity2/QUESTION.png');
+		//		this.load.image('answerActivity1','assets/images/activity2/answerActivity1.png');
 	},
 
 	create: function () {
@@ -61,36 +65,39 @@ activity1.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		//		adding background image
-		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a1q1Background');
+		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a2q1Background');
 		backGround.anchor.setTo(0.5);
-
-		this.soundButton = this.game.add.button(700, -10, 'muted', this.toggleMute, this);
-		//		this.soundButton.fixedToCamera = true;
-		if (!this.game.sound.mute) {
-			this.soundButton.tint = 16777215;
-		} else {
-			this.soundButton.tint = 16711680;
-		}
-
-//		muteButton = this.add.button(700, -10, 'muted', this.mute, this);
-
-		//		muteButton.scale(0.5);
+		//		console.log(backGround);
 
 		tileaddingSound = this.game.add.audio('tileAdding');
 
 
 		//		adding validation buttons like submit and reset
-		var submit = this.add.button(520, 530, 'SubmitResetButton', this.onSubmit, this, 5, 4, 3);
+		var submit = this.add.button(520, 600, 'SubmitResetButton', this.onSubmit, this, 5, 4, 3);
 		submit.anchor.setTo(0.5);
 
-		var reset = this.add.button(685, 530, 'SubmitResetButton', this.onReset, this, 2, 1, 6);
+		var reset = this.add.button(685, 600, 'SubmitResetButton', this.onReset, this, 2, 1, 6);
 		reset.anchor.setTo(0.5);
+
+		var Addrow = this.add.button(450, 540, 'gridFormationButtons', this.incrementor_Columns, this, 1, 2, 12);
+		reset.anchor.setTo(0.5);
+
+		var Addcolumn = this.add.button(450, 500, 'gridFormationButtons', this.incrementor_Rows, this, 4, 5, 3);
+		reset.anchor.setTo(0.5);
+
+		var Removerow = this.add.button(615, 500, 'gridFormationButtons', this.decrementor_Rows, this, 10, 11, 9);
+		reset.anchor.setTo(0.5);
+
+		var Removecolumn = this.add.button(615, 540, 'gridFormationButtons', this.decrementor_Columns, this, 7, 8, 6);
+		reset.anchor.setTo(0.5);
+
+
 
 		//		adding question image
 		var question = this.add.image(125, 212, 'question');
 
 		//		adding the question text
-		var questionText = "Scale up the given pattern so that it completely fills \nthe grid.The scaled up pattern must look exactly like \nthe original pattern but bigger."
+		var questionText = "Scale up the pattern given below by a factor of 2."
 		var questionTextStyle = {
 			font: "14px Arial",
 			fill: "black",
@@ -101,7 +108,7 @@ activity1.prototype = {
 		questionTextOnDisplay.lineSpacing = -5;
 
 		//		adding the instructional text
-		var instructionText = "Drag the green and red tiles over the grid to colour it.\nClick Submit to check your answer."
+		var instructionText = "Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer."
 		var instructionTextStyle = {
 			font: "14px Arial",
 			fill: "blue	",
@@ -113,30 +120,27 @@ activity1.prototype = {
 
 
 		//		the below functions adds the tiles to the board
-		this.placeTiles(rows, columns)
-
+		if (rows == 0 && columns == 0) {
+			console.log('hey i was called')
+			rows = 1;
+			columns = 1;
+			this.placeTiles(rows, columns)
+		}
 		//		the below function addes the green tile with all the control logic
 		this.greenTile();
 		this.pinkTile();
-		console.log(selectedTile)
 		this.eventListener();
-
 		reg.modal = new gameModal(patternsRatio);
 		this.createModals();
 
 	},
-
-
-
-	update: function () {
-
-	},
+	update: function () {},
 
 
 	//	This is function is used for debugging the point pixel position
 	render: function () {
 		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
-		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)');
+		//		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)') ;
 	},
 
 
@@ -145,10 +149,12 @@ activity1.prototype = {
 		var s = 0;
 		var noOfRows = rows;
 		var noOfColumns = columns;
+		gridtile = [];
+		gridtile1 =	 [];
 		for (var i = 0; i < noOfRows; i++) {
 			for (var j = 0; j < noOfColumns; j++) {
-				gridtile[s] = this.game.add.sprite(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, 'emptyTile', this);
-				gridtile[s] = new Phaser.Rectangle(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, gridTileRectWidth, gridTileRectWidth);
+				gridtile1.push(this.game.add.image(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, 'emptyTile', this));
+				gridtile.push(new Phaser.Rectangle(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, gridTileRectWidth, gridTileRectWidth));
 				this.game.physics.arcade.enable(gridtile[s]);
 				studentInputArray.push(0);
 				gridCoordinates.push(gridtile[s].x, gridtile[s].y);
@@ -159,19 +165,6 @@ activity1.prototype = {
 		}
 	},
 
-	//	this is the test function created 
-	test: function (pointer) {
-		for (i in gridtile) {
-			var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
-			if (rectcoordinates == true && selectedTile == 1) {
-				if (pointer.leftButton.isDown == true) {
-					console.log(pointer.leftButton.isDown)
-					console.log([gridtile[i].x, gridtile[i].y]);
-					var tileadded2 = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
-				}
-			}
-		}
-	},
 
 	//	this function is used as a eventlistner which listens the mouse keyboard clicks
 	eventListener: function () {
@@ -185,7 +178,7 @@ activity1.prototype = {
 
 	//	here we declare eventlistners for all clicks
 	greenTile: function () {
-		var greentile = this.add.sprite(550, 445, 'greenTile');
+		var greentile = this.add.sprite(550, 439, 'greenTile');
 		greentile.enableSnap = (gridTileRectWidth, gridTileRectWidth, false, true);
 		greentile.value = 1;
 		greentile.inputEnabled = true;
@@ -199,7 +192,7 @@ activity1.prototype = {
 	},
 
 	pinkTile: function () {
-		var pinktile = this.add.sprite(600, 445, 'pinkTile');
+		var pinktile = this.add.sprite(600, 439, 'pinkTile');
 		pinktile.inputEnabled = true;
 		//		pinktile.enableSnap = (gridTileRectWidth,gridTileRectWidth,true,true);
 		pinktile.value = 2;
@@ -212,7 +205,7 @@ activity1.prototype = {
 
 	highlight: function () {
 		if (selectedTile == 1 && highlighted1[0] == false) {
-			highlighted[0] = this.add.image(550, 445, 'glowTile');
+			highlighted[0] = this.add.image(550, 439, 'glowTile');
 			highlighted[0].anchor.setTo(0.23)
 			highlighted1[0] = true;
 			if (highlighted1[1] == true) {
@@ -220,7 +213,7 @@ activity1.prototype = {
 				highlighted1[1] = false;
 			}
 		} else if (selectedTile == 2 && highlighted1[1] == false) {
-			highlighted[1] = this.add.image(600, 445, 'glowTile');
+			highlighted[1] = this.add.image(600, 439, 'glowTile');
 			highlighted[1].anchor.setTo(0.23)
 			highlighted1[1] = true;
 			if (highlighted1[0] == true) {
@@ -255,13 +248,13 @@ activity1.prototype = {
 	},
 
 	addTileGrid: function (pointer) {
-		if (pointer.x < gridTileStartPointX || pointer.x > gridTileStartPointX + gridTileRectWidth * rows || pointer.y < gridTileStartPointY || pointer.y > gridTileStartPointY + gridTileRectWidth * columns) {} else {
+		if (pointer.x < gridTileStartPointX || pointer.x > gridTileStartPointX + gridTileRectWidth * columns || pointer.y < gridTileStartPointY || pointer.y > gridTileStartPointY + gridTileRectWidth * rows) {} else {
 			if (pointer.leftButton.isDown) {
 				if (selectedTile == 1) {
 					for (i in gridtile) {
 						var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
 						var tileposition = this.indexOf(allgridCoordinates, [gridtile[i].x, gridtile[i].y], this.arraysIdentical)
-						//						console.log(tileposition, tileposition[i])
+						console.log(tileposition)
 						if (rectcoordinates == true && selectedTile == 1) {
 							if (pointer.leftButton.isDown == true) {
 								console.log(tileposition)
@@ -303,96 +296,55 @@ activity1.prototype = {
 		}
 	},
 
-	toggleMute: function () {
-		if (!thememusic.mute) {
-			thememusic.mute = true;
-			this.soundButton.tint = 16711680;
-		} else {
-			thememusic.mute = false;
-			this.soundButton.tint = 16777215;
-		}
-	},
-
-
-
-//	mute: function () {
-//		this.sound.mute = true;
-//
-//		muteButton = this.add.button(700, -10, 'unmuted', function () {
-//			this.sound.mute = false;
-//		}, this);
-//	},
 	/********************************Modal Type *****************************************************************************/
 
 	createModals: function () {
 
-		/**************************************** feedback correct *****************************************************/
+		reg.modal.createModal({
+			type: "modal6",
+			includeBackground: true,
+			backgroundColor: "0xffffff",
+			backgroundOpacity: 0.5,
+			modalCloseOnInput: true,
+			itemsArr: [{
+					type: "text",
+					content: "Wow you have answered correctly",
+					fontFamily: "Arial",
+					fontSize: 52,
+					offsetY: 100,
+					offsetx: 50
+			},
+				{
+					type: "text",
+					content: "5",
+					fontFamily: "Arial",
+					fontSize: 42,
+					offsetY: 0
+			}
+            ]
+		});
 
 		reg.modal.createModal({
 				type: "correctAnswer",
 				includeBackground: true,
 				backgroundOpacity: 0.6,
-				//            modalCloseOnInput: true,
+				modalCloseOnInput: true,
 				itemsArr: [
 					{
 						type: "image",
-						content: "feedback2",
+						content: "correct",
 						offsetY: -50,
-						contentScale: 1,
+						contentScale: 1.5
                 },
-					{
-						type: "image",
-						content: "closeNormal",
-						//                 	buttonActive: "closeNormal",
-						//					buttonHover:"closeOver",
-						offsetY: -170,
-						offsetX: 195,
-						contentScale: 1,
-						callback: function () {
-							reg.modal.hideModal("correctAnswer");
-						}
-                },
-
-					{
-						type: "image",
-						content: "happySmiley",
-						offsetY: -130,
-						offsetX: -180,
-						contentScale: 1
-                },
-
 					{
 						type: "text",
-						content: "Well done!",
+						content: "Well done! You have scaled up the pattern \n correctly and solved the puzzle! \n\n Click NEXT to continue.",
 						fontFamily: "Arial",
-						fontSize: 14,
+						fontSize: 20,
 						color: "black",
-						offsetY: -130,
-						offsetX: -120
+						offsetY: -90,
+						offsetX: -10
                 },
-
-					{
-						type: "text",
-						content: "You have scaled up the pattern correctly and\n solved the puzzle!",
-						fontFamily: "Arial",
-						fontSize: 14,
-						align: "left",
-						color: "black",
-						offsetY: -80,
-						offsetX: -15
-                },
-
-					{
-						type: "text",
-						content: "Click NEXT to continue",
-						fontFamily: "Arial",
-						fontSize: 12,
-						color: "0xFF0000",
-						align: "left",
-						offsetY: -40,
-						offsetX: -90
-                },
-
 					{
 						type: "image",
 						content: "nextNormal",
@@ -402,179 +354,83 @@ activity1.prototype = {
 						offsetX: -10,
 						contentScale: 1,
 						callback: function () {
-							patternsRatio.state.start('activity1q1')
+							patternsRatio.state.start('activity2q1')
 						}
 				}
 				]
 			}),
-			/****************************************feedback 1 incorrect ***********************************************/
 
 			reg.modal.createModal({
 				type: "IncorrectAnswerAttempt1",
 				includeBackground: true,
 				backgroundOpacity: 0.6,
-				//            modalCloseOnInput: true,
+				modalCloseOnInput: true,
 				itemsArr: [
 					{
 						type: "image",
-						content: "feedback2",
+						content: "correct",
 						offsetY: -50,
-						contentScale: 1
-                },
-					{
-						type: "image",
-						content: "closeNormal",
-						//                 	buttonActive: "closeNormal",
-						//					buttonHover:"closeOver",
-						offsetY: -170,
-						offsetX: 195,
-						contentScale: 1,
-						callback: function () {
-							reg.modal.hideModal("IncorrectAnswerAttempt1");
-						}
-                },
-					{
-						type: "image",
-						content: "sadSmiley",
-						offsetY: -130,
-						offsetX: -180,
-						contentScale: 1
+						contentScale: 2
                 },
 					{
 						type: "text",
-						content: "Not quite right.",
+						content: inCorrectFeedbackTextAttempt1,
 						fontFamily: "Arial",
-						fontSize: 14,
+						fontSize: 20,
 						color: "black",
-						offsetY: -130,
-						offsetX: -110
+						offsetY: -90,
+						offsetX: -10
                 },
-					{
-						type: "text",
-						content: "Your pattern must:",
-						fontFamily: "Arial",
-						fontSize: 14,
-						color: "black",
-						offsetY: -100,
-						offsetX: -110
-                },
-					{
-						type: "text",
-						content: "1. Fill the grid completely.",
-						fontFamily: "Arial",
-						fontSize: 14,
-						color: "black",
-						offsetY: -80,
-						offsetX: -90
-                },
-					{
-						type: "text",
-						content: "2. Look like an enlarged version of the original pattern.",
-						fontFamily: "Arial",
-						fontSize: 14,
-						color: "black",
-						offsetY: -60,
-						offsetX: -0
-                },
-
-					{
-						type: "text",
-						content: "Click TRY AGAIN to clear the grid and try again",
-						fontFamily: "Arial",
-						fontSize: 12,
-						color: "0xFF0000",
-						offsetY: -35,
-						offsetX: -50
-                },
-
-
 					{
 						type: "image",
 						content: "tryagainNormal",
 						buttonHover: "tryagainOver",
 						buttonActive: "tryagaintDown",
-						offsetY: -0,
+						offsetY: -10,
 						offsetX: -10,
 						contentScale: 1,
 						callback: function () {
 							selectedTile = 0;
 							studentInputArray = []
-							patternsRatio.state.start('activity1')
+							rows = 0;
+							columns = 0;
+							gridtile = [];
+							gridtile1 = [];
+							patternsRatio.state.start('activity2')
 						}
 				}
 
 			]
 			});
-		/********************************* feedback 2  showing answer ****************************************/
 
 		reg.modal.createModal({
 			type: "IncorrectAnswerAttempt2",
 			includeBackground: true,
 			backgroundColor: 0xffffff,
 			backgroundOpacity: 0.8,
-			//            modalCloseOnInput: false,
+			modalCloseOnInput: false,
 			itemsArr: [
-				{
-					type: "image",
-					content: "feedback3",
-					offsetY: 0,
-					contentScale: 1
-                },
+//              {
+//                    type: "image",
+//                    content: "correct",
+//                    offsetY: -50,
+//                    contentScale: 2
+//                },
+//				
 				{
 					type: "image",
 					content: "answerActivity1",
-					offsetY: 5,
-					offsetX: -15,
-					contentScale: 1
-                },
-
-				{
-					type: "image",
-					content: "closeNormal",
-					//                 	buttonActive: "closeNormal",
-					//					buttonHover:"closeOver",
-					offsetY: -290,
-					offsetX: 200,
-					contentScale: 1,
-					callback: function () {
-						reg.modal.hideModal("IncorrectAnswerAttempt2");
-					}
-                },
-
-
-				{
-					type: "image",
-					content: "sadSmiley",
-					offsetY: -260,
-					offsetX: -180,
+					offsetY: -130,
 					contentScale: 1
                 },
 				{
 					type: "text",
-					content: "Not quite right.",
+					content: inCorrectFeedbackTextAttempt2,
 					fontFamily: "Arial",
-					fontSize: 14,
+					fontSize: 20,
 					color: "black",
-					offsetY: -260,
-					offsetX: -100
-                },
-				{
-					type: "text",
-					content: "After scaling up the original pattern to fill the grid, \n it looks like this:",
-					fontFamily: "Arial",
-					fontSize: 14,
-					align: "left",
-					color: "black",
-					offsetY: -215,
-					offsetX: -40
-                },
-				{
-					type: "text",
-					content: "Click NEXT to continue",
-					fontFamily: "Arial",
-					fontSize: 14,
-					color: "0xFF0000",
-					offsetY: 200,
+					offsetY: 130,
+					offsetX: -10
                 },
 				{
 					type: "image",
@@ -585,7 +441,7 @@ activity1.prototype = {
 					offsetX: -10,
 					contentScale: 1,
 					callback: function () {
-						patternsRatio.state.start("activity1q1")
+						patternsRatio.state.start("activity2q1")
 					}
 				}
 
@@ -607,7 +463,70 @@ activity1.prototype = {
 		//		thememusic.play('',0,1);
 	},
 
+	/*************************************** Add and removing rows and columns ****************************************************/
 
+	/********* incrementor functions *************************************************/
+
+	incrementor_Columns: function () {
+		if (columns < 9) {
+			var xyz = Number(gridtile1.length);
+			for (var tile = 0; tile < xyz; tile++) {
+				gridtile1[tile].destroy();
+			}
+			columns++
+			selectedTile = 0;
+			studentInputArray = []
+			allgridCoordinates = [];
+			this.placeTiles(rows, columns);
+			console.log(columns)
+		}
+	},
+
+	incrementor_Rows: function () {
+		if (rows < 9) {
+			var xyz = Number(gridtile1.length);
+			for (var tile = 0; tile < xyz; tile++) {
+				gridtile1[tile].destroy();
+			}
+			gridtile1 = [];
+			rows++
+			selectedTile = 0;
+			studentInputArray = [];
+			allgridCoordinates = [];
+			this.placeTiles(rows, columns);
+		}
+	},
+
+	decrementor_Rows: function () {
+		var xyz = Number(gridtile1.length);
+		if (rows > 1) {
+			for (var tile = 0; tile < xyz; tile++) {
+				console.log(tile)
+				gridtile1[tile].destroy();
+			}
+			gridtile1 = [];
+			rows--;
+			selectedTile = 0;
+			studentInputArray = [];
+			selectedTile = 0;
+			this.placeTiles(rows, columns);
+		}
+	},
+
+	decrementor_Columns: function () {
+		var xyz1 = Number(gridtile1.length);
+		if (columns > 1) {
+			for (var tile = 0; tile < xyz1; tile++) {
+				gridtile1[tile].destroy();
+			}
+			columns--;
+			gridtile1 = [];
+			selectedTile = 0;
+			studentInputArray = [];
+			selectedTile = 0;
+			this.placeTiles(rows, columns);
+		}
+	},
 	/**************************************************VALIDATION CODE*************************************************************/
 	onSubmit: function () {
 		if (this.arraysIdentical(studentInputArray, correctAnswer) == true) {
@@ -621,8 +540,11 @@ activity1.prototype = {
 	},
 	onReset: function () {
 		selectedTile = 0;
+		rows = 0
+		gridtile1 = [];
+		columns = 0;
 		studentInputArray = []
-		this.state.start('activity1')
+		this.state.start('activity2')
 	}
 
 };

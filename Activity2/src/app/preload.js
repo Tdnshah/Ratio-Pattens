@@ -7,30 +7,28 @@ preload.prototype = {
 	preload: function () {
 //		preloading Of all the game images
 		this.load.image('buttonImage','assets/images/next.png');
-		this.load.image('emptyTile','assets/images/activity1/EMPTY_TILE.png');
-		this.load.image('greenTile','assets/images/activity1/GREEN_TILE.png');
-		this.load.image('pinkTile','assets/images/activity1/PINK_TILE.png');
-		this.load.image('glowTile','assets/images/activity1/GLOW_TILE.png');
-		this.load.image('feedback2','assets/images/activity1/2nd_feedback_bg.png');
-		this.load.image('feedback3','assets/images/activity1/3rd_feedback_bg.png');
-		this.load.image('feedback1','assets/images/activity1/1st_feedback_bg.png');
-		this.load.image('happySmiley','assets/images/activity1/SMILEY_HAPPY.png');
-		this.load.image('sadSmiley','assets/images/activity1/SMILEY_SAD.png');
-		this.load.image('closeNormal','assets/images/activity1/close_button_normal.png');
-		this.load.image('closeOver','assets/images/activity1/close_button_mouse_over.png');
+		this.load.image('emptyTile','assets/images/activity2/EMPTY_TILE.png');
+		this.load.image('greenTile','assets/images/activity2/GREEN_TILE.png');
+		this.load.image('pinkTile','assets/images/activity2/PINK_TILE.png');
+		this.load.image('glowTile','assets/images/activity2/GLOW_TILE.png');
+		this.load.image('feedback1','assets/images/activity2/1st_feedback_bg.png');
+		this.load.image('feedback2','assets/images/activity2/2nd_feedback_bg.png');
+		this.load.image('feedback3','assets/images/activity2/3rd_feedback_bg.png');
+		this.load.image('simileyHappy','assets/images/activity2/SMILEY_HAPPY.png');
+		this.load.image('simileySad','assets/images/activity2/SMILEY_SAD.png');
+		this.load.image('simileySad','assets/images/activity2/close_button_mouse_over.png');
+		this.load.image('simileySad','assets/images/activity2/SMILEY_SAD.png');
 		this.load.image('nextNormal','assets/images/common/NEXT_BUTTON_NORMAL.png');
 		this.load.image('nextOver','assets/images/common/NEXT_BUTTON_MOUSE_OVER.png');
 		this.load.image('nextDown','assets/images/common/NEXT_BUTTON_MOUSE_DOWN.png');
 		this.load.image('tryagainDown','assets/images/common/TRY_AGAIN_BUTTON_MOUSE_DOWN.png');
 		this.load.image('tryagainOver','assets/images/common/TRY_AGAIN_BUTTON_MOUSE_OVER.png');
 		this.load.image('tryagainNormal','assets/images/common/TRY_AGAIN_BUTTON_NORMAL.png');
-		this.load.image('muted','assets/images/common/no-music-sign-of-musical-note-with-a-slash.png');
-		this.load.image('unmuted','assets/images/common/musical-note.png');
 		
 		this.add.plugin(PhaserInput.Plugin);
-//		this.load.atlas('gridFormationButtons','assets/images/activity1/SpriteSheets/gridFormationButtons.png','assets/images/activity1/SpriteSheets/gridFormationButtons.json');
-		this.load.atlas('SubmitResetButton','assets/images/activity1/SpriteSheets/SubmitResetButton.png','assets/images/activity1/SpriteSheets/SubmitResetButton.json');
-	
+		this.load.atlas('gridFormationButtons','assets/images/activity2/SpriteSheets/gridFormationButtons.png','assets/images/activity2/SpriteSheets/gridFormationButtons.json');
+		this.load.atlas('SubmitResetButton','assets/images/activity2/SpriteSheets/SubmitResetButton.png','assets/images/activity2/SpriteSheets/SubmitResetButton.json')
+
 		
 		
 //		prelaoding of all the game sounds

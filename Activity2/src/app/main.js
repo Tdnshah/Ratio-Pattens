@@ -1,6 +1,6 @@
 var patternsRatio = patternsRatio || {};
 
-patternsRatio = new Phaser.Game(800, 640, Phaser.CANVAS, '');
+patternsRatio = new Phaser.Game(800, 640, Phaser.CANVAS, '')
 
 patternsRatio.prototype = {
 
@@ -16,7 +16,8 @@ patternsRatio.prototype = {
 patternsRatio.state.add('boot', boot);
 patternsRatio.state.add('preload', preload);
 patternsRatio.state.add('mainmenu', mainmenu);
-patternsRatio.state.add('activity1', activity1);
-patternsRatio.state.add('activity1q1', activity1q1);
+//patternsRatio.state.add('modal',modal);
+patternsRatio.state.add('activity2', activity2);
+patternsRatio.state.add('activity2q1', activity2q1);
 
 patternsRatio.state.start('boot');
