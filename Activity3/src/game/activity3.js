@@ -763,12 +763,12 @@ activity3.prototype = {
 		
 	},
 	onReset: function () {
-//		selectedTile = 0;
-//		rows = 0
-//		gridtile1 = [];
-//		columns = 0;
-//		studentInputArray = []
-		this.state.start('activity3q1')
+		selectedTile = 0;
+		rows = 0
+		gridtile1 = [];
+		columns = 0;
+		studentInputArray = []
+		this.state.start('activity3')
 	}
 
 };
