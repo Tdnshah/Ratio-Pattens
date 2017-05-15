@@ -113,8 +113,10 @@ activity4q1.prototype = {
 	/******************************************* Modals ***********************************************************************************/
 	createModals: function(){
 		
-	/*************************************Validation 2 for tiles placeing *************************************************/
+/*************************************Validation 2 for tiles placeing *************************************************/
+	
 	/**************************************feedback correct Answer **************************************************/
+	
 	reg.modal.createModal({
             type:"correctAnswer",
             includeBackground: true,
@@ -199,9 +201,10 @@ activity4q1.prototype = {
 				}
 				]
 			}),
+	
 	/****************************************feedback 1 incorrect ***********************************************/ 		
 				
-		reg.modal.createModal({
+	reg.modal.createModal({
             type:"IncorrectAnswerAttempt1",
             includeBackground: true,
 			backgroundOpacity:0.6,
@@ -280,9 +283,10 @@ activity4q1.prototype = {
 		
 			]
         });
-/********************************* feedback 2  showing answer ****************************************/
+	
+	/********************************* feedback 2  showing answer ****************************************/
 
-		reg.modal.createModal({
+	reg.modal.createModal({
             type:"IncorrectAnswerAttempt2",
             includeBackground: true,
 			backgroundColor:0xffffff,
@@ -372,7 +376,7 @@ activity4q1.prototype = {
 	
 	
 	
-	/***************************************** Validation 1 Modals for girdsize testing ****************************************/
+/***************************************** Validation 1 Modals for girdsize testing ****************************************/
 	
 	/*************feedback1 for incorrect answer *****************************/
 	
@@ -473,12 +477,10 @@ activity4q1.prototype = {
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
 //		thememusic.play('',0,1);
-	},
-	
+	},	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
 		reg.modal.showModal("IncorrectAnswerAttempt1");
-	},
-	
+	},	
 	showModal_InCorrectAttempt_Morethan_2: function(){
 		reg.modal.showModal("IncorrectAnswerAttempt2");
 //		thememusic.play('',0,1);
