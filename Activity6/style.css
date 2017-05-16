@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Tahoma';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tahoma'),
+       local('Tahoma-regular'),
+       url(./assets/fonts/Tahoma.ttf) format('truetype');
+}

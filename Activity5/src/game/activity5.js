@@ -17,7 +17,7 @@ var columns = 0;
 //	this array holds the tilePosition sets the default value to 0 and upon students interaction with the grid records his selectedtiles as input
 var studentInputArray = [];
 
-
+var tileadded = [];
 //this variable is used to hold the value of tiles selected to identify which tile is selected and will placed in the play grids
 var selectedTile = 0;
 
@@ -32,30 +32,33 @@ var highlighted = [];
 
 // this is a array used to define the correct answer of the pattern and this is used to validate against studentInputArray
 
-var correctAnswer = [2,1,1,1,
-					 1,1,1,1,
-					 1,1,1,1,
-					 2,1,1,1,	
+var correctAnswer = [0,0,2,2,0,0,
+					 0,0,2,2,0,0,
+					 2,2,2,2,2,2,
+					 2,2,2,2,2,2,
+					 0,0,2,2,0,0,
+					 0,0,2,2,0,0,
+					 
 					 ];
 
-var gridAnswerRows = 4
-var gridAnswerColumns = 4
-var tileadded = [];
+var gridAnswerRows = 6
+var gridAnswerColumns =6
+
 
 var attemptCount = 0;
 var reg = {};
-var activity4 = function (patternsRatio) {};
+var activity5 = function (patternsRatio) {};
 var inCorrectFeedbackTextAttempt1 = "Not quite right. \n Your pattern must: \n Fill the grid completely. \n Look like an enlarged version of the original pattern. \n Click TRYAGAIN to clear the grid and try again.";
 
 var inCorrectFeedbackTextAttempt2 = "Not quite right. \n After scaling up the original pattern to fill the grid, it looks like this:";
 
 //here we create a phaser function or object which holds all the game logic
-activity4.prototype = {
+activity5.prototype = {
 
 	preload: function () {
-		this.load.image('a4q1Background', 'assets/images/activity4/BACK_GROUND.png');
-		this.load.image('question', 'assets/images/activity4/QUESTION.png');
-		this.load.image('answerActivity4','assets/images/activity4/answeActivity4.png');
+		this.load.image('a4q1Background', 'assets/images/activity5/BACK_GROUND.png');
+		this.load.image('question', 'assets/images/activity5/QUESTION.png');
+		this.load.image('answerActivity5','assets/images/activity5/answeActivity5.png');
 	},
 
 	create: function () {
@@ -92,10 +95,10 @@ activity4.prototype = {
 
 
 		//		adding question image
-		var question = this.add.image(25, 212, 'question');
+		var question = this.add.image(120, 212, 'question');
 
 		//		adding the question text
-		var questionText = "Scale down the pattern by a factor of 2."
+		var questionText = "Scale up the pattern given below by a factor of 2."
 		var questionTextStyle = {
 			font: "14px Arial",
 			fill: "black",
@@ -125,7 +128,7 @@ activity4.prototype = {
 			this.placeTiles(rows, columns)
 		}
 		//		the below function addes the green tile with all the control logic
-		this.greenTile();
+//		this.greenTile();
 		this.pinkTile();
 		this.eventListener();
 		reg.modal = new gameModal(patternsRatio);
@@ -190,7 +193,7 @@ activity4.prototype = {
 	},
 
 	pinkTile: function () {
-		var pinktile = this.add.sprite(600, 439, 'pinkTile');
+		var pinktile = this.add.sprite(575, 439, 'pinkTile');
 		pinktile.inputEnabled = true;
 		//		pinktile.enableSnap = (gridTileRectWidth,gridTileRectWidth,true,true);
 		pinktile.value = 2;
@@ -211,7 +214,7 @@ activity4.prototype = {
 				highlighted1[1] = false;
 			}
 		} else if (selectedTile == 2 && highlighted1[1] == false) {
-			highlighted[1] = this.add.image(600, 439, 'glowTile');
+			highlighted[1] = this.add.image(575, 439, 'glowTile');
 			highlighted[1].anchor.setTo(0.23)
 			highlighted1[1] = true;
 			if (highlighted1[0] == true) {
@@ -244,8 +247,8 @@ activity4.prototype = {
 		}
 		return -1;
 	},
-	
-	addTileGrid: function (pointer) {
+
+		addTileGrid: function (pointer) {
 		if (pointer.x < gridTileStartPointX || pointer.x > gridTileStartPointX + gridTileRectWidth * columns || pointer.y < gridTileStartPointY || pointer.y > gridTileStartPointY + gridTileRectWidth * rows) {
 			
 		} 
@@ -293,62 +296,14 @@ activity4.prototype = {
 		}
 	},
 
-	
-
-//	addTileGrid: function (pointer) {
-//		if (pointer.x < gridTileStartPointX || pointer.x > gridTileStartPointX + gridTileRectWidth * columns || pointer.y < gridTileStartPointY || pointer.y > gridTileStartPointY + gridTileRectWidth * rows) {} else {
-//			if (pointer.leftButton.isDown) {
-//				if (selectedTile == 1) {
-//					for (i in gridtile) {
-//						var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
-//						var tileposition = this.indexOf(allgridCoordinates, [gridtile[i].x, gridtile[i].y], this.arraysIdentical)
-//						console.log(tileposition)
-//						if (rectcoordinates == true && selectedTile == 1) {
-//							if (pointer.leftButton.isDown == true) {
-//								console.log(tileposition)
-//								tileaddingSound.play('', 0, 10);
-//								//							console.log ([gridtile[i].x,gridtile[i].y]);
-//								studentInputArray[tileposition] = 1
-//								var tileadded = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
-//							}
-//						}
-//					}
-//				} else if (selectedTile == 2) {
-//					for (i in gridtile) {
-//						var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
-//						var tileposition = this.indexOf(allgridCoordinates, [gridtile[i].x, gridtile[i].y], this.arraysIdentical)
-//						if (rectcoordinates == true && selectedTile == 2) {
-//							if (pointer.leftButton.isDown == true) {
-//								studentInputArray[tileposition] = 2
-//								console.log(tileposition)
-//								tileaddingSound.play('', 0, 10);
-//								//							console.log(pointer.leftButton.isDown)
-//								//									console.log ([gridtile[i].x,gridtile[i].y]);
-//								//									console.log(tileposition.x)
-//								var tileadded = this.add.sprite(gridtile[i].x, gridtile[i].y, 'pinkTile')
-//							}
-//						}
-//					}
-//				}
-//			}
-//
-//			//			if (pointer.rightButton.isDown == true){
-//			//				for (i in gridtile){
-//			//				var rectcoordinates = Phaser.Rectangle.contains(gridtile[i],pointer.x,pointer.y);
-//			//				var tileposition = this.indexOf(allgridCoordinates,[gridtile[i].x,gridtile[i].y],this.arraysIdentical);
-//			//				if (rectcoordinates == true && studentInputArray == 1 || studentInputArray == 2){
-//			//					Phaser.Rectangle.contains(gridtile[i],pointer.x,pointer.y);
-//			//				}
-//			//				}
-//			//			}
-//		}
-//	},
-
 	/********************************Modal Type *****************************************************************************/
+	
 	createModals: function(){
 		
 	/*************************************Validation 2 for tiles placeing *************************************************/
+	
 	/**************************************feedback correct Answer **************************************************/
+	
 	reg.modal.createModal({
             type:"correctAnswer",
             includeBackground: true,
@@ -428,14 +383,15 @@ activity4.prototype = {
 					gridtile1 = [];
 					columns = 0;
 					studentInputArray = []	
-					patternsRatio.state.start('activity4q1')
+					patternsRatio.state.start('activity5q1')
                  }
 				}
 				]
 			}),
+	
 	/****************************************feedback 1 incorrect ***********************************************/ 		
 				
-		reg.modal.createModal({
+	reg.modal.createModal({
             type:"IncorrectAnswerAttempt1",
             includeBackground: true,
 			backgroundOpacity:0.6,
@@ -509,15 +465,16 @@ activity4.prototype = {
 						gridtile1 = [];
 						columns = 0;
 						studentInputArray = []
-						patternsRatio.state.start('activity4')      
+						patternsRatio.state.start('activity5')      
                  }
 				}
 		
 			]
         });
-/********************************* feedback 2  showing answer ****************************************/
+		
+	/********************************* feedback 2  showing answer ****************************************/
 
-		reg.modal.createModal({
+	reg.modal.createModal({
             type:"IncorrectAnswerAttempt2",
             includeBackground: true,
 			backgroundColor:0xffffff,
@@ -532,7 +489,7 @@ activity4.prototype = {
                 },
 				{
                     type: "image",
-                    content: "answerActivity4",
+                    content: "answerActivity5",
                     offsetY: 0,
                     offsetX: -15,
                     contentScale: 1
@@ -598,15 +555,13 @@ activity4.prototype = {
 						gridtile1 = [];
 						columns = 0;
 						studentInputArray = []
-                        patternsRatio.state.start("activity4q1")
+                        patternsRatio.state.start("activity5q1")
                  }
 				}
 		
 			]
         });
-	
-	
-	
+
 	/***************************************** Validation 1 Modals for girdsize testing ****************************************/
 	
 	/*************feedback1 for incorrect answer *****************************/
@@ -692,7 +647,7 @@ activity4.prototype = {
 						gridtile1 = [];
 						columns = 0;
 						studentInputArray = []
-						patternsRatio.state.start('activity4')      
+						patternsRatio.state.start('activity5')      
                  }
 				}
 		
@@ -702,29 +657,41 @@ activity4.prototype = {
 	},
 
 	showModalIncorrectGridAnswerAttempt1: function(){
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectGridAnswerAttempt1");
 //		thememusic.play('',0,1);
 	},
 	showModalCorrectAttempt: function(){
+		selectedTile = 0;
 		reg.modal.showModal("correctAnswer");
 //		thememusic.play('',0,1);
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectAnswerAttempt1");
 	},
 	
 	showModal_InCorrectAttempt_Morethan_2: function(){
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectAnswerAttempt2");
 //		thememusic.play('',0,1);
 	},
 	
-	
-	
-	
-	
 	/*************************************** Add and removing rows and columns ****************************************************/
-
+/***********cleantile tessting function****/
+	cleanColoredTile: function(){
+		if(tileadded.length != 0){
+			for (var mn = 0;mn < tileadded.length;mn++){
+				console.log(tileadded[mn]);
+				tileadded[mn].destroy();
+				tileadded = [];
+			}
+		}
+		else {
+			console.log('popat')
+		}
+	},
 	/********* incrementor functions *************************************************/
 
 	incrementor_Columns: function () {
@@ -733,6 +700,7 @@ activity4.prototype = {
 			for (var tile = 0; tile < xyz; tile++) {
 				gridtile1[tile].destroy();
 			}
+			this.cleanColoredTile();
 			columns++
 			selectedTile = 0;
 			studentInputArray = []
@@ -748,6 +716,7 @@ activity4.prototype = {
 			for (var tile = 0; tile < xyz; tile++) {
 				gridtile1[tile].destroy();
 			}
+			this.cleanColoredTile();
 			gridtile1 = [];
 			rows++
 			selectedTile = 0;
@@ -756,7 +725,6 @@ activity4.prototype = {
 			this.placeTiles(rows, columns);
 		}
 	},
-
 	decrementor_Rows: function () {
 		var xyz = Number(gridtile1.length);
 		if (rows > 1) {
@@ -764,6 +732,7 @@ activity4.prototype = {
 				console.log(tile)
 				gridtile1[tile].destroy();
 			}
+			this.cleanColoredTile();
 			gridtile1 = [];
 			rows--;
 			selectedTile = 0;
@@ -779,6 +748,7 @@ activity4.prototype = {
 			for (var tile = 0; tile < xyz1; tile++) {
 				gridtile1[tile].destroy();
 			}
+			this.cleanColoredTile();
 			columns--;
 			gridtile1 = [];
 			selectedTile = 0;
@@ -798,7 +768,7 @@ activity4.prototype = {
 				this.showModal_InCorrectAttempt_Lessthan_2();
 			} 
 		}
-		else if (rows != 2 && columns != 6 && attemptCount < 2){
+		else if (rows != 6 && columns != 6 && attemptCount < 2){
 			this.showModalIncorrectGridAnswerAttempt1();
 			attemptCount ++
 		}
@@ -816,7 +786,7 @@ activity4.prototype = {
 		gridtile1 = [];
 		columns = 0;
 		studentInputArray = []
-		this.state.start('activity4')
+		this.state.start('activity5')
 	}
 
 };
