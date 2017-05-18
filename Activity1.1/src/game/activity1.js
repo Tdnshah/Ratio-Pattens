@@ -285,9 +285,11 @@ activity1.prototype = {
 		var test = studentInputArray.every(submitDisableCheck);
 		console.log(test);
 		if(test == true){
+			submit.tint = 0x666677;
 			submit.inputEnabled = false;
 		}
 		else{
+			submit.tint = 0xffffff;
 			submit.inputEnabled = true;
 		};
 	},
