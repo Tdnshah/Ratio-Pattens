@@ -154,21 +154,6 @@ activity6.prototype = {
 			}
 		}
 	},
-
-	//	this is the test function created 
-//	test: function (pointer) {
-//		for (i in gridtile) {
-//			var rectcoordinates = Phaser.Rectangle.contains(gridtile[i], pointer.x, pointer.y);
-//			if (rectcoordinates == true && selectedTile == 1) {
-//				if (pointer.leftButton.isDown == true) {
-//					console.log(pointer.leftButton.isDown)
-//					console.log([gridtile[i].x, gridtile[i].y]);
-//					var tileadded2 = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
-//				}
-//			}
-//		}
-//	},
-
 	//	this function is used as a eventlistner which listens the mouse keyboard clicks
 	eventListener: function () {
 		this.input.mouse.capture = true;

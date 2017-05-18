@@ -1,5 +1,6 @@
 var activity1q1 = function (patternsRatio) {};
 var input;
+var submit;
 var attempt = 0;
 var inCorrectFeedbackTextAttempt1q2 = "Not quite right. \n Compare the size of the grid in original and scaled up pattern.\n  Try again!" 
 ;
@@ -17,13 +18,29 @@ activity1q1.prototype = {
 
 //		adding question image
 		var question = this.add.image(125,212,'question');	
+		
+		input = this.add.inputField(420,475,{
+												font: '15px Arial',
+												fill: '#212121',
+												fontWeight: 'bold',
+												width: 200,
+												placeHolder: "Enter your answer here!!",
+												height : 15,
+												padding: 8,
+												borderWidth: 2,
+												borderColor: '#0EC2F5',
+												borderRadius: 6,});
 
 //		adding submit button
-		var submit = this.add.button(520,545,'SubmitResetButton',this.onSubmit,this,5,4,3);
+		submit = this.add.button(520,545,'buttons',this.onSubmit,this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
 		
-		var reset = this.add.button(685,545,'SubmitResetButton',this.onReset,this,2,1,6);
+		
+		var reset = this.add.button(685,545,'buttons',this.onReset,this,'RESET_OVER_new.png','RESET_NORMAL_new.png','RESET_DOWN_new.png');
 		reset.anchor.setTo(0.5);
+		
+		this.soundButton = this.game.add.button(750,540, 'soundMute',this.toggleMute,this,'',1);
+		console.log(!thememusic.mute)
 		
 //		adding the question text
 		var questionText ="How many times larger is your pattern compared to \n the original one? " 
@@ -38,32 +55,42 @@ activity1q1.prototype = {
 		var instructionTextOnDisplay = this.add.text(420,445,instructionText,instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing =-8;
-		
-
-		input = this.add.inputField(420,475,{
-												font: '15px Arial',
-												fill: '#212121',
-												fontWeight: 'bold',
-												width: 100,
-												height : 15,
-												padding: 8,
-												borderWidth: 2,
-												borderColor: '#0EC2F5',
-												borderRadius: 6,});
-		
+	
 		reg.modal = new gameModal(patternsRatio);
 		this.createModals();
 		
 		
 	},
 	update:function(){
-		this.input.update();	
+		this.input.update();
+		if (input.value == ""){
+			submit.inputEnabled = false;
+		}
+		else{
+			submit.inputEnabled = true;
+		};
 	},
 //	This is function is used for debugging the point pixel position
 	render: function(){
 //		this.game.debug.text('x: '+this.game.input.x + ' y: ' + this.game.input.y,32,32);
 //		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)') ;
-		},
+		},	
+	toggleMute: function () {
+		console.log(!thememusic.mute)
+		if (!thememusic.mute) {
+			thememusic.mute = true;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,540, 'soundMute', this.toggleMute,this,'',2);
+		} else {
+			thememusic.mute = false;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,540, 'soundMute', this.toggleMute,this,'',1);
+		}
+	},
+	
+//	checkTextInInput: function(){
+//		
+//	},
 	
 /******************************************* Modals **********************************************************************/
 /********************************Modal Type *****************************************************************************/	
@@ -85,10 +112,10 @@ activity1q1.prototype = {
                     contentScale: 1,
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:"popupsItems",
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -98,8 +125,9 @@ activity1q1.prototype = {
                 },
 				
 				{
-                    type: "image",
-                    content: "happySmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_HAPPY.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -124,9 +152,7 @@ activity1q1.prototype = {
                     color: "black",
                     offsetY:-90,
                     offsetX:-40
-                },
-				
-				
+                },		
 				  {
                     type: "text",
                     content: "That means, you scaled the pattern up by a factor of 3.",
@@ -137,12 +163,9 @@ activity1q1.prototype = {
                     offsetY:-60,
                     offsetX:0
                 },
-				
-				
-				
 				  {
                     type: "text",
-                    content: "Click NEXT to continue",
+                    content: "Click NEXT to continue.",
                     fontFamily: "Arial",
                     fontSize:12,
                     color: "0xFF0000",
@@ -150,17 +173,19 @@ activity1q1.prototype = {
                     offsetY:-30,
                     offsetX:-105
                 },
-				
 				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"",
-					buttonActive:"",
+                    type: "button",
+					atlasParent:"popupButtons",					
+                    content:"NEXT_BUTTON_NORMAL.png",
+					buttonHover:"NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive:"NEXT_BUTTON_MOUSE_DOWN.png",
                     offsetY: -10,
                     offsetX: -10,
                     contentScale: 1,
-                    callback: function () {
-                      patternsRatio.state.start('activity1q1')
+                    callback: function () {	
+					winningSoundScream.stop();
+					winningSoundClaps.stop();
+                    patternsRatio.state.start('activity1q1')
                  }
 				}
 				]
@@ -180,10 +205,10 @@ activity1q1.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+					type: "button",
+					atlasParent:"popupsItems",
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -192,8 +217,9 @@ activity1q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -216,42 +242,24 @@ activity1q1.prototype = {
                     color: "black",
                     offsetY:-80,
                     offsetX:-50
-                },
-//				{
-//                    type: "text",
-//                    content:"1. Fill the grid completely.",
-//                    fontFamily: "Arial",
-//                    fontSize:14,
-//                    color: "black",
-//                    offsetY:-80,
-//                    offsetX:-90
-//                },
-//				{
-//                    type: "text",
-//                    content:"2. Look like an enlarged version of the original pattern.",
-//                    fontFamily: "Arial",
-//                    fontSize:14,
-//                    color: "black",
-//                    offsetY:-60,
-//                    offsetX:-0
-//                },
-//				
+                },			
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"Click TRY AGAIN to clear the grid and try again.",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
-                    offsetX:-50
+                    offsetX:-36
                 },
 //				
 				
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                    type: "button",
+					atlasParent:"popupButtons",
+                    content:"TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover:"TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive:"TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -277,10 +285,10 @@ activity1q1.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:"popupsItems",
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -289,8 +297,9 @@ activity1q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -313,26 +322,7 @@ activity1q1.prototype = {
                     color: "black",
                     offsetY:-70,
                     offsetX:-10
-                },
-//				{
-//                    type: "text",
-//                    content:"1. Fill the grid completely.",
-//                    fontFamily: "Arial",
-//                    fontSize:14,
-//                    color: "black",
-//                    offsetY:-80,
-//                    offsetX:-90
-//                },
-//				{
-//                    type: "text",
-//                    content:"2. Look like an enlarged version of the original pattern.",
-//                    fontFamily: "Arial",
-//                    fontSize:14,
-//                    color: "black",
-//                    offsetY:-60,
-//                    offsetX:-0
-//                },
-//				
+                },		
 				{
                     type: "text",
                     content:"Click TRY AGAIN to clear the grid and try again",
@@ -345,10 +335,11 @@ activity1q1.prototype = {
 //				
 				
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                    type: "button",
+					atlasParent:"popupButtons",
+                    content:"TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover:"TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive:"TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -364,7 +355,8 @@ activity1q1.prototype = {
 
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
-//		thememusic.play('',0,1);
+		winningSoundScream.play('',0,1);
+		winningSoundClaps.play('',0,10);
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
@@ -389,6 +381,11 @@ activity1q1.prototype = {
 		else if(input.value != 3 && attempt >= 2){
 			this.showModal_InCorrectAttempt_Morethan_2();
 		}
+	},
+	
+	onReset: function () {
+		this.state.start('activity1q1')
 	}
+
 	
 };
