@@ -64,9 +64,11 @@ activity1q1.prototype = {
 	update:function(){
 		this.input.update();
 		if (input.value == ""){
+			submit.tint = 0x666677;
 			submit.inputEnabled = false;
 		}
 		else{
+			submit.tint = 0xffffff;
 			submit.inputEnabled = true;
 		};
 	},
