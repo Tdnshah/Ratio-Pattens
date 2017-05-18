@@ -16,7 +16,7 @@ var rows = 0;
 var columns = 0;
 //	this array holds the tilePosition sets the default value to 0 and upon students interaction with the grid records his selectedtiles as input
 var studentInputArray = [];
-
+// this variable is used in the addTiles functions for holding all the colored tiles that are added in it
 var tileadded = [];
 //this variable is used to hold the value of tiles selected to identify which tile is selected and will placed in the play grids
 var selectedTile = 0;
@@ -283,7 +283,7 @@ activity5.prototype = {
 								if(studentInputArray[tileposition] != 2){
 									tileaddingSound.play('', 0, 10);
 									tileadded.push(this.add.sprite(gridtile[i].x, gridtile[i].y, 'pinkTile'));
-									studentInputArray[tileposition] = 2
+									studentInputArray[tileposition] = 2;
 								}
 								else{
 									console.log('notadded');
