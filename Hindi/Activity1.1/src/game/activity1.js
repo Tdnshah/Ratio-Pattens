@@ -120,6 +120,7 @@ activity1.prototype = {
 
 	},
 	update: function () {
+		this.highlight();
 
 	},
 	//	This is function is used for debugging the point pixel position
@@ -214,6 +215,13 @@ activity1.prototype = {
 //				selectedTileText[0].destroy();
 			}
 		}
+		
+		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
+			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
+				highlighted[highlightedArray].destroy();
+			}
+		}
+		
 	},
 
 	//	This function is used to check if the array are identical or not
@@ -629,6 +637,7 @@ activity1.prototype = {
 	},
 	onReset: function () {
 		selectedTile = 0;
+		highlighted1 = [false,false];
 		allgridCoordinates = [];
 		studentInputArray = [];
 		highlighted1 = [false,false];
