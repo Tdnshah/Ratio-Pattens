@@ -4,6 +4,9 @@ var attempt = 0;
 var actualAnswer = "2/3";
 var studentsAnswer;4
 var submit;
+var winningSound2;
+
+
 console.log(actualAnswer)
 console.log(studentsAnswer)
 var inCorrectFeedbackTextAttempt1q2 = "Not quite right. \n Compare the size of the grid in original and scaled up pattern.\n  Try again!" 
@@ -19,8 +22,8 @@ activity6q1.prototype = {
 //		adding background image
 		var backGround = this.add.image(this.world.centerX,this.world.centerY,'a6q2Background');
 		backGround.anchor.setTo(0.5);
-
-
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
+		winningSound2 = this.game.add.audio('childrenScream');
 //		adding submit button
 		submit = this.add.button(520, 545, 'buttons', this.onSubmit, this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
@@ -105,6 +108,7 @@ activity6q1.prototype = {
 					offsetX: 195,
 					contentScale: 1,
 					callback: function(){
+					  winningSound2.stop();
                       reg.modal.hideModal("correctAnswer");
                     } 
                 },
@@ -174,7 +178,8 @@ activity6q1.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
-                      patternsRatio.state.start('activity6q1')
+					winningSound2.stop();
+                    patternsRatio.state.start('activity6q1')
                  }
 				}
 				]
@@ -382,7 +387,7 @@ activity6q1.prototype = {
 
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
-//		thememusic.play('',0,1);
+		winningSound2.play();
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
@@ -391,7 +396,6 @@ activity6q1.prototype = {
 	
 	showModal_InCorrectAttempt_Morethan_2: function(){
 		reg.modal.showModal("IncorrectAnswerAttempt2");
-//		thememusic.play('',0,1);
 	},
 	
 	/***************************************** Validation ***********************************************************************/
