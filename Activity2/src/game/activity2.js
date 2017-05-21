@@ -108,6 +108,8 @@ activity2.prototype = {
 		var questionTextOnDisplay = this.add.text(30, 61, questionText, questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
+		
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
 
 		//		adding the instructional text
 		var instructionText = "Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer."

@@ -102,7 +102,6 @@ activity1.prototype = {
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing = -5;
 		
-		winningSoundClaps = this.add.audio('claps');
 		winningSoundScream = this.add.audio('childrenScream');
 
 		//		the below functions adds the tiles to the board
@@ -335,6 +334,7 @@ activity1.prototype = {
 						offsetX: 195,
 						contentScale: 1,
 						callback: function () {
+							winningSound2.stop();
 							reg.modal.hideModal("correctAnswer");
 						}
                 },
@@ -583,8 +583,6 @@ activity1.prototype = {
 					offsetX: -10,
 					contentScale: 1,
 					callback: function () {
-						winningSoundScream.stop();
-						winningSoundClaps.stop();
 						selectedTile = 0;
 						allgridCoordinates = [];
 						studentInputArray = [];
@@ -601,7 +599,6 @@ activity1.prototype = {
 		selectedTile = 0;
 		reg.modal.showModal("correctAnswer");
 		winningSoundScream.play('',0,1);
-		winningSoundClaps.play('',0,10);
 	},
 
 	showModal_InCorrectAttempt_Lessthan_2: function () {

@@ -7,34 +7,24 @@ preload.prototype = {
 	preload: function () {
 //		preloading Of all the game images
 		this.load.image('buttonImage','assets/images/next.png');
-		this.load.image('emptyTile','assets/images/activity4/EMPTY_TILE.png');
-		this.load.image('greenTile','assets/images/activity4/GREEN_TILE.png');
-		this.load.image('pinkTile','assets/images/activity4/PINK_TILE.png');
-		this.load.image('glowTile','assets/images/activity4/GLOW_TILE.png');
 		this.load.image('feedback1','assets/images/activity4/1st_feedback_bg.png');
 		this.load.image('feedback2','assets/images/activity4/2nd_feedback_bg.png');
 		this.load.image('feedback3','assets/images/activity4/3rd_feedback_bg.png');
-		this.load.image('happySmiley','assets/images/activity4/SMILEY_HAPPY.png');
-		this.load.image('sadSmiley','assets/images/activity4/SMILEY_SAD.png');
-		this.load.image('closeOver','assets/images/activity4/close_button_mouse_over.png');
-		this.load.image('closeNormal','assets/images/activity4/close_button_normal.png');
-		this.load.image('nextNormal','assets/images/common/NEXT_BUTTON_NORMAL.png');
-		this.load.image('nextOver','assets/images/common/NEXT_BUTTON_MOUSE_OVER.png');
-		this.load.image('nextDown','assets/images/common/NEXT_BUTTON_MOUSE_DOWN.png');
-		this.load.image('tryagainDown','assets/images/common/TRY_AGAIN_BUTTON_MOUSE_DOWN.png');
-		this.load.image('tryagainOver','assets/images/common/TRY_AGAIN_BUTTON_MOUSE_OVER.png');
-		this.load.image('tryagainNormal','assets/images/common/TRY_AGAIN_BUTTON_NORMAL.png');
-		
-		this.add.plugin(PhaserInput.Plugin);
-		this.load.atlas('gridFormationButtons','assets/images/activity4/SpriteSheets/gridFormationButtons.png','assets/images/activity4/SpriteSheets/gridFormationButtons.json');
-		this.load.atlas('SubmitResetButton','assets/images/activity4/SpriteSheets/SubmitResetButton.png','assets/images/activity4/SpriteSheets/SubmitResetButton.json')
 
 		
+		this.add.plugin(PhaserInput.Plugin);
+		
+		this.load.atlas('buttons','assets/images/activity4/SpriteSheets/buttons.png','assets/images/activity4/SpriteSheets/buttons.json');
+		this.load.atlas('tiles','assets/images/activity4/SpriteSheets/tiles.png','assets/images/activity4/SpriteSheets/tiles.json');
+		this.load.atlas('popupsItems','assets/images/activity4/SpriteSheets/popup_items.png','assets/images/activity4/SpriteSheets/popup_items.json');
+		this.load.atlas('soundMute','assets/images/activity4/SpriteSheets/sound.png','assets/images/activity4/SpriteSheets/sound.json');
+		this.load.atlas('popupButtons','assets/images/activity4/SpriteSheets/popupButtons.png','assets/images/activity4/SpriteSheets/popupButtons.json');		
 		
 //		prelaoding of all the game sounds
 		this.load.audio('beep','assets/sounds/beep.mp3');
 		this.load.audio('theme','assets/sounds/Pim-Poy.wav');
 		this.load.audio('tileAdding','assets/sounds/tileadding.mp3');
+		this.load.audio('childrenScream','assets/sounds/childrenScream.mp3');
 
 // 		preloading new font to phaser named tahoma
 //		this.load.webfont('tahoma','Tahoma');

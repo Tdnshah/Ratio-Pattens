@@ -415,6 +415,7 @@ activity3.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
+					winningSound2.stop();
 					selectedTile = 0;
 					highlighted1 = [false,false];
 					rows = 0;
@@ -710,7 +711,7 @@ activity3.prototype = {
 	},
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
-//		thememusic.play('',0,1);
+		winningSound2.play();
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){

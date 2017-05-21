@@ -122,6 +122,7 @@ activity1q1.prototype = {
 					offsetX: 195,
 					contentScale: 1,
 					callback: function(){
+						winningSound2.stop();
                       reg.modal.hideModal("correctAnswer");
                     } 
                 },
@@ -186,7 +187,6 @@ activity1q1.prototype = {
                     contentScale: 1,
                     callback: function () {	
 					winningSoundScream.stop();
-					winningSoundClaps.stop();
                     patternsRatio.state.start('activity1q1')
                  }
 				}
@@ -358,7 +358,6 @@ activity1q1.prototype = {
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
 		winningSoundScream.play('',0,1);
-		winningSoundClaps.play('',0,10);
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){

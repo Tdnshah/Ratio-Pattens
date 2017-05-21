@@ -1,5 +1,6 @@
 var activity3q1 = function (patternsRatio) {};
 var input;
+var winningSound2;
 var attempt = 0;
 var inCorrectFeedbackTextAttempt1q2 = "Not quite right. \n Compare the size of the grid in original and scaled up pattern.\n  Try again!" 
 ;
@@ -34,6 +35,10 @@ activity3q1.prototype = {
 		var questionTextOnDisplay = this.add.text(30,61,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
+		
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
+		
+		winningSound2 = this.game.add.audio('childrenScream');
 
 //		adding the instructional text
 		var instructionText = "Enter your answers in the form of whole numbers and \nclick Submit to check your answers."
@@ -160,6 +165,7 @@ activity3q1.prototype = {
 					offsetX: 195,
 					contentScale: 1,
 					callback: function(){
+						winningSound2.stop();
                       reg.modal.hideModal("correctAnswer");
                     } 
                 },
@@ -215,6 +221,7 @@ activity3q1.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
+					winningSound2.stop();
 					selectedTile = 0;
 					rows = 0
 					gridtile1 = [];
@@ -500,11 +507,11 @@ activity3q1.prototype = {
 
 	showModalIncorrectGridAnswerAttempt1: function(){
 		reg.modal.showModal("IncorrectGridAnswerAttempt1");
-//		thememusic.play('',0,1);
+
 	},
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
-//		thememusic.play('',0,1);
+		winningSound2.play();
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
@@ -513,7 +520,7 @@ activity3q1.prototype = {
 	
 	showModal_InCorrectAttempt_Morethan_2: function(){
 		reg.modal.showModal("IncorrectAnswerAttempt2");
-//		thememusic.play('',0,1);
+
 	},
 	/***************************************** Validation *********************************************************************************/
 	

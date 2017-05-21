@@ -5,6 +5,8 @@ var inCorrectFeedbackTextAttempt1q2 = "Not quite right. \n Compare the size of t
 ;
 
 var inCorrectFeedbackTextAttempt2q2 = "Not quite right.\n You have to create a pattern three times as large as the original one. \n You need to scale the original pattern up by a factor of 3.";
+var winningSound2;
+var submit;
 
 activity4q1.prototype = {
 	preload:function(){
@@ -16,14 +18,12 @@ activity4q1.prototype = {
 //		adding background image
 		var backGround = this.add.image(this.world.centerX,this.world.centerY,'a4q2Background');
 		backGround.anchor.setTo(0.5);
-
-//		adding question image
-//		var question = this.add.image(125,212,'question');	
-//		adding answer image
-//		var answer = this.add.image(417,48,'answerActivity')
-//		adding submit button
-		var submit = this.add.button(600,600,'SubmitResetButton',this.onSubmit,this,5,4,3);
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
+		
+		winningSound2 = this.game.add.audio('childrenScream');
+		submit = this.add.button(600, 600, 'buttons', this.onSubmit, this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
+
 		
 //		adding the question text
 		var questionText ="Compare the original and the scaled up pattern and\ncomplete the table below. " 
@@ -102,13 +102,23 @@ activity4q1.prototype = {
 		
 	},
 	update:function(){
-		this.input.update();	
+		this.input.update();
+		this.input.update();
+		if (input1.value == "" ||input2.value == "" ||input3.value == "" ||input4.value == ""){
+			submit.tint = 0x666677;
+			submit.inputEnabled = false;
+		}
+		else{
+			submit.tint = 0xffffff;
+			submit.inputEnabled = true;
+		};
 	},
 //	This is function is used for debugging the point pixel position
 	render: function(){
 		this.game.debug.text('x: '+this.game.input.x + ' y: ' + this.game.input.y,32,32);
 //		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)') ;
 		},
+	
 	
 	/******************************************* Modals ***********************************************************************************/
 	createModals: function(){
@@ -130,10 +140,10 @@ activity4q1.prototype = {
                     contentScale: 1,
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -143,8 +153,9 @@ activity4q1.prototype = {
                 },
 				
 				{
-                    type: "image",
-                    content: "happySmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_HAPPY.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -183,10 +194,11 @@ activity4q1.prototype = {
                 },
 				
 				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"",
-					buttonActive:"",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "NEXT_BUTTON_NORMAL.png",
+					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
                     offsetY: -10,
                     offsetX: -10,
                     contentScale: 1,
@@ -217,10 +229,10 @@ activity4q1.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -229,8 +241,9 @@ activity4q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -265,10 +278,11 @@ activity4q1.prototype = {
 				
 				
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                     type: "button",
+					atlasParent: "popupButtons",
+					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -308,10 +322,10 @@ activity4q1.prototype = {
                 },	
 				
 				{
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -290,
 					offsetX: 200,
 					contentScale: 1,
@@ -320,8 +334,9 @@ activity4q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -260,
                     offsetX: -180,
                     contentScale: 1
@@ -354,10 +369,11 @@ activity4q1.prototype = {
                     offsetY:200,
                 },
 				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"nextOver",
-					buttonActive:"nextDown",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "NEXT_BUTTON_NORMAL.png",
+					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
                     offsetY: 230,
                     offsetX: -10,
                     contentScale: 1,
@@ -393,10 +409,10 @@ activity4q1.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                   type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -405,8 +421,9 @@ activity4q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -448,10 +465,11 @@ activity4q1.prototype = {
                     offsetX:-50
                 },
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
