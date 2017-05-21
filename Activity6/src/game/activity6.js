@@ -607,15 +607,18 @@ activity6.prototype = {
 	},
 
 	showModalCorrectAttempt: function () {
+		selectedTile = 0;
 		reg.modal.showModal("correctAnswer");
 		winningSound2.play();
 	},
 
 	showModal_InCorrectAttempt_Lessthan_2: function () {
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectAnswerAttempt1");
 	},
 
 	showModal_InCorrectAttempt_Morethan_2: function () {
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectAnswerAttempt2");
 	},
 

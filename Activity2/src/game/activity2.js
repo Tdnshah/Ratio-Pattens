@@ -706,21 +706,23 @@ activity2.prototype = {
 	},
 
 	showModalIncorrectGridAnswerAttempt1: function(){
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectGridAnswerAttempt1");
-//		thememusic.play('',0,1);
 	},
 	showModalCorrectAttempt: function(){
+		selectedTile = 0;
 		reg.modal.showModal("correctAnswer");
 		winningSound2.play();
 	},
 	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectAnswerAttempt1");
 	},
 	
 	showModal_InCorrectAttempt_Morethan_2: function(){
+		selectedTile = 0;
 		reg.modal.showModal("IncorrectAnswerAttempt2");
-//		thememusic.play('',0,1);
 	},
 	
 	
