@@ -190,36 +190,30 @@ activity1.prototype = {
 			highlighted[0].anchor.setTo(0.23) 
 			highlighted1[0] = true;
 			var style = { font: "20px Arial", fill: "#ffffff", align: "center" };
-//			selectedTileText[0]= this.add.text(this.world.centerX, -50, "You have selected GreenTile", style);
-//			selectedTileText[0].anchor.set(0.5);
-//			selectedTileText[0].setShadow(5, 5, 'rgba(0,0,0,1)', 15);
-//			this.add.tween(selectedTileText[0]).to( { y: 20 }, 240, Phaser.Easing.Bounce.out, true);
 			if (highlighted1[1] == true) {
 				highlighted[1].destroy();
 				highlighted1[1] = false;
 //				selectedTileText[1].destroy();
+				};
 			}
-		} else if (selectedTile == 2 && highlighted1[1] == false) {
+		else if (selectedTile == 2 && highlighted1[1] == false) {
 			highlighted[1] = this.add.image(600, 445, 'tiles', 1);
 			highlighted[1].anchor.setTo(0.23)
 			highlighted1[1] = true;
-//			var style = { font: "20px Arial", fill: "#ffffff", align: "center" };
-//			selectedTileText[1]= this.add.text(this.world.centerX, -50, "You have selected RedTile", style);
-//			selectedTileText[1].anchor.set(0.5);
-//			selectedTileText[1].setShadow(5, 5, 'rgba(0,0,0,1)', 15);
-//			this.add.tween(selectedTileText[1]).to( { y: 20 }, 240, Phaser.Easing.Bounce.out, true);
 			if (highlighted1[0] == true) {
 				highlighted[0].destroy();
 				highlighted1[0] = false;
 //				selectedTileText[0].destroy();
-			}
-		}
+			};
+		};
 		
 		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
 			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
+				if(highlighted[highlightedArray] == Phaser.Image){
 				highlighted[highlightedArray].destroy();
-			}
-		}
+				};
+			};
+		};
 		
 	},
 

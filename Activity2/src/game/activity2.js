@@ -69,7 +69,8 @@ activity2.prototype = {
 		//		adding background image
 		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a2q1Background');
 		backGround.anchor.setTo(0.5);
-		//		console.log(backGround);
+		
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
 
 		tileaddingSound = this.game.add.audio('tileAdding');
 		winningSound2 = this.game.add.audio('childrenScream');
@@ -77,7 +78,6 @@ activity2.prototype = {
 		//		adding validation buttons like submit and reset
 		submit = this.add.button(520, 600, 'buttons', this.onSubmit, this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
-		this.submitDisable();
 
 		var reset = this.add.button(685, 600, 'buttons', this.onReset, this, 'RESET_OVER_new.png','RESET_NORMAL_new.png','RESET_DOWN_new.png');
 		reset.anchor.setTo(0.5);
@@ -137,7 +137,8 @@ activity2.prototype = {
 
 	},
 	update: function () {
-		this.submitDisable();		
+		this.submitDisable();
+		this.highlight();
 	},
 
 
@@ -241,6 +242,14 @@ activity2.prototype = {
 				highlighted1[0] = false;
 			}
 		}
+		
+		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
+			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
+				if(highlighted[highlightedArray] == Phaser.Image){
+				highlighted[highlightedArray].destroy();
+				};
+			}
+		}
 	},
 
 	//	This function is used to check if the array are identical or not
@@ -312,6 +321,19 @@ activity2.prototype = {
 		}
 	},
 
+	toggleMute: function () {
+		console.log(!thememusic.mute)
+		if (!thememusic.mute) {
+			thememusic.mute = true;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',2);
+		} else {
+			thememusic.mute = false;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',1);
+		}
+	},
+	
 	/********************************Modal Type *****************************************************************************/
 	createModals: function(){
 		
@@ -478,6 +500,7 @@ activity2.prototype = {
                     contentScale: 1,
                     callback: function () {
                   		selectedTile = 0;
+						highlighted1 = [false,false]
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -569,6 +592,7 @@ activity2.prototype = {
                     contentScale: 1,
                     callback: function () {
 						selectedTile = 0;
+						highlighted1 = [false,false]
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -666,6 +690,7 @@ activity2.prototype = {
                     contentScale: 1,
                     callback: function () {
                   		selectedTile = 0;
+						highlighted1 = [false,false]
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -726,6 +751,7 @@ activity2.prototype = {
 			columns++
 			selectedTile = 0;
 			studentInputArray = []
+			highlighted1=[false,false];
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
 			console.log(columns)
@@ -742,6 +768,8 @@ activity2.prototype = {
 			gridtile1 = [];
 			rows++
 			selectedTile = 0;
+			highlighted1=[false,false];
+			highlighted[0].destroy();
 			studentInputArray = [];
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
@@ -758,7 +786,7 @@ activity2.prototype = {
 			}
 			gridtile1 = [];
 			rows--;
-			selectedTile = 0;
+			highlighted1=[false,false];
 			studentInputArray = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
@@ -775,6 +803,7 @@ activity2.prototype = {
 			columns--;
 			gridtile1 = [];
 			selectedTile = 0;
+			highlighted1=[false,false]
 			studentInputArray = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
@@ -815,10 +844,12 @@ activity2.prototype = {
 	},
 	onReset: function () {
 			selectedTile = 0;
+			highlighted1 = [false,false]
 			rows = 0
 			gridtile1 = [];
 			columns = 0;
 			studentInputArray = []
+			highlighted1 = [false,false]
 			this.state.start('activity2')
 		}
 
