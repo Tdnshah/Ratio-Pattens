@@ -69,7 +69,8 @@ activity2.prototype = {
 		//		adding background image
 		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a2q1Background');
 		backGround.anchor.setTo(0.5);
-		//		console.log(backGround);
+		
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
 
 		tileaddingSound = this.game.add.audio('tileAdding');
 		winningSound2 = this.game.add.audio('childrenScream');
@@ -99,9 +100,9 @@ activity2.prototype = {
 		var question = this.add.image(125, 212, 'question');
 
 		//		adding the question text
-		var questionText = "Scale up the pattern given below by a factor of 2."
+		var questionText = "नीचे दिए गए पैटर्न को 2 के गुणक से बड़ा करें।";
 		var questionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "black",
 			align: "left"
 		};
@@ -110,13 +111,13 @@ activity2.prototype = {
 		questionTextOnDisplay.lineSpacing = -5;
 
 		//		adding the instructional text
-		var instructionText = "Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer."
+		var instructionText = "अपने उत्तर की जांच के लिए सबमिट पर क्लिक करें।"
 		var instructionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "blue	",
 			align: "left"
 		};
-		var instructionTextOnDisplay = this.add.text(30, 128, instructionText, instructionTextStyle)
+		var instructionTextOnDisplay = this.add.text(30, 148, instructionText, instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing = -5;
 
@@ -138,6 +139,7 @@ activity2.prototype = {
 	},
 	update: function () {
 		this.submitDisable();		
+		this.highlight();
 	},
 
 
@@ -241,6 +243,14 @@ activity2.prototype = {
 				highlighted1[0] = false;
 			}
 		}
+		
+		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
+			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
+				if(highlighted[highlightedArray] == Phaser.Image){
+				highlighted[highlightedArray].destroy();
+				}
+			}
+		}
 	},
 
 	//	This function is used to check if the array are identical or not
@@ -311,6 +321,21 @@ activity2.prototype = {
 			}
 		}
 	},
+	
+	
+	toggleMute: function () {
+		console.log(!thememusic.mute)
+		if (!thememusic.mute) {
+			thememusic.mute = true;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',2);
+		} else {
+			thememusic.mute = false;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',1);
+		}
+	},
+	
 
 	/********************************Modal Type *****************************************************************************/
 	createModals: function(){
@@ -355,9 +380,9 @@ activity2.prototype = {
 				
 				  {
                     type: "text",
-                    content: "Well done!",
+                    content: "अच्छा किया !",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -365,9 +390,9 @@ activity2.prototype = {
 				
 				  {
                     type: "text",
-                    content: "You have scaled up the pattern correctly and \nsolved the puzzle.",
+                    content: "आपने सही तरीके से आकृति को बड़ा किया और पहेली को सुलझाया!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align: "left",
                     color: "black",
                     offsetY:-80,
@@ -440,27 +465,27 @@ activity2.prototype = {
                 },
 				{
                     type: "text",
-                    content:"You’re close!",
+                    content:"आप सही उत्तर के निकट हैं!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
-                    offsetX:-110
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"You have drawn the grid correctly, but your\npattern does not quite match the original.",
+                    content:"आपने ग्रिड सही तरीके से खींचा है, परंतु आपके द्वारा \nतैयार की गई आकृति मूल आकृति से मेल नहीं खाती ।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40
                 },		
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करें।",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-50
@@ -469,15 +494,16 @@ activity2.prototype = {
 				
 				{
                    	type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+					atlasParent: "buttons",
+					content: "RESET_NORMAL_new.png",
+					buttonHover: "RESET_OVER_new.png",
+					buttonActive: "RESET_DOWN_new.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
                   		selectedTile = 0;
+						highlighted1 = [false,false];
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -533,18 +559,18 @@ activity2.prototype = {
                 },
 				  {
                     type: "text",
-                    content:"Not quite right." ,
+                    content:"पूरी तरह से सही नहीं है।" ,
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-260,
-                    offsetX:-100
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"After scaling up the original pattern to fill the grid, \n it looks like this:",
+                    content:"जब मूल आकृति को 2 के गुणक से बड़ा किया जाता है, तो वह \nऐसी लगती है:",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align:"left",
                     color: "black",
                     offsetY:-215,
@@ -552,7 +578,7 @@ activity2.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Click NEXT to continue",
+                    content:"जारी रखने के लिए अगला पर क्लिक करें।",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "0xFF0000",
@@ -569,6 +595,7 @@ activity2.prototype = {
                     contentScale: 1,
                     callback: function () {
 						selectedTile = 0;
+						highlighted1 = [false,false];
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -621,38 +648,38 @@ activity2.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Not quite right.",
+                    content:"पूरी तरह से सही नहीं है।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
-                    offsetX:-110
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"The size of the grid you have drawn is incorrect.",
+                    content:"आपके द्वारा खींची गई आकृति का साइज़ गलत है।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-100,
                     offsetX:-40,
                 },
 				{
                     type: "text",
-                    content:"Remember, you have to scale up the given pattern by\n a factor of 2,so your grid should be drawn accordingly.",
+                    content:"याद रखें, आपको आकृति का साइज़ 2 के गुणक से \nबढ़ाना है,अत: आपको इसी के अनुरूप ग्रिड खींचना चाहिए।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
-                    offsetY:-70,
+                    offsetY:-65,
                     offsetX:-21
                 },
 				{
                     type: "text",
-                    content:"Click Reset to clear the grid and try again.",
+                    content:"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:14,
                     color: "0xFF0000",
-                    offsetY:-35,
+                    offsetY:-25,
                     offsetX:-50
                 },
 				{
@@ -666,6 +693,7 @@ activity2.prototype = {
                     contentScale: 1,
                     callback: function () {
                   		selectedTile = 0;
+						highlighted1 = [false,false];
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -725,6 +753,7 @@ activity2.prototype = {
 			}
 			columns++
 			selectedTile = 0;
+			highlighted1=[false,false];
 			studentInputArray = []
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
@@ -742,6 +771,7 @@ activity2.prototype = {
 			gridtile1 = [];
 			rows++
 			selectedTile = 0;
+			highlighted1=[false,false];
 			studentInputArray = [];
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
@@ -759,6 +789,7 @@ activity2.prototype = {
 			gridtile1 = [];
 			rows--;
 			selectedTile = 0;
+			highlighted1=[false,false];
 			studentInputArray = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
@@ -775,6 +806,7 @@ activity2.prototype = {
 			columns--;
 			gridtile1 = [];
 			selectedTile = 0;
+			highlighted1=[false,false];
 			studentInputArray = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
