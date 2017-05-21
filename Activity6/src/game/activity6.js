@@ -15,9 +15,7 @@ var rows = 6;
 var columns = 6;
 //	this array holds the tilePosition sets the default value to 0 and upon students interaction with the grid records his selectedtiles as input
 var studentInputArray = [];
-var muteButton;
-
-
+var tileadded = [];
 //this variable is used to hold the value of tiles selected to identify which tile is selected and will placed in the play grids
 var selectedTile = 0;
 
@@ -29,7 +27,8 @@ var tileaddingSound;
 var highlighted1 = [false, false];
 //	this highlighted array holds the glowTile image status
 var highlighted = [];
-
+var winningSound2;
+var submit;
 // this is a array used to define the correct answer of the pattern and this is used to validate against studentInputArray
 
 var correctAnswer = [1, 1, 1, 1, 1, 1, 
@@ -61,26 +60,19 @@ activity6.prototype = {
 		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a6q1Background');
 		backGround.anchor.setTo(0.5);
 
-		this.soundButton = this.game.add.button(750,600, 'muted', this.toggleMute, this);
-		//		this.soundButton.fixedToCamera = true;
-		if (!this.game.sound.mute) {
-			this.soundButton.tint = 16777215;
-		} else {
-			this.soundButton.tint = 16711680;
-		}
 
-//		muteButton = this.add.button(700, -10, 'muted', this.mute, this);
-
-		//		muteButton.scale(0.5);
-
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
+		
+		winningSound2 = this.game.add.audio('childrenScream');
+		
 		tileaddingSound = this.game.add.audio('tileAdding');
 
 
 		//		adding validation buttons like submit and reset
-		var submit = this.add.button(520, 530, 'SubmitResetButton', this.onSubmit, this, 5, 4, 3);
+		submit = this.add.button(520, 600, 'buttons', this.onSubmit, this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
 
-		var reset = this.add.button(685, 530, 'SubmitResetButton', function(){this.state.start('activity6q1')}, this, 2, 1, 6);
+		var reset = this.add.button(685, 600, 'buttons', this.onReset, this, 'RESET_OVER_new.png','RESET_NORMAL_new.png','RESET_DOWN_new.png');
 		reset.anchor.setTo(0.5);
 
 		//		adding question image
@@ -125,13 +117,14 @@ activity6.prototype = {
 
 
 	update: function () {
-
+		this.highlight();
+		this.submitDisable();
 	},
 
 
 	//	This is function is used for debugging the point pixel position
 	render: function () {
-		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
+//		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
 //		this.game.debug.geom(gridtile[3], 'rgba(135,0,0,1)');
 	},
 
@@ -143,7 +136,7 @@ activity6.prototype = {
 		var noOfColumns = columns;
 		for (var i = 0; i < noOfRows; i++) {
 			for (var j = 0; j < noOfColumns; j++) {
-				gridtile[s] = this.game.add.sprite(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, 'emptyTile', this);
+				gridtile[s] = this.game.add.sprite(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, 'tiles',4);
 				gridtile[s] = new Phaser.Rectangle(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, gridTileRectWidth, gridTileRectWidth);
 				this.game.physics.arcade.enable(gridtile[s]);
 				studentInputArray.push(0);
@@ -166,7 +159,7 @@ activity6.prototype = {
 
 	//	here we declare eventlistners for all clicks
 	greenTile: function () {
-		var greentile = this.add.sprite(550, 452, 'greenTile');
+		var greentile = this.add.sprite(550, 448, 'tiles',2);
 		greentile.enableSnap = (gridTileRectWidth, gridTileRectWidth, false, true);
 		greentile.value = 1;
 		greentile.inputEnabled = true;
@@ -180,9 +173,8 @@ activity6.prototype = {
 	},
 
 	pinkTile: function () {
-		var pinktile = this.add.sprite(600, 452, 'pinkTile');
+		var pinktile = this.add.sprite(600, 448, 'tiles',3);
 		pinktile.inputEnabled = true;
-		//		pinktile.enableSnap = (gridTileRectWidth,gridTileRectWidth,true,true);
 		pinktile.value = 2;
 		pinktile.events.onInputDown.add(function () {
 			selectedTile = pinktile.value;
@@ -193,7 +185,7 @@ activity6.prototype = {
 
 	highlight: function () {
 		if (selectedTile == 1 && highlighted1[0] == false) {
-			highlighted[0] = this.add.image(550, 452, 'glowTile');
+			highlighted[0] = this.add.image(550, 448, 'tiles',1);
 			highlighted[0].anchor.setTo(0.23)
 			highlighted1[0] = true;
 			if (highlighted1[1] == true) {
@@ -201,12 +193,20 @@ activity6.prototype = {
 				highlighted1[1] = false;
 			}
 		} else if (selectedTile == 2 && highlighted1[1] == false) {
-			highlighted[1] = this.add.image(600, 452, 'glowTile');
+			highlighted[1] = this.add.image(600, 448, 'tiles',1);
 			highlighted[1].anchor.setTo(0.23)
 			highlighted1[1] = true;
 			if (highlighted1[0] == true) {
 				highlighted[0].destroy();
 				highlighted1[0] = false;
+			}
+		}
+		
+		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
+			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
+				if(highlighted[highlightedArray] !=undefined){
+				highlighted[highlightedArray].destroy();
+				};
 			}
 		}
 	},
@@ -246,10 +246,14 @@ activity6.prototype = {
 						if (rectcoordinates == true && selectedTile == 1) {
 							if (pointer.leftButton.isDown == true) {
 								console.log(tileposition)
-								tileaddingSound.play('', 0, 10);
-								//							console.log ([gridtile[i].x,gridtile[i].y]);
-								studentInputArray[tileposition] = 1
-								var tileadded = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
+								if(studentInputArray[tileposition] != 1){
+									tileaddingSound.play('', 0, 10);
+									studentInputArray[tileposition] = 1
+									tileadded.push(this.add.sprite(gridtile[i].x, gridtile[i].y, 'tiles',2));
+								}
+								else{
+									console.log('notadded');
+								}
 							}
 						}
 					}
@@ -259,41 +263,52 @@ activity6.prototype = {
 						var tileposition = this.indexOf(allgridCoordinates, [gridtile[i].x, gridtile[i].y], this.arraysIdentical)
 						if (rectcoordinates == true && selectedTile == 2) {
 							if (pointer.leftButton.isDown == true) {
-								studentInputArray[tileposition] = 2
 								console.log(tileposition)
-								tileaddingSound.play('', 0, 10);
-								//							console.log(pointer.leftButton.isDown)
-								//									console.log ([gridtile[i].x,gridtile[i].y]);
-								//									console.log(tileposition.x)
-								var tileadded = this.add.sprite(gridtile[i].x, gridtile[i].y, 'pinkTile')
+								if(studentInputArray[tileposition] != 2){
+									tileaddingSound.play('', 0, 10);
+									studentInputArray[tileposition] = 2
+									tileadded.push(this.add.sprite(gridtile[i].x, gridtile[i].y, 'tiles',3));
+								}
+								else{
+									console.log('notadded');
+								}
 							}
 						}
 					}
 				}
 			}
-
-			//			if (pointer.rightButton.isDown == true){
-			//				for (i in gridtile){
-			//				var rectcoordinates = Phaser.Rectangle.contains(gridtile[i],pointer.x,pointer.y);
-			//				var tileposition = this.indexOf(allgridCoordinates,[gridtile[i].x,gridtile[i].y],this.arraysIdentical);
-			//				if (rectcoordinates == true && studentInputArray == 1 || studentInputArray == 2){
-			//					Phaser.Rectangle.contains(gridtile[i],pointer.x,pointer.y);
-			//				}
-			//				}
-			//			}
 		}
 	},
 
 	toggleMute: function () {
+		console.log(!thememusic.mute)
 		if (!thememusic.mute) {
 			thememusic.mute = true;
-			this.soundButton.tint = 16711680;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',2);
 		} else {
 			thememusic.mute = false;
-			this.soundButton.tint = 16777215;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',1);
 		}
 	},
-
+	
+	submitDisable:function(){
+		function submitDisableCheck(element,index,array){
+			return element == 0;
+		}
+		var test = studentInputArray.every(submitDisableCheck);
+		console.log(test);
+		if(test == true){
+			submit.tint = 0x666677;
+			submit.inputEnabled = false;
+		}
+		else{
+			submit.tint = 0xffffff;
+			submit.inputEnabled = true;
+		}
+		
+	},
 
 
 //	mute: function () {
@@ -322,21 +337,23 @@ activity6.prototype = {
 						contentScale: 1,
                 },
 					{
-						type: "image",
-						content: "closeNormal",
-						//                 	buttonActive: "closeNormal",
-						//					buttonHover:"closeOver",
+						type: "button",
+						atlasParent:'popupsItems',
+						content: "close_button_normal.png",
+						buttonHover:"close_button_mouse_over.png",
 						offsetY: -170,
 						offsetX: 195,
 						contentScale: 1,
 						callback: function () {
+							winningSound2.stop();
 							reg.modal.hideModal("correctAnswer");
 						}
                 },
 
 					{
-						type: "image",
-						content: "happySmiley",
+						type: "sprite",
+						atlasParent:"popupsItems",
+						content: "SMILEY_HAPPY.png",
 						offsetY: -130,
 						offsetX: -180,
 						contentScale: 1
@@ -375,14 +392,19 @@ activity6.prototype = {
                 },
 
 					{
-						type: "image",
-						content: "nextNormal",
-						buttonHover: "",
-						buttonActive: "",
+						type: "button",
+						atlasParent: "popupButtons",
+						content: "NEXT_BUTTON_NORMAL.png",
+						buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+						buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
 						offsetY: -10,
 						offsetX: -10,
 						contentScale: 1,
 						callback: function () {
+							winningSound2.stop();
+							selectedTile = 0;
+							highlighted1 = [false, false];
+							studentInputArray = [];	
 							patternsRatio.state.start('activity6q1')
 						}
 				}
@@ -403,10 +425,10 @@ activity6.prototype = {
 						contentScale: 1
                 },
 					{
-						type: "image",
-						content: "closeNormal",
-						//                 	buttonActive: "closeNormal",
-						//					buttonHover:"closeOver",
+						type: "button",
+						atlasParent:'popupsItems',
+						content: "close_button_normal.png",
+						buttonHover:"close_button_mouse_over.png",
 						offsetY: -170,
 						offsetX: 195,
 						contentScale: 1,
@@ -415,8 +437,9 @@ activity6.prototype = {
 						}
                 },
 					{
-						type: "image",
-						content: "sadSmiley",
+						type: "sprite",
+						atlasParent:"popupsItems",
+						content: "SMILEY_SAD.png",
 						offsetY: -130,
 						offsetX: -180,
 						contentScale: 1
@@ -470,16 +493,19 @@ activity6.prototype = {
 
 
 					{
-						type: "image",
-						content: "tryagainNormal",
-						buttonHover: "tryagainOver",
-						buttonActive: "tryagaintDown",
+						type: "button",
+						atlasParent: "popupButtons",
+						content: "TRY_AGAIN_BUTTON_NORMAL.png",
+						buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+						buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
 						offsetY: -0,
 						offsetX: -10,
 						contentScale: 1,
 						callback: function () {
+							winningSound2.stop();
 							selectedTile = 0;
-							studentInputArray = []
+							highlighted1 = [false, false];
+							studentInputArray = [];	
 							patternsRatio.state.start('activity6')
 						}
 				}
@@ -510,10 +536,10 @@ activity6.prototype = {
                 },
 
 				{
-					type: "image",
-					content: "closeNormal",
-					//                 	buttonActive: "closeNormal",
-					//					buttonHover:"closeOver",
+					type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
 					offsetY: -290,
 					offsetX: 200,
 					contentScale: 1,
@@ -524,8 +550,9 @@ activity6.prototype = {
 
 
 				{
-					type: "image",
-					content: "sadSmiley",
+					type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
 					offsetY: -260,
 					offsetX: -180,
 					contentScale: 1
@@ -558,14 +585,19 @@ activity6.prototype = {
 					offsetY: 200,
                 },
 				{
-					type: "image",
-					content: "nextNormal",
-					buttonHover: "nextOver",
-					buttonActive: "nextDown",
+					type: "button",
+					atlasParent: "popupButtons",
+					content: "NEXT_BUTTON_NORMAL.png",
+					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
 					offsetY: 230,
 					offsetX: -10,
 					contentScale: 1,
 					callback: function () {
+						winningSound2.stop();
+						selectedTile = 0;
+						highlighted1 = [false, false];
+						studentInputArray = [];	
 						patternsRatio.state.start("activity6q1")
 					}
 				}
@@ -576,7 +608,7 @@ activity6.prototype = {
 
 	showModalCorrectAttempt: function () {
 		reg.modal.showModal("correctAnswer");
-		//		thememusic.play('',0,1);
+		winningSound2.play();
 	},
 
 	showModal_InCorrectAttempt_Lessthan_2: function () {
@@ -585,7 +617,6 @@ activity6.prototype = {
 
 	showModal_InCorrectAttempt_Morethan_2: function () {
 		reg.modal.showModal("IncorrectAnswerAttempt2");
-		//		thememusic.play('',0,1);
 	},
 
 
@@ -602,7 +633,8 @@ activity6.prototype = {
 	},
 	onReset: function () {
 		selectedTile = 0;
-		studentInputArray = []
+		studentInputArray = []						
+		highlighted1 = [false, false];							
 		this.state.start('activity6')
 	}
 

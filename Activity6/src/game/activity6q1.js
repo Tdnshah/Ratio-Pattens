@@ -2,7 +2,8 @@ var activity6q1 = function (patternsRatio) {};
 var input;
 var attempt = 0;
 var actualAnswer = "2/3";
-var studentsAnswer;
+var studentsAnswer;4
+var submit;
 console.log(actualAnswer)
 console.log(studentsAnswer)
 var inCorrectFeedbackTextAttempt1q2 = "Not quite right. \n Compare the size of the grid in original and scaled up pattern.\n  Try again!" 
@@ -21,10 +22,10 @@ activity6q1.prototype = {
 
 
 //		adding submit button
-		var submit = this.add.button(520,545,'SubmitResetButton',this.onSubmit,this,5,4,3);
+		submit = this.add.button(520, 545, 'buttons', this.onSubmit, this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
 		
-		var reset = this.add.button(685,545,'SubmitResetButton',function(){this.state.start('activity6q1')},this,2,1,6);
+		var reset = this.add.button(685, 545, 'buttons', this.onReset, this, 'RESET_OVER_new.png','RESET_NORMAL_new.png','RESET_DOWN_new.png');
 		reset.anchor.setTo(0.5);
 		
 //		adding the question text
@@ -35,7 +36,7 @@ activity6q1.prototype = {
 		questionTextOnDisplay.lineSpacing = -5;
 
 //		adding the instructional text
-		var instructionText = "Enter your answer in the form of a whole number or a fraction and click \nSubmit to check your answer."
+		var instructionText = "Enter your answer in the form of a whole number or a fraction and\nclick Submit to check your answer."
 		var instructionTextStyle = {font: "12px Arial", fill: "blue	", align:"left"};
 		var instructionTextOnDisplay = this.add.text(420,445,instructionText,instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
@@ -60,6 +61,15 @@ activity6q1.prototype = {
 	},
 	update:function(){
 		this.input.update();
+		this.input.update();
+		if (input.value == ""){
+			submit.tint = 0x666677;
+			submit.inputEnabled = false;
+		}
+		else{
+			submit.tint = 0xffffff;
+			submit.inputEnabled = true;
+		};
 	},
 //	This is function is used for debugging the point pixel position
 	render: function(){
@@ -87,10 +97,10 @@ activity6q1.prototype = {
                     contentScale: 1,
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -100,8 +110,9 @@ activity6q1.prototype = {
                 },
 				
 				{
-                    type: "image",
-                    content: "happySmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_HAPPY.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -154,10 +165,11 @@ activity6q1.prototype = {
                 },
 				
 				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"",
-					buttonActive:"",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "NEXT_BUTTON_NORMAL.png",
+					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
                     offsetY: -5,
                     offsetX: -10,
                     contentScale: 1,
@@ -182,10 +194,10 @@ activity6q1.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                   type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -194,8 +206,9 @@ activity6q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -250,10 +263,11 @@ activity6q1.prototype = {
 //				
 				
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                   type: "button",
+					atlasParent: "popupButtons",
+					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -279,10 +293,10 @@ activity6q1.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -291,8 +305,9 @@ activity6q1.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -308,7 +323,7 @@ activity6q1.prototype = {
                 },
 				{
                     type: "text",
-                    content:"The pattern you created was three times as large \nas the original one. \nThat means, you scaled the pattern up by a factor of 3.",
+                    content:"The smaller pattern is ⅔ times the original pattern.\nThis means, the original pattern is scaled down by\na factor of 2/3.",
                     fontFamily: "Arial",
                     fontSize:14,
 					align:"left",
@@ -347,10 +362,11 @@ activity6q1.prototype = {
 //				
 				
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,

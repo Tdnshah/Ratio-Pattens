@@ -1,6 +1,6 @@
 var patternsRatio = patternsRatio || {};
 
-patternsRatio = new Phaser.Game(800, 665, Phaser.CANVAS, '');
+patternsRatio = new Phaser.Game(800, 660, Phaser.CANVAS, '');
 
 patternsRatio.prototype = {
 

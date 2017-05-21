@@ -148,7 +148,7 @@ activity4.prototype = {
 
 	//	This is function is used for debugging the point pixel position
 	render: function () {
-		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
+//		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
 		//		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)') ;
 	},
 
