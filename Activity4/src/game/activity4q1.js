@@ -148,6 +148,7 @@ activity4q1.prototype = {
 					offsetX: 195,
 					contentScale: 1,
 					callback: function(){
+						winningSound2.stop();
                       reg.modal.hideModal("correctAnswer");
                     } 
                 },
@@ -203,6 +204,7 @@ activity4q1.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
+					winningSound2.stop();
 					selectedTile = 0;
 					rows = 0
 					gridtile1 = [];
@@ -494,7 +496,7 @@ activity4q1.prototype = {
 	},
 	showModalCorrectAttempt: function(){
 		reg.modal.showModal("correctAnswer");
-//		thememusic.play('',0,1);
+		winningSound2.play();
 	},	
 	showModal_InCorrectAttempt_Lessthan_2: function(){
 		reg.modal.showModal("IncorrectAnswerAttempt1");
