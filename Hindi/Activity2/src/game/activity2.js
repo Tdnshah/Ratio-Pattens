@@ -246,7 +246,7 @@ activity2.prototype = {
 		
 		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
 			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
-				if(highlighted[highlightedArray] == Phaser.Image){
+				if(highlighted[highlightedArray] != undefined){
 				highlighted[highlightedArray].destroy();
 				}
 			}

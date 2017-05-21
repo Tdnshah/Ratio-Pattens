@@ -67,7 +67,6 @@ activity1.prototype = {
 		backGround.anchor.setTo(0.5);
 
 		this.soundButton = this.game.add.button(750,520, 'soundMute',this.toggleMute,this,'',1);
-		console.log(!thememusic.mute)
 
 		tileaddingSound = this.game.add.audio('tileAdding');
 
@@ -209,7 +208,7 @@ activity1.prototype = {
 		
 		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
 			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
-				if(highlighted[highlightedArray] == Phaser.Image){
+				if(highlighted[highlightedArray] != undefined){
 				highlighted[highlightedArray].destroy();
 				};
 			};

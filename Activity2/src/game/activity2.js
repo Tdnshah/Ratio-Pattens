@@ -190,7 +190,6 @@ activity2.prototype = {
 		this.game.input.mouse.capture = true;
 		greentile.events.onInputDown.add(function () {
 			selectedTile = greentile.value;
-			console.log(selectedTile);
 			this.highlight(), beep.play()
 		}, this)
 
@@ -203,7 +202,6 @@ activity2.prototype = {
 		pinktile.value = 2;
 		pinktile.events.onInputDown.add(function () {
 			selectedTile = pinktile.value;
-			console.log(selectedTile);
 			this.highlight(), beep.play()
 		}, this)
 	},
@@ -213,7 +211,6 @@ activity2.prototype = {
 			return element == 0;
 		}
 		var test = studentInputArray.every(submitDisableCheck);
-		console.log(test);
 		if(test == true){
 			submit.tint = 0x666677;
 			submit.inputEnabled = false;
@@ -243,9 +240,11 @@ activity2.prototype = {
 			}
 		}
 		
-		if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
+		if (highlighted.length != 0 && highlighted1[0]==false && highlighted1[1] == false){
+//			console.log("testing update inside last condtion")
 			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
-				if(highlighted[highlightedArray] == Phaser.Image){
+				if(highlighted[highlightedArray] != undefined){
+					console.log("testing update inside for last condtion")
 				highlighted[highlightedArray].destroy();
 				};
 			}
@@ -769,7 +768,6 @@ activity2.prototype = {
 			rows++
 			selectedTile = 0;
 			highlighted1=[false,false];
-			highlighted[0].destroy();
 			studentInputArray = [];
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);

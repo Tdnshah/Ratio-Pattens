@@ -16,8 +16,8 @@ var rows = 0;
 var columns = 0;
 //	this array holds the tilePosition sets the default value to 0 and upon students interaction with the grid records his selectedtiles as input
 var studentInputArray = [];
-
-
+var submit;
+var tileadded = [];
 //this variable is used to hold the value of tiles selected to identify which tile is selected and will placed in the play grids
 var selectedTile = 0;
 
@@ -42,7 +42,7 @@ var correctAnswer = [2,2,1,1,1,1,
 
 var gridAnswerRows = 6
 var gridAnswerColumns = 6
-
+var winningSound2
 
 var attemptCount = 0;
 var reg = {};
@@ -55,7 +55,7 @@ var inCorrectFeedbackTextAttempt2 = "Not quite right. \n After scaling up the or
 activity3.prototype = {
 
 	preload: function () {
-		this.load.image('a2q1Background', 'assets/images/activity3/BACK_GROUND.png');
+		this.load.image('a3q1Background', 'assets/images/activity3/BACK_GROUND.png');
 		this.load.image('question', 'assets/images/activity3/QUESTION.png');
 		this.load.image('answerActivity3','assets/images/activity3/answeActivity3.png');
 	},
@@ -65,31 +65,32 @@ activity3.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		//		adding background image
-		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a2q1Background');
+		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a3q1Background');
 		backGround.anchor.setTo(0.5);
-		//		console.log(backGround);
+		
+		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
 
 		tileaddingSound = this.game.add.audio('tileAdding');
-
+		winningSound2 = this.game.add.audio('childrenScream');
 
 		//		adding validation buttons like submit and reset
-		var submit = this.add.button(520, 600, 'SubmitResetButton', this.onSubmit, this, 5, 4, 3);
+		submit = this.add.button(520, 600, 'buttons', this.onSubmit, this,'SUBMIT_OVER.png','SUBMIT_NORMAL.png','SUBMIT_DOWN.png');
 		submit.anchor.setTo(0.5);
+		
 
-		var reset = this.add.button(685, 600, 'SubmitResetButton', this.onReset, this, 2, 1, 6);
-		reset.anchor.setTo(0.5);
+		var reset = this.add.button(685, 600, 'buttons', this.onReset, this, 'RESET_OVER_new.png','RESET_NORMAL_new.png','RESET_DOWN_new.png');
+		reset.anchor.setTo(0.5);;
 
-		var Addrow = this.add.button(450, 540, 'gridFormationButtons', this.incrementor_Columns, this, 1, 2, 12);
-		reset.anchor.setTo(0.5);
+		var Addcolumn = this.add.button(450, 540, 'buttons', this.incrementor_Columns, this, 'ADD_COLUMN_BUTTON_OVER.png', 'ADD_COLUMN_BUTTON_NORMAL.png', 'ADD_COLUMN_BUTTON_DOWN.png');
+		
 
-		var Addcolumn = this.add.button(450, 500, 'gridFormationButtons', this.incrementor_Rows, this, 4, 5, 3);
-		reset.anchor.setTo(0.5);
+		var Addrow = this.add.button(450, 500, 'buttons', this.incrementor_Rows, this, 'ADD_ROW_BUTTON_OVER.png', 'ADD_ROW_BUTTON_NORMAL.png', 'ADD_ROW_BUTTON_DOWN.png');
+		
 
-		var Removerow = this.add.button(615, 500, 'gridFormationButtons', this.decrementor_Rows, this, 10, 11, 9);
-		reset.anchor.setTo(0.5);
+		var Removerow = this.add.button(615, 500, 'buttons', this.decrementor_Rows, this, 'REMOVE_ROW_BUTTON_OVER.png', 'REMOVE_ROW_BUTTON_NORMAL.png', 'REMOVE_ROW_BUTTON_DOWN.png');
+		
 
-		var Removecolumn = this.add.button(615, 540, 'gridFormationButtons', this.decrementor_Columns, this, 7, 8, 6);
-		reset.anchor.setTo(0.5);
+		var Removecolumn = this.add.button(615, 540, 'buttons', this.decrementor_Columns, this, 'REMOVE_COLUMN_OVER.png', 'REMOVE_COLUMN_NORMAL.png', 'REMOVE_COLUMN_DOWN.png');
 
 
 
@@ -134,12 +135,15 @@ activity3.prototype = {
 		this.createModals();
 
 	},
-	update: function () {},
+	update: function () {
+		this.highlight();
+		this.submitDisable();
+	},
 
 
 	//	This is function is used for debugging the point pixel position
 	render: function () {
-		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
+//		this.game.debug.text('x: ' + this.game.input.x + ' y: ' + this.game.input.y, 32, 32);
 		//		this.game.debug.geom(gridtile[1], 'rgba(135,0,0,1)') ;
 	},
 
@@ -153,7 +157,7 @@ activity3.prototype = {
 		gridtile1 =	 [];
 		for (var i = 0; i < noOfRows; i++) {
 			for (var j = 0; j < noOfColumns; j++) {
-				gridtile1.push(this.game.add.image(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, 'emptyTile', this));
+				gridtile1.push(this.game.add.image(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, 'tiles',4));
 				gridtile.push(new Phaser.Rectangle(gridTileStartPointX + j * gridTileRectWidth, gridTileStartPointY + i * gridTileRectWidth, gridTileRectWidth, gridTileRectWidth));
 				this.game.physics.arcade.enable(gridtile[s]);
 				studentInputArray.push(0);
@@ -176,9 +180,25 @@ activity3.prototype = {
 		//		console.log(move.x,move.y)	
 	},
 
+	submitDisable:function(){
+		function submitDisableCheck(element,index,array){
+			return element == 0;
+		}
+		var test = studentInputArray.every(submitDisableCheck);
+		console.log(test);
+		if(test == true){
+			submit.tint = 0x666677;
+			submit.inputEnabled = false;
+		}
+		else{
+			submit.tint = 0xffffff;
+			submit.inputEnabled = true;
+		};
+	},
+	
 	//	here we declare eventlistners for all clicks
 	greenTile: function () {
-		var greentile = this.add.sprite(550, 439, 'greenTile');
+		var greentile = this.add.sprite(550, 439, 'tiles',2);
 		greentile.enableSnap = (gridTileRectWidth, gridTileRectWidth, false, true);
 		greentile.value = 1;
 		greentile.inputEnabled = true;
@@ -192,7 +212,7 @@ activity3.prototype = {
 	},
 
 	pinkTile: function () {
-		var pinktile = this.add.sprite(600, 439, 'pinkTile');
+		var pinktile = this.add.sprite(600, 439, 'tiles',3);
 		pinktile.inputEnabled = true;
 		//		pinktile.enableSnap = (gridTileRectWidth,gridTileRectWidth,true,true);
 		pinktile.value = 2;
@@ -204,8 +224,9 @@ activity3.prototype = {
 	},
 
 	highlight: function () {
+		
 		if (selectedTile == 1 && highlighted1[0] == false) {
-			highlighted[0] = this.add.image(550, 439, 'glowTile');
+			highlighted[0] = this.add.image(550, 439, 'tiles',1);
 			highlighted[0].anchor.setTo(0.23)
 			highlighted1[0] = true;
 			if (highlighted1[1] == true) {
@@ -213,7 +234,7 @@ activity3.prototype = {
 				highlighted1[1] = false;
 			}
 		} else if (selectedTile == 2 && highlighted1[1] == false) {
-			highlighted[1] = this.add.image(600, 439, 'glowTile');
+			highlighted[1] = this.add.image(600, 439, 'tiles',1);
 			highlighted[1].anchor.setTo(0.23)
 			highlighted1[1] = true;
 			if (highlighted1[0] == true) {
@@ -221,6 +242,14 @@ activity3.prototype = {
 				highlighted1[0] = false;
 			}
 		}
+	if (highlighted != 0 && highlighted1[0]==false && highlighted1[1] == false){
+			for (var highlightedArray = 0; highlightedArray < highlighted.length; highlightedArray ++){
+				if(highlighted[highlightedArray] !=undefined){
+				highlighted[highlightedArray].destroy();
+				};
+			}
+		}
+		
 	},
 
 	//	This function is used to check if the array are identical or not
@@ -258,10 +287,14 @@ activity3.prototype = {
 						if (rectcoordinates == true && selectedTile == 1) {
 							if (pointer.leftButton.isDown == true) {
 								console.log(tileposition)
+								if(studentInputArray[tileposition] != 1){
 								tileaddingSound.play('', 0, 10);
-								//							console.log ([gridtile[i].x,gridtile[i].y]);
-								studentInputArray[tileposition] = 1
-								var tileadded = this.add.sprite(gridtile[i].x, gridtile[i].y, 'greenTile')
+								studentInputArray[tileposition] = 1;	
+								tileadded.push(this.add.sprite(gridtile[i].x, gridtile[i].y, 'tiles',2));
+								}
+							else {
+								console.log('notAdded')
+							}	
 							}
 						}
 					}
@@ -271,31 +304,35 @@ activity3.prototype = {
 						var tileposition = this.indexOf(allgridCoordinates, [gridtile[i].x, gridtile[i].y], this.arraysIdentical)
 						if (rectcoordinates == true && selectedTile == 2) {
 							if (pointer.leftButton.isDown == true) {
-								studentInputArray[tileposition] = 2
 								console.log(tileposition)
+								if(studentInputArray[tileposition] != 2){
 								tileaddingSound.play('', 0, 10);
-								//							console.log(pointer.leftButton.isDown)
-								//									console.log ([gridtile[i].x,gridtile[i].y]);
-								//									console.log(tileposition.x)
-								var tileadded = this.add.sprite(gridtile[i].x, gridtile[i].y, 'pinkTile')
+								studentInputArray[tileposition] = 2
+								tileadded.push(this.add.sprite(gridtile[i].x, gridtile[i].y, 'tiles',3));
+								}
+							else {
+								console.log('notadded')
+							}
 							}
 						}
 					}
 				}
 			}
-
-			//			if (pointer.rightButton.isDown == true){
-			//				for (i in gridtile){
-			//				var rectcoordinates = Phaser.Rectangle.contains(gridtile[i],pointer.x,pointer.y);
-			//				var tileposition = this.indexOf(allgridCoordinates,[gridtile[i].x,gridtile[i].y],this.arraysIdentical);
-			//				if (rectcoordinates == true && studentInputArray == 1 || studentInputArray == 2){
-			//					Phaser.Rectangle.contains(gridtile[i],pointer.x,pointer.y);
-			//				}
-			//				}
-			//			}
 		}
 	},
-
+	toggleMute: function () {
+		console.log(!thememusic.mute)
+		if (!thememusic.mute) {
+			thememusic.mute = true;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',2);
+		} else {
+			thememusic.mute = false;
+			this.soundButton.destroy();
+			this.soundButton = this.game.add.button(750,580, 'soundMute', this.toggleMute,this,'',1);
+		}
+	},
+	
 	/********************************Modal Type *****************************************************************************/
 	createModals: function(){
 		
@@ -314,21 +351,23 @@ activity3.prototype = {
                     contentScale: 1,
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
 					callback: function(){
+						winningSound2.stop();
                       reg.modal.hideModal("correctAnswer");
                     } 
                 },
 				
 				{
-                    type: "image",
-                    content: "happySmiley",
+                   type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_HAPPY.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -367,16 +406,18 @@ activity3.prototype = {
                 },
 				
 				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"",
-					buttonActive:"",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "NEXT_BUTTON_NORMAL.png",
+					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
                     offsetY: -10,
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
 					selectedTile = 0;
-					rows = 0
+					highlighted1 = [false,false];
+					rows = 0;
 					gridtile1 = [];
 					columns = 0;
 					studentInputArray = []	
@@ -400,20 +441,22 @@ activity3.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
 					callback: function(){
+						
                       reg.modal.hideModal("IncorrectAnswerAttempt1");
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -448,10 +491,11 @@ activity3.prototype = {
 				
 				
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -461,6 +505,7 @@ activity3.prototype = {
 						gridtile1 = [];
 						columns = 0;
 						studentInputArray = []
+						highlighted1 = [false,false]
 						patternsRatio.state.start('activity3')      
                  }
 				}
@@ -491,10 +536,10 @@ activity3.prototype = {
                 },	
 				
 				{
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -290,
 					offsetX: 200,
 					contentScale: 1,
@@ -503,8 +548,9 @@ activity3.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                    type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -260,
                     offsetX: -180,
                     contentScale: 1
@@ -537,10 +583,11 @@ activity3.prototype = {
                     offsetY:200,
                 },
 				{
-                    type: "image",
-                    content:"nextNormal",
-					buttonHover:"nextOver",
-					buttonActive:"nextDown",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "NEXT_BUTTON_NORMAL.png",
+					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
                     offsetY: 230,
                     offsetX: -10,
                     contentScale: 1,
@@ -549,6 +596,7 @@ activity3.prototype = {
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
+						highlighted1 = [false,false];
 						studentInputArray = []
                         patternsRatio.state.start("activity3q1")
                  }
@@ -576,10 +624,10 @@ activity3.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "image",
-					content: "closeNormal",
-//                 	buttonActive: "closeNormal",
-//					buttonHover:"closeOver",
+                    type: "button",
+					atlasParent:'popupsItems',
+					content: "close_button_normal.png",
+					buttonHover:"close_button_mouse_over.png",
                     offsetY: -170,
 					offsetX: 195,
 					contentScale: 1,
@@ -588,8 +636,9 @@ activity3.prototype = {
                     } 
                 },
 				{
-                    type: "image",
-                    content: "sadSmiley",
+                     type: "sprite",
+					atlasParent:"popupsItems",
+					content: "SMILEY_SAD.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
@@ -631,10 +680,11 @@ activity3.prototype = {
                     offsetX:-50
                 },
 				{
-                    type: "image",
-                    content:"tryagainNormal",
-					buttonHover:"tryagainOver",
-					buttonActive:"tryagaintDown",
+                    type: "button",
+					atlasParent: "popupButtons",
+					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -643,7 +693,8 @@ activity3.prototype = {
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
-						studentInputArray = []
+						studentInputArray = [];
+						highlighted1 = [false,false];
 						patternsRatio.state.start('activity3')      
                  }
 				}
@@ -676,17 +727,31 @@ activity3.prototype = {
 	
 	
 	/*************************************** Add and removing rows and columns ****************************************************/
-
+	cleanColoredTile: function(){
+		if(tileadded.length != 0){
+			for (var mn = 0;mn < tileadded.length;mn++){
+				console.log(tileadded[mn]);
+				tileadded[mn].destroy();
+			}
+		tileadded = [];
+		}
+		else {
+			console.log('popat')
+		}
+	},
 	/********* incrementor functions *************************************************/
 
 	incrementor_Columns: function () {
+		this.cleanColoredTile();
 		if (columns < 9) {
 			var xyz = Number(gridtile1.length);
 			for (var tile = 0; tile < xyz; tile++) {
 				gridtile1[tile].destroy();
 			}
+			
 			columns++
 			selectedTile = 0;
+			highlighted1 = [false,false];
 			studentInputArray = []
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
@@ -695,6 +760,7 @@ activity3.prototype = {
 	},
 
 	incrementor_Rows: function () {
+		this.cleanColoredTile();
 		if (rows < 9) {
 			var xyz = Number(gridtile1.length);
 			for (var tile = 0; tile < xyz; tile++) {
@@ -703,6 +769,7 @@ activity3.prototype = {
 			gridtile1 = [];
 			rows++
 			selectedTile = 0;
+			highlighted1 = [false,false];
 			studentInputArray = [];
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
@@ -710,6 +777,7 @@ activity3.prototype = {
 	},
 
 	decrementor_Rows: function () {
+		this.cleanColoredTile();
 		var xyz = Number(gridtile1.length);
 		if (rows > 1) {
 			for (var tile = 0; tile < xyz; tile++) {
@@ -719,6 +787,7 @@ activity3.prototype = {
 			gridtile1 = [];
 			rows--;
 			selectedTile = 0;
+			highlighted1 = [false,false];
 			studentInputArray = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
@@ -726,6 +795,7 @@ activity3.prototype = {
 	},
 
 	decrementor_Columns: function () {
+		this.cleanColoredTile();
 		var xyz1 = Number(gridtile1.length);
 		if (columns > 1) {
 			for (var tile = 0; tile < xyz1; tile++) {
@@ -734,6 +804,7 @@ activity3.prototype = {
 			columns--;
 			gridtile1 = [];
 			selectedTile = 0;
+			highlighted1 = [false,false];
 			studentInputArray = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
@@ -748,11 +819,19 @@ activity3.prototype = {
 			else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount < 2) {
 				attemptCount++;
 				this.showModal_InCorrectAttempt_Lessthan_2();
-			} 
+			}
+			else {
+				this.showModal_InCorrectAttempt_Morethan_2();
+			}
 		}
-		else if (rows != 2 && columns != 6 && attemptCount < 2){
+		else if (rows != 6 || columns != 6){
+			if(attemptCount < 2){
 			this.showModalIncorrectGridAnswerAttempt1();
 			attemptCount ++
+			}
+			else{
+				this.showModal_InCorrectAttempt_Morethan_2();
+			}
 		}
 		
 		else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount >= 2) {
@@ -764,11 +843,11 @@ activity3.prototype = {
 	},
 	onReset: function () {
 		selectedTile = 0;
-		rows = 0
+		rows = 0;
 		gridtile1 = [];
 		columns = 0;
-		studentInputArray = []
-		this.state.start('activity3')
+		studentInputArray = [];
+		this.state.start('activity3');
 	}
 
 };
