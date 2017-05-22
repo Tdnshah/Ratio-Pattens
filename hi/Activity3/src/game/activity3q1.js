@@ -30,8 +30,8 @@ activity3q1.prototype = {
 		submit.anchor.setTo(0.5);
 		
 //		adding the question text
-		var questionText ="Compare the original and the scaled up pattern and\ncomplete the table below. " 
-		var questionTextStyle = {font: "14px Arial", fill: "black", align:"left"};	
+		var questionText ="आपकी बनायी आकृति मूल आकृति से कितना गुना बड़ी है ? " 
+		var questionTextStyle = {font: "16px Arial", fill: "black", align:"left"};	
 		var questionTextOnDisplay = this.add.text(30,61,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
@@ -41,8 +41,8 @@ activity3q1.prototype = {
 		winningSound2 = this.game.add.audio('childrenScream');
 
 //		adding the instructional text
-		var instructionText = "Enter your answers in the form of whole numbers and \nclick Submit to check your answers."
-		var instructionTextStyle = {font: "14px Arial", fill: "blue	", align:"left"};
+		var instructionText = "अपना उत्तर पूर्ण संख्या के रूप में एंटर करें और\nअपने उत्तर की जांच के लिए सबमिट पर क्लिक करें ।"
+		var instructionTextStyle = {font: "16px Arial", fill: "blue	", align:"left"};
 		var instructionTextOnDisplay = this.add.text(30,128,instructionText,instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing =-8;
@@ -181,9 +181,9 @@ activity3q1.prototype = {
 				
 				  {
                     type: "text",
-                    content: "Well done!",
+                    content: "अच्छा किया !",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -191,24 +191,24 @@ activity3q1.prototype = {
 				
 				  {
                     type: "text",
-                    content: "You have correctly calculated the number of green \nand red tiles in both patterns.",
+                    content: "आपने दोनों आकृतियों में हरी और लाल टाइलों\nकी संख्या की गणना सही की है।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align: "left",
                     color: "black",
                     offsetY:-80,
-                    offsetX:-15
+                    offsetX:-25
                 },
 				
 				  {
                     type: "text",
-                    content: "Click NEXT to continue",
+                    content: "जारी रखने के लिए नेक्स्ट पर क्लिक करो। ",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
 					align: "left",
                     offsetY:-40,
-                    offsetX:-90
+                    offsetX:-25
                 },
 				
 				{
@@ -268,27 +268,27 @@ activity3q1.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Not quite right.",
+                    content:"पूरी तरह से सही नहीं है।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
-                    offsetX:-110
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"	The original pattern has 1 red tile and 8 green tiles.\nThe scaled pattern has 4 red tiles and 32 green tiles.",
+                    content:"मूल आकृति में 1 लाल और 8 हरी पट्टी हैं ।\n बढ़ी हुई आकृति में 4 लाल और 32 हरी पट्टी हैं। ",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
-                    offsetX:-30
+                    offsetX:-25
                 },		
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-50

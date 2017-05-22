@@ -98,9 +98,9 @@ activity3.prototype = {
 		var question = this.add.image(125, 212, 'question');
 
 		//		adding the question text
-		var questionText = "Scale up the pattern given below by a factor of 2."
+		var questionText = "नीचे दिए गए पैटर्न को 2 के गुणक में बड़ा करें।"
 		var questionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "black",
 			align: "left"
 		};
@@ -109,13 +109,13 @@ activity3.prototype = {
 		questionTextOnDisplay.lineSpacing = -5;
 
 		//		adding the instructional text
-		var instructionText = "Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer."
+		var instructionText = "अपने उत्तर की जांच के लिए सबमिट पर क्लिक करें।"
 		var instructionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "blue	",
 			align: "left"
 		};
-		var instructionTextOnDisplay = this.add.text(30, 128, instructionText, instructionTextStyle)
+		var instructionTextOnDisplay = this.add.text(30, 148, instructionText, instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing = -5;
 
@@ -173,11 +173,8 @@ activity3.prototype = {
 	//	this function is used as a eventlistner which listens the mouse keyboard clicks
 	eventListener: function () {
 		this.input.mouse.capture = true;
-		//		this.input.onDown.add(this.test,this);
 		var move = this.input.addMoveCallback(this.addTileGrid, this);
-		//		this.input.onUp.add(this.selectedreset,this);
-		//		var move = this.input.addMoveCallback(this.addTileGrid,this);
-		//		console.log(move.x,move.y)	
+	
 	},
 
 	submitDisable:function(){
@@ -214,7 +211,6 @@ activity3.prototype = {
 	pinkTile: function () {
 		var pinktile = this.add.sprite(600, 439, 'tiles',3);
 		pinktile.inputEnabled = true;
-		//		pinktile.enableSnap = (gridTileRectWidth,gridTileRectWidth,true,true);
 		pinktile.value = 2;
 		pinktile.events.onInputDown.add(function () {
 			selectedTile = pinktile.value;
@@ -375,9 +371,9 @@ activity3.prototype = {
 				
 				  {
                     type: "text",
-                    content: "Good work!",
+                    content: "अच्छा कार्य !",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -385,9 +381,9 @@ activity3.prototype = {
 				
 				  {
                     type: "text",
-                    content: "You have scaled up the pattern correctly and solved \nthe puzzle.You’re one step closer to winning the prize!",
+                    content: "आपने सही तरीके से आकृति को बड़ा किया और पहेली\nको हल कर लिया है। आप इनाम जीतने से एक कदम दूर हैं !",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align: "left",
                     color: "black",
                     offsetY:-80,
@@ -396,13 +392,13 @@ activity3.prototype = {
 				
 				  {
                     type: "text",
-                    content: "Click NEXT to continue",
+                    content: "जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
 					align: "left",
                     offsetY:-40,
-                    offsetX:-90
+                    offsetX:-60
                 },
 				
 				{
@@ -464,27 +460,27 @@ activity3.prototype = {
                 },
 				{
                     type: "text",
-                    content:"You’re close!",
+                    content:"आप बिलकुल पास हैं !",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
-                    offsetX:-110
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"You have drawn the grid correctly, but your\npattern does not quite match the original.",
+                    content:"आपने ग्रिड सही तरीके से खींचा है, परंतु आप द्वारा \nतैयार की गई आकृति मूल आकृति से मेल नहीं खाती । ",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40
                 },		
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-50
@@ -501,7 +497,7 @@ activity3.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
-                  		selectedTile = 0;
+//                  		selectedTile = 0;
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -558,18 +554,18 @@ activity3.prototype = {
                 },
 				  {
                     type: "text",
-                    content:"Not quite right." ,
+                    content:"पूरी तरह से सही नहीं है।" ,
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-260,
-                    offsetX:-100
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"When the original pattern is scaled up by a\nfactor of 2, it looks like this:",
+                    content:"जब मूल आकृति को 2 के गुणक से बढ़ाया जाता है, तो \nयह इस प्रकार दिखती है :",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align:"left",
                     color: "black",
                     offsetY:-215,
@@ -577,9 +573,9 @@ activity3.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Click NEXT to continue",
+                    content:"जारी रखने के लिए नेक्स्ट पर क्लिक करो। ",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:200,
                 },
@@ -593,7 +589,7 @@ activity3.prototype = {
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
-						selectedTile = 0;
+//						selectedTile = 0;
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
@@ -646,39 +642,39 @@ activity3.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Not quite right.",
+                    content:"पूरी तरह से सही नहीं है।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
-                    offsetX:-110
+                    offsetX:-80
                 },
 				{
                     type: "text",
-                    content:"The size of the grid you have drawn is incorrect.",
+                    content:"आप द्वारा खींची गई आकृति का साइज़ गलत है।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-100,
                     offsetX:-40,
                 },
 				{
                     type: "text",
-                    content:"Remember, you have to scale up the given pattern by\n a factor of 2,so your grid should be drawn accordingly.",
+                    content:"  आपको आकृति का साइज़ 2 के गुणक\nसे बढ़ान है।ग्रिड फिर से खींचें ।",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
-                    offsetY:-70,
-                    offsetX:-21
+                    offsetY:-60,
+                    offsetX:-72
                 },
 				{
                     type: "text",
-                    content:"Click Reset to clear the grid and try again.",
+                    content:"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
-                    offsetY:-35,
-                    offsetX:-50
+                    offsetY:-25,
+                    offsetX:-30
                 },
 				{
                     type: "button",
