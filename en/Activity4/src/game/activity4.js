@@ -575,7 +575,7 @@ activity4.prototype = {
                 },
 				{
                     type: "text",
-                    content:"When the original pattern is scaled Down by a\nfactor of 2, it looks like this:",
+                    content:"When the original pattern is scaled down by a\nfactor of 2, it looks like this:",
                     fontFamily: "Arial",
                     fontSize:14,
 					align:"left",
