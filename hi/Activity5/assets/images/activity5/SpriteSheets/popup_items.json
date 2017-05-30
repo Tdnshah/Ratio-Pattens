@@ -1,0 +1,44 @@
+{"frames": {
+
+"close_button_mouse_over.png":
+{
+	"frame": {"x":81,"y":1,"w":22,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":21},
+	"sourceSize": {"w":22,"h":21}
+},
+"close_button_normal.png":
+{
+	"frame": {"x":81,"y":24,"w":22,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":21},
+	"sourceSize": {"w":22,"h":21}
+},
+"SMILEY_HAPPY.png":
+{
+	"frame": {"x":1,"y":1,"w":38,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":38,"h":38},
+	"sourceSize": {"w":40,"h":40}
+},
+"SMILEY_SAD.png":
+{
+	"frame": {"x":41,"y":1,"w":38,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":38,"h":38},
+	"sourceSize": {"w":40,"h":40}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "popup_items.png",
+	"format": "RGBA8888",
+	"size": {"w":104,"h":46},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d1b05f2a0b720122a297bb82f6d7d827:a1bd2258facc7292361ae4e9992d9a80:c882cd4a7559f81dad2400eba62ee5dd$"
+}
+}

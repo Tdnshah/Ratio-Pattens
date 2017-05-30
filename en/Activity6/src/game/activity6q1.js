@@ -405,11 +405,11 @@ activity6q1.prototype = {
 		if (studentsAnswer == actualAnswer){
 			this.showModalCorrectAttempt();
 		}
-		else if (input.value != 3 && attempt < 2){
+		else if (input.value != 2/3 && attempt < 2){
 			this.showModal_InCorrectAttempt_Lessthan_2();
 			attempt ++;
 		}
-		else if(input.value != 3 && attempt >= 2){
+		else if(input.value != 2/3 && attempt >= 2){
 			this.showModal_InCorrectAttempt_Morethan_2();
 		}
 	}

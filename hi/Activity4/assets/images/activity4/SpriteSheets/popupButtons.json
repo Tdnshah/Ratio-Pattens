@@ -5,8 +5,8 @@
 	"frame": {"x":1,"y":1,"w":85,"h":31},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":3,"w":85,"h":31},
-	"sourceSize": {"w":87,"h":34}
+	"spriteSourceSize": {"x":3,"y":3,"w":85,"h":31},
+	"sourceSize": {"w":88,"h":34}
 },
 {
 	"filename": "DONE_BUTTON_MOUSE_OVER.png",
@@ -14,7 +14,7 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":85,"h":31},
-	"sourceSize": {"w":87,"h":34}
+	"sourceSize": {"w":88,"h":34}
 },
 {
 	"filename": "DONE_NORMAL_normal.png",
@@ -22,15 +22,15 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":85,"h":31},
-	"sourceSize": {"w":87,"h":34}
+	"sourceSize": {"w":88,"h":34}
 },
 {
 	"filename": "NEXT_BUTTON_MOUSE_DOWN.png",
 	"frame": {"x":262,"y":1,"w":68,"h":29},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":4,"y":4,"w":68,"h":29},
-	"sourceSize": {"w":72,"h":33}
+	"spriteSourceSize": {"x":3,"y":3,"w":68,"h":29},
+	"sourceSize": {"w":71,"h":32}
 },
 {
 	"filename": "NEXT_BUTTON_MOUSE_OVER.png",
@@ -38,7 +38,7 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":29},
-	"sourceSize": {"w":72,"h":33}
+	"sourceSize": {"w":71,"h":32}
 },
 {
 	"filename": "NEXT_BUTTON_NORMAL.png",
@@ -46,15 +46,15 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":28},
-	"sourceSize": {"w":72,"h":33}
+	"sourceSize": {"w":71,"h":32}
 },
 {
 	"filename": "OK_BUTTON_MOUSE_DOWN.png",
 	"frame": {"x":1,"y":34,"w":58,"h":29},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":2,"w":58,"h":29},
-	"sourceSize": {"w":60,"h":31}
+	"spriteSourceSize": {"x":3,"y":3,"w":58,"h":29},
+	"sourceSize": {"w":61,"h":32}
 },
 {
 	"filename": "OK_BUTTON_MOUSE_OVER.png",
@@ -62,7 +62,7 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":29},
-	"sourceSize": {"w":60,"h":31}
+	"sourceSize": {"w":61,"h":32}
 },
 {
 	"filename": "OK_BUTTON_NORMAL.png",
@@ -70,15 +70,15 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":28},
-	"sourceSize": {"w":60,"h":31}
+	"sourceSize": {"w":61,"h":32}
 },
 {
 	"filename": "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
 	"frame": {"x":180,"y":34,"w":108,"h":29},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":4,"y":4,"w":108,"h":29},
-	"sourceSize": {"w":112,"h":33}
+	"spriteSourceSize": {"x":3,"y":3,"w":108,"h":29},
+	"sourceSize": {"w":111,"h":32}
 },
 {
 	"filename": "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
@@ -86,7 +86,7 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":29},
-	"sourceSize": {"w":112,"h":33}
+	"sourceSize": {"w":111,"h":32}
 },
 {
 	"filename": "TRY_AGAIN_BUTTON_NORMAL.png",
@@ -94,7 +94,7 @@
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":107,"h":28},
-	"sourceSize": {"w":112,"h":33}
+	"sourceSize": {"w":111,"h":32}
 }],
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
@@ -103,6 +103,6 @@
 	"format": "RGBA8888",
 	"size": {"w":508,"h":64},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:c77063837f7fa733974b43b8f3363d39:8dc393183f9d829409398f29285b5157:543b46d374186d73e6a609e621ddb3e5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:578cc484c0f210b80472812462939e29:e16c5363527f614a0ae75e23386ecfaa:543b46d374186d73e6a609e621ddb3e5$"
 }
 }
