@@ -39,23 +39,27 @@ activity6q1.prototype = {
 		questionTextOnDisplay.lineSpacing = -5;
 
 //		adding the instructional text
-		var instructionText = "Enter your answer in the form of a whole number or a fraction and\nclick Submit to check your answer."
+		var instructionText = "Enter your answer in the form of a whole number or a fraction and\nclick Submit to check your answer.Please do not enter answer as\ndecimal."
 		var instructionTextStyle = {font: "12px Arial", fill: "blue	", align:"left"};
 		var instructionTextOnDisplay = this.add.text(420,445,instructionText,instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing =-8;
 		
 
-		input = this.add.inputField(420,480,{
-												font: '15px Arial',
+		input = this.add.inputField(420,486,{
+												font: '10px Arial',
 												fill: '#212121',
 												fontWeight: 'bold',
-												width: 100,
-												height : 15,
+												width: 200,
+												height : 10,
 												padding: 8,
 												borderWidth: 2,
 												borderColor: '#0EC2F5',
-												borderRadius: 6,});
+												borderRadius: 6,
+												type: PhaserInput.InputType.numeric,
+												placeHolderColor: '#767676',
+												placeHolder:"Enter whole number or fractions only.",
+												});
 		
 		reg.modal = new gameModal(patternsRatio);
 		this.createModals();
@@ -63,9 +67,12 @@ activity6q1.prototype = {
 		
 	},
 	update:function(){
-		this.input.update();
-		this.input.update();
-		if (input.value == ""){
+		this.input.update()
+		if ( input.value == ""){
+			submit.tint = 0x666677;
+			submit.inputEnabled = false;
+		}
+		else if ((/(^(\+|-)?\d+|-?\d+\/-?\d+)$/.test(input.value)) == false){
 			submit.tint = 0x666677;
 			submit.inputEnabled = false;
 		}
@@ -99,19 +106,19 @@ activity6q1.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-					  winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//					  winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//                    } 
+//                },
 				
 				{
                     type: "sprite",
@@ -154,34 +161,30 @@ activity6q1.prototype = {
                     offsetY:-60,
                     offsetX:0
                 },
-				
-				
-				
-				  {
+				{
                     type: "text",
-                    content: "Click NEXT to continue",
+                    content:"Close the tab and proceed",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:14,
                     color: "0xFF0000",
-					align: "left",
-                    offsetY:-25,
-                    offsetX:-100
+                    offsetY:-10,
+                    offsetX:-20
                 },
 				
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -5,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-					winningSound2.stop();
-                    patternsRatio.state.start('activity6q1')
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -5,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//					winningSound2.stop();
+//                    patternsRatio.state.start('activity6q1')
+//                 }
+//				}
 				]
 			}),
 /****************************************feedback 1 incorrect ***********************************************/ 		
@@ -297,18 +300,18 @@ activity6q1.prototype = {
                     offsetY: -50,
                     contentScale: 1
                 },
-				 {
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -357,29 +360,27 @@ activity6q1.prototype = {
 //				
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"Close the tab and proceed",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:14,
                     color: "0xFF0000",
-                    offsetY:-25,
-                    offsetX:-50
-                },
-//				
-				
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -0,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-                  		input.value = 0;
-						patternsRatio.state.start('activity6q1')      
-                 }
-				}
+                    offsetY:-10,
+                    offsetX:-20
+                },					
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+//					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -0,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//                  		input.value = 0;
+//						patternsRatio.state.start('activity6q1')      
+//                 }
+//				}
 		
 			]
         });		

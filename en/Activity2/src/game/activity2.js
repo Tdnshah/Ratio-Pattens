@@ -352,20 +352,20 @@ activity2.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-						winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-						
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//						winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//						
+//                    } 
+//                },
 				
 				{
                     type: "sprite",
@@ -395,6 +395,15 @@ activity2.prototype = {
                     color: "black",
                     offsetY:-80,
                     offsetX:-15
+                },
+					{
+                    type: "text",
+                    content:"Close the tab and proceed",
+                    fontFamily: "Arial",
+                    fontSize:14,
+                    color: "0xFF0000",
+                    offsetY:-10,
+                    offsetX:-20
                 },
 				
 //				  {
@@ -534,19 +543,18 @@ activity2.prototype = {
                     offsetX: -15,
                     contentScale: 1
                 },	
-				
-				{
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -290,
-					offsetX: 200,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				{
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -290,
+//					offsetX: 200,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -576,32 +584,33 @@ activity2.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Click NEXT to continue",
+                    content:"Close the tab and proceed",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "0xFF0000",
-                    offsetY:200,
+                    offsetY:100,
+                    offsetX:-20
                 },
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: 230,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-						selectedTile = 0;
-						highlighted1 = [false,false]
-						rows = 0
-						gridtile1 = [];
-						columns = 0;
-						studentInputArray = []
-						attemptCount = 0
-                        patternsRatio.state.start("activity2")
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: 230,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//						selectedTile = 0;
+//						highlighted1 = [false,false]
+//						rows = 0
+//						gridtile1 = [];
+//						columns = 0;
+//						studentInputArray = []
+//						attemptCount = 0
+//                        patternsRatio.state.start("activity2")
+//                 }
+//				}
 		
 			]
         });

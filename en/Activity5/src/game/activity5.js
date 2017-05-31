@@ -329,7 +329,6 @@ activity5.prototype = {
 			return element == 0;
 		}
 		var test = studentInputArray.every(submitDisableCheck);
-		console.log(test);
 		if(test == true){
 			submit.tint = 0x666677;
 			submit.inputEnabled = false;
@@ -360,20 +359,19 @@ activity5.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                      type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-						winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-                    } 
-                },
-				
+//				 {
+//                  type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                  offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//						winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//                    } 
+//                },	
 				{
                      type: "sprite",
 					atlasParent:"popupsItems",
@@ -382,7 +380,6 @@ activity5.prototype = {
 					offsetX: -180,
                     contentScale: 1
                 },
-				
 				  {
                     type: "text",
                     content: "Good work!",
@@ -403,37 +400,34 @@ activity5.prototype = {
                     offsetY:-80,
                     offsetX:-15
                 },
-				
-				  {
-                    type: "text",
-                    content: "Click NEXT to continue",
-                    fontFamily: "Arial",
-                    fontSize:12,
-                    color: "0xFF0000",
-					align: "left",
-                    offsetY:-40,
-                    offsetX:-90
-                },
-				
 				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -10,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-					winningSound2.stop();
-					selectedTile = 0;
-					rows = 0
-					gridtile1 = [];
-					columns = 0;
-					studentInputArray = []	
-					patternsRatio.state.start('activity5q1')
-                 }
-				}
+                    type: "text",
+                    content:"Close the tab and proceed",
+                    fontFamily: "Arial",
+                    fontSize:14,
+                    color: "0xFF0000",
+                    offsetY:-10,
+                    offsetX:-20
+                },
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -10,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//					winningSound2.stop();
+//					selectedTile = 0;
+//					rows = 0
+//					gridtile1 = [];
+//					columns = 0;
+//					studentInputArray = []	
+//					patternsRatio.state.start('activity5q1')
+//                 }
+//				}
 				]
 			}),
 	
@@ -514,7 +508,8 @@ activity5.prototype = {
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
-						studentInputArray = []
+						studentInputArray = [];
+						highlighted1 = [false, false];
 						patternsRatio.state.start('activity5')      
                  }
 				}
@@ -545,18 +540,18 @@ activity5.prototype = {
                     contentScale: 1
                 },	
 				
-				{
-                     type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -290,
-					offsetX: 200,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				{
+//                     type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -290,
+//					offsetX: 200,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -586,30 +581,31 @@ activity5.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Click NEXT to continue",
+                    content:"Close the tab and proceed",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "0xFF0000",
                     offsetY:200,
+                    offsetX:-20
                 },
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: 230,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-						selectedTile = 0;
-						rows = 0
-						gridtile1 = [];
-						columns = 0;
-						studentInputArray = []
-                        patternsRatio.state.start("activity5q1")
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: 230,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//						selectedTile = 0;
+//						rows = 0
+//						gridtile1 = [];
+//						columns = 0;
+//						studentInputArray = []
+//                        patternsRatio.state.start("activity5q1")
+//                 }
+//				}
 		
 			]
         });
@@ -700,7 +696,8 @@ activity5.prototype = {
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
-						studentInputArray = []
+						studentInputArray = [];
+						highlighted1 = [false, false];
 						patternsRatio.state.start('activity5')      
                  }
 				}

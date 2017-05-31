@@ -39,23 +39,27 @@ activity6q1.prototype = {
 		questionTextOnDisplay.lineSpacing = -5;
 
 //		adding the instructional text
-		var instructionText = "अपना उत्तर पूर्ण संख्या के रूप में एंटर करें और अपने उत्तर की जांच के लिए\nसबमिट पर क्लिक करें|"
+		var instructionText = "अपना उत्तर पूर्ण संख्या के रूप में एंटर करें और अपने उत्तर की जांच के लिए\nसबमिट पर क्लिक करें| कृपया दशमलव के रूप में उत्तर न दें|"
 		var instructionTextStyle = {font: "14px Arial", fill: "blue	", align:"left"};
 		var instructionTextOnDisplay = this.add.text(420,445,instructionText,instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
-		instructionTextOnDisplay.lineSpacing =-8;
+		instructionTextOnDisplay.lineSpacing =-3;
 		
 
 		input = this.add.inputField(420,480,{
 												font: '15px Arial',
 												fill: '#212121',
-												fontWeight: 'bold',
-												width: 100,
+//												fontWeight: 'bold',
+												width: 200,
 												height : 15,
 												padding: 8,
 												borderWidth: 2,
 												borderColor: '#0EC2F5',
-												borderRadius: 6,});
+												borderRadius: 6,
+												type: PhaserInput.InputType.numeric,
+												placeHolderColor: '#767676',
+												placeHolder:"पूरी संख्या या अंश हि केवल दर्ज करें",			
+		});
 		
 		reg.modal = new gameModal(patternsRatio);
 		this.createModals();
@@ -66,6 +70,10 @@ activity6q1.prototype = {
 		this.input.update();
 		this.input.update();
 		if (input.value == ""){
+			submit.tint = 0x666677;
+			submit.inputEnabled = false;
+		}
+		else if ((/(^(\+|-)?\d+|-?\d+\/-?\d+)$/.test(input.value)) == false){
 			submit.tint = 0x666677;
 			submit.inputEnabled = false;
 		}
@@ -373,7 +381,6 @@ activity6q1.prototype = {
 	/***************************************** Validation ***********************************************************************/
 	
 	onSubmit: function(){
-		console.log('entered into onsubmit')
 		studentsAnswer = input.value;
 		if (studentsAnswer == actualAnswer){
 			console.log(studentsAnswer);

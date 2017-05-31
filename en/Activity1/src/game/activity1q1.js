@@ -113,19 +113,19 @@ activity1q1.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                    type: "button",
-					atlasParent:"popupsItems",
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-						winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:"popupsItems",
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//						winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//                    } 
+//                },
 				
 				{
                     type: "sprite",
@@ -166,30 +166,39 @@ activity1q1.prototype = {
                     offsetY:-60,
                     offsetX:0
                 },
-				  {
-                    type: "text",
-                    content: "Click NEXT to continue.",
-                    fontFamily: "Arial",
-                    fontSize:12,
-                    color: "0xFF0000",
-					align: "left",
-                    offsetY:-30,
-                    offsetX:-105
-                },
 				{
-                    type: "button",
-					atlasParent:"popupButtons",					
-                    content:"NEXT_BUTTON_NORMAL.png",
-					buttonHover:"NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive:"NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -10,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {	
-					winningSoundScream.stop();
-                    patternsRatio.state.start('activity1q1')
-                 }
-				}
+                    type: "text",
+                    content:"Close the tab and proceed",
+                    fontFamily: "Arial",
+                    fontSize:14,
+                    color: "0xFF0000",
+                    offsetY:-10,
+                    offsetX:-20
+                },
+//				  {
+//                    type: "text",
+//                    content: "Click NEXT to continue.",
+//                    fontFamily: "Arial",
+//                    fontSize:12,
+//                    color: "0xFF0000",
+//					align: "left",
+//                    offsetY:-30,
+//                    offsetX:-105
+//                },
+//				{
+//                    type: "button",
+//					atlasParent:"popupButtons",					
+//                    content:"NEXT_BUTTON_NORMAL.png",
+//					buttonHover:"NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive:"NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -10,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {	
+//					winningSoundScream.stop();
+//                    patternsRatio.state.start('activity1q1')
+//                 }
+//				}
 				]
 			}),
 /****************************************feedback 1 incorrect ***********************************************/ 		
@@ -286,18 +295,18 @@ activity1q1.prototype = {
                     offsetY: -50,
                     contentScale: 1
                 },
-				 {
-                    type: "button",
-					atlasParent:"popupsItems",
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:"popupsItems",
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -327,29 +336,29 @@ activity1q1.prototype = {
                 },		
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"Close the tab and proceed",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:14,
                     color: "0xFF0000",
-                    offsetY:-25,
-                    offsetX:-50
+                    offsetY:-10,
+                    offsetX:-20
                 },
 //				
 				
-				{
-                    type: "button",
-					atlasParent:"popupButtons",
-                    content:"TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover:"TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive:"TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -0,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-                  		input.value = 0;
-						patternsRatio.state.start('activity1q1')      
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent:"popupButtons",
+//                    content:"TRY_AGAIN_BUTTON_NORMAL.png",
+//					buttonHover:"TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+//					buttonActive:"TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -0,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//                  		input.value = 0;
+//						patternsRatio.state.start('activity1q1')      
+//                 }
+//				}
 		
 			]
         });		
