@@ -113,18 +113,18 @@ activity1q1.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                    type: "button",
-					atlasParent:"popupsItems",
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("correctAnswer");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:"popupsItems",
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("correctAnswer");
+//                    } 
+//                },
 				
 				{
                     type: "sprite",
@@ -167,29 +167,29 @@ activity1q1.prototype = {
                 },
 				  {
                     type: "text",
-                    content: "जारी रखने के लिए अगला पर क्लिक करो। .",
+                    content: "आगे बढ़ने के लिए टैब को बंद करें|",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
 					align: "left",
-                    offsetY:-30,
-                    offsetX:-80
+                    offsetY:-20,
+                    offsetX:-30
                 },
-				{
-                    type: "button",
-					atlasParent:"popupButtons",					
-                    content:"NEXT_BUTTON_NORMAL.png",
-					buttonHover:"NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive:"NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -5,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {	
-					winningSoundScream.stop();
-					winningSoundClaps.stop();
-                    patternsRatio.state.start('activity1q1')
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent:"popupButtons",					
+//                    content:"NEXT_BUTTON_NORMAL.png",
+//					buttonHover:"NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive:"NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -5,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {	
+//					winningSoundScream.stop();
+//					winningSoundClaps.stop();
+//                    patternsRatio.state.start('activity1q1')
+//                 }
+//				}
 				]
 			}),
 /****************************************feedback 1 incorrect ***********************************************/ 		
@@ -286,18 +286,18 @@ activity1q1.prototype = {
                     offsetY: -50,
                     contentScale: 1
                 },
-				 {
-                    type: "button",
-					atlasParent:"popupsItems",
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:"popupsItems",
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -325,31 +325,30 @@ activity1q1.prototype = {
                     offsetY:-70,
                     offsetX:-10
                 },		
-				{
+				 {
                     type: "text",
-                    content:"जारी रखने के लिए अगला पर क्लिक करो। .",
+                    content: "आगे बढ़ने के लिए टैब को बंद करें|",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
-                    offsetY:-25,
-                    offsetX:-50
-                },
-//				
-				
-				{
-                    type: "button",
-					atlasParent:"popupButtons",
-                    content:"TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover:"TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive:"TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -0,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-                  		input.value = 0;
-						patternsRatio.state.start('activity1q1')      
-                 }
-				}
+					align: "left",
+                    offsetY:-20,
+                    offsetX:-30
+                },		
+//				{
+//                    type: "button",
+//					atlasParent:"popupButtons",
+//                    content:"TRY_AGAIN_BUTTON_NORMAL.png",
+//					buttonHover:"TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+//					buttonActive:"TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -0,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//                  		input.value = 0;
+//						patternsRatio.state.start('activity1q1')      
+//                 }
+//				}
 		
 			]
         });		

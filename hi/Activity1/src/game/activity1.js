@@ -339,7 +339,6 @@ activity1.prototype = {
 							reg.modal.hideModal("correctAnswer");
 						}
                 },
-
 					{
 						type: "sprite",
 						atlasParent:"popupsItems",

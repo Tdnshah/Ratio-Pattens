@@ -354,20 +354,20 @@ activity2.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-						winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-						
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//						winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//						
+//                    } 
+//                },
 				
 				{
                     type: "sprite",
@@ -397,6 +397,16 @@ activity2.prototype = {
                     color: "black",
                     offsetY:-80,
                     offsetX:-15
+                },
+				 {
+                    type: "text",
+                    content: "आगे बढ़ने के लिए टैब को बंद करें|",
+                    fontFamily: "Arial",
+                    fontSize:16,
+                    color: "0xFF0000",
+					align: "left",
+                    offsetY:-20,
+                    offsetX:-30
                 },
 				
 //				  {
@@ -537,18 +547,18 @@ activity2.prototype = {
                     contentScale: 1
                 },	
 				
-				{
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -290,
-					offsetX: 200,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				{
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -290,
+//					offsetX: 200,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -576,34 +586,36 @@ activity2.prototype = {
                     offsetY:-215,
                     offsetX:-40
                 },
-				{
+				 {
                     type: "text",
-                    content:"जारी रखने के लिए अगला पर क्लिक करें।",
+                    content: "आगे बढ़ने के लिए टैब को बंद करें|",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
-                    offsetY:200,
+					align: "left",
+                    offsetY:120,
+                    offsetX:-20
                 },
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: 230,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-						selectedTile = 0;
-						highlighted1 = [false,false];
-						rows = 0
-						gridtile1 = [];
-						columns = 0;
-						studentInputArray = []
-						attemptCount = 0
-                        patternsRatio.state.start("activity2")
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: 230,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//						selectedTile = 0;
+//						highlighted1 = [false,false];
+//						rows = 0
+//						gridtile1 = [];
+//						columns = 0;
+//						studentInputArray = []
+//						attemptCount = 0
+//                        patternsRatio.state.start("activity2")
+//                 }
+//				}
 		
 			]
         });

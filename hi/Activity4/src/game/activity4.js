@@ -802,6 +802,7 @@ activity4.prototype = {
 			rows--;
 			selectedTile = 0;
 			highlighted1 = [false, false];
+			allgridCoordinates = [];
 			studentInputArray = [];
 			this.placeTiles(rows, columns);
 		}
@@ -819,6 +820,7 @@ activity4.prototype = {
 			selectedTile = 0;
 			highlighted1 = [false, false];
 			studentInputArray = [];
+			allgridCoordinates = [];
 			selectedTile = 0;
 			this.placeTiles(rows, columns);
 		}

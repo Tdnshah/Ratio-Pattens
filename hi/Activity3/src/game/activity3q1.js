@@ -156,19 +156,19 @@ activity3q1.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-						winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//						winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//                    } 
+//                },
 				
 				{
                      type: "sprite",
@@ -200,36 +200,36 @@ activity3q1.prototype = {
                     offsetX:-25
                 },
 				
-				  {
+				   {
                     type: "text",
-                    content: "जारी रखने के लिए नेक्स्ट पर क्लिक करो। ",
+                    content: "आगे बढ़ने के लिए टैब को बंद करें|",
                     fontFamily: "Arial",
                     fontSize:16,
                     color: "0xFF0000",
 					align: "left",
-                    offsetY:-40,
-                    offsetX:-25
+                    offsetY:-20,
+                    offsetX:-30
                 },
 				
-				{
-                   type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -10,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-					winningSound2.stop();
-					selectedTile = 0;
-					rows = 0
-					gridtile1 = [];
-					columns = 0;
-					studentInputArray = []	
-					patternsRatio.state.start('activity3q1')
-                 }
-				}
+//				{
+//                   type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -10,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//					winningSound2.stop();
+//					selectedTile = 0;
+//					rows = 0
+//					gridtile1 = [];
+//					columns = 0;
+//					studentInputArray = []	
+//					patternsRatio.state.start('activity3q1')
+//                 }
+//				}
 				]
 			}),
 	/****************************************feedback 1 incorrect ***********************************************/ 		
@@ -246,18 +246,18 @@ activity3q1.prototype = {
                     offsetY: -50,
                     contentScale: 1
                 },
-				 {
-                    type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt1");
-                    } 
-                },
+//				 {
+//                    type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt1");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -284,34 +284,35 @@ activity3q1.prototype = {
                     offsetY:-80,
                     offsetX:-25
                 },		
-				{
+				 {
                     type: "text",
-                    content:"जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
+                    content: "आगे बढ़ने के लिए टैब को बंद करें|",
                     fontFamily: "Arial",
                     fontSize:16,
                     color: "0xFF0000",
-                    offsetY:-35,
-                    offsetX:-50
+					align: "left",
+                    offsetY:-20,
+                    offsetX:-30
                 },
 				
 				
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -0,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-                  		input1.value = "";
-                  		input2.value = "";
-                  		input3.value = "";
-                  		input4.value = "";
-						patternsRatio.state.start('activity3q1')      
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "TRY_AGAIN_BUTTON_NORMAL.png",
+//					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -0,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//                  		input1.value = "";
+//                  		input2.value = "";
+//                  		input3.value = "";
+//                  		input4.value = "";
+//						patternsRatio.state.start('activity3q1')      
+//                 }
+//				}
 		
 			]
         });
