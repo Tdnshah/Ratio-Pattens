@@ -10,7 +10,7 @@ mainmenu.prototype = {
 		this.logo = this.add.sprite(this.game.world.centerX,this.game.world.centerY,'logo')
 		this.logo.anchor.setTo(0.5)
 		
-		var text = "Lets start learing ratios and proportion click on the arrow to begin"
+		var text = "Lets start learning ratios and proportion click on the arrow to begin"
 	 	beep = this.game.add.audio('beep');
 	 	thememusic = this.game.add.audio('theme');
 		thememusic.play('',0,1,true);
