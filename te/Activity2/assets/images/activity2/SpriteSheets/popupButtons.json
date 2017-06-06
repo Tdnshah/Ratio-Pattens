@@ -1,0 +1,108 @@
+{"frames": [
+
+{
+	"filename": "DONE_BUTTON_MOUSE_DOWN.png",
+	"frame": {"x":1,"y":1,"w":85,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":3,"w":85,"h":31},
+	"sourceSize": {"w":87,"h":34}
+},
+{
+	"filename": "DONE_BUTTON_MOUSE_OVER.png",
+	"frame": {"x":88,"y":1,"w":85,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":85,"h":31},
+	"sourceSize": {"w":87,"h":34}
+},
+{
+	"filename": "DONE_NORMAL_normal.png",
+	"frame": {"x":175,"y":1,"w":85,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":85,"h":31},
+	"sourceSize": {"w":87,"h":34}
+},
+{
+	"filename": "NEXT_BUTTON_MOUSE_DOWN.png",
+	"frame": {"x":262,"y":1,"w":68,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":68,"h":29},
+	"sourceSize": {"w":72,"h":33}
+},
+{
+	"filename": "NEXT_BUTTON_MOUSE_OVER.png",
+	"frame": {"x":332,"y":1,"w":68,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":29},
+	"sourceSize": {"w":72,"h":33}
+},
+{
+	"filename": "NEXT_BUTTON_NORMAL.png",
+	"frame": {"x":402,"y":1,"w":67,"h":28},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":28},
+	"sourceSize": {"w":72,"h":33}
+},
+{
+	"filename": "OK_BUTTON_MOUSE_DOWN.png",
+	"frame": {"x":1,"y":34,"w":58,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":58,"h":29},
+	"sourceSize": {"w":60,"h":31}
+},
+{
+	"filename": "OK_BUTTON_MOUSE_OVER.png",
+	"frame": {"x":61,"y":34,"w":58,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":29},
+	"sourceSize": {"w":60,"h":31}
+},
+{
+	"filename": "OK_BUTTON_NORMAL.png",
+	"frame": {"x":121,"y":34,"w":57,"h":28},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":28},
+	"sourceSize": {"w":60,"h":31}
+},
+{
+	"filename": "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+	"frame": {"x":180,"y":34,"w":108,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":108,"h":29},
+	"sourceSize": {"w":112,"h":33}
+},
+{
+	"filename": "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
+	"frame": {"x":290,"y":34,"w":108,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":29},
+	"sourceSize": {"w":112,"h":33}
+},
+{
+	"filename": "TRY_AGAIN_BUTTON_NORMAL.png",
+	"frame": {"x":400,"y":34,"w":107,"h":28},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":107,"h":28},
+	"sourceSize": {"w":112,"h":33}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "popupButtons.png",
+	"format": "RGBA8888",
+	"size": {"w":508,"h":64},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c77063837f7fa733974b43b8f3363d39:8dc393183f9d829409398f29285b5157:543b46d374186d73e6a609e621ddb3e5$"
+}
+}
