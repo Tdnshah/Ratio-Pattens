@@ -99,9 +99,9 @@ activity4.prototype = {
 		var question = this.add.image(25, 212, 'question');
 
 		//		adding the question text
-		var questionText = "Scale down the pattern by a factor of 2."
+		var questionText = "క్రింద ఇవ్వబడిన ఆకారాన్ని ఆకుపచ్చ మరియు ఎరుపు టైల్\nస్ ని గ్రిడ్‌లో డ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా కారకం 2\nతో స్కేలు తగ్గించండి."
 		var questionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "black",
 			align: "left"
 		};
@@ -113,9 +113,9 @@ activity4.prototype = {
 
 
 		//		adding the instructional text
-		var instructionText = "Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer."
+		var instructionText = "మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి."
 		var instructionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "blue	",
 			align: "left"
 		};
@@ -384,9 +384,9 @@ activity4.prototype = {
 				
 				  {
                     type: "text",
-                    content: "Good work!",
+                    content: "మంచి పని!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -394,9 +394,9 @@ activity4.prototype = {
 				
 				  {
                     type: "text",
-                    content: "You have scaled up the pattern correctly and solved \nthe puzzle.You’re one step closer to winning the prize!",
+                    content: "మీరు ఆకారం సైజుని సరిగా తగ్గించారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు ఒక అడుగు సమీపంలో ఉన్నారు!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align: "left",
                     color: "black",
                     offsetY:-80,
@@ -405,9 +405,9 @@ activity4.prototype = {
 				
 				  {
                     type: "text",
-                    content: "Click NEXT to continue",
+                    content: "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
 					align: "left",
                     offsetY:-40,
@@ -472,7 +472,7 @@ activity4.prototype = {
                 },
 				{
                     type: "text",
-                    content:"You’re almost there!",
+                    content:"మీరు దాదాపు చేసారు!",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "black",
@@ -481,30 +481,30 @@ activity4.prototype = {
                 },
 				{
                     type: "text",
-                    content:"You have drawn the grid correctly,but your\npattern does not quite match the original pattern.",
+                    content:"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన\nఆకారం ఒరిజినల్ ఆకారంతో జతకాలేదు.",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40
                 },		
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:-35,
-                    offsetX:-50
+                    offsetX:-15
                 },
 				
 				
 				{
                     type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+					atlasParent: "buttons",
+					content: "RESET_NORMAL_new.png",
+					buttonHover: "RESET_OVER_new.png",
+					buttonActive: "RESET_DOWN_new.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -566,26 +566,26 @@ activity4.prototype = {
                 },
 				  {
                     type: "text",
-                    content:"Not quite right." ,
+                    content:"సరియైనది కాదు." ,
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-260,
                     offsetX:-100
                 },
 				{
                     type: "text",
-                    content:"When the original pattern is scaled down by a\nfactor of 2, it looks like this:",
+                    content:"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు తగ్గించినప్పుడు, ఇది ఇలా ఉంటుంది:",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align:"left",
                     color: "black",
                     offsetY:-215,
-                    offsetX:-40
+                    offsetX:-10
                 },
 				{
                     type: "text",
-                    content:"Click NEXT to continue",
+                    content:"కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
                     fontFamily: "Arial",
                     fontSize:14,
                     color: "0xFF0000",
@@ -652,55 +652,55 @@ activity4.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Not quite right.",
+                    content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
                 },
 				{
                     type: "text",
-                    content:"The size of the grid you have drawn is incorrect.",
+                    content:"మీరు గీసిన గ్రిడ్ సైజు సరికాదు. ఇవ్వబడిన ఆకారాన్ని మీరు\nకారకం 2 తో స్కేలు తగ్గించాలి. మళ్ళీ గ్రిడ్‌ని గీయండి",
                     fontFamily: "Arial",
-                    fontSize:14,
-                    color: "black",
-                    offsetY:-100,
-                    offsetX:-40,
-                },
-				{
-                    type: "text",
-                    content:"You have to scale down the given pattern by a factor of 2.",
-                    fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
-                    offsetX:-10		
+                    offsetX:-40,
                 },
-					{
-                    type: "text",
-                    content:"Draw the grid again.",
-                    fontFamily: "Arial",
-                    fontSize:14,
-                    color: "black",
-                    offsetY:-60,
-                    offsetX:-125		
-                },
+//				{
+//                    type: "text",
+//                    content:"You have to scale down the given pattern by a factor of 2.",
+//                    fontFamily: "Arial",
+//                    fontSize:14,
+//                    color: "black",
+//                    offsetY:-80,
+//                    offsetX:-10		
+//                },
+//					{
+//                    type: "text",
+//                    content:"Draw the grid again.",
+//                    fontFamily: "Arial",
+//                    fontSize:14,
+//                    color: "black",
+//                    offsetY:-60,
+//                    offsetX:-125		
+//                },
 				{
                     type: "text",
-                    content:"Click Reset to clear the grid and try again.",
+                    content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:-35,
-                    offsetX:-60
+                    offsetX:-20
                 },
 				{
                    type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+					atlasParent: "buttons",
+					content: "RESET_NORMAL_new.png",
+					buttonHover: "RESET_OVER_new.png",
+					buttonActive: "RESET_DOWN_new.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -708,9 +708,9 @@ activity4.prototype = {
                   		selectedTile = 0;
 						rows = 0
 						gridtile1 = [];
-						columns = 0;
-						studentInputArray = [];
 						highlighted1 = [false, false];
+						columns = 0;
+						studentInputArray = []
 						patternsRatio.state.start('activity4')      
                  }
 				}

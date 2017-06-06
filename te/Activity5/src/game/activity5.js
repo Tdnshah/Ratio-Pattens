@@ -16,8 +16,8 @@ var rows = 0;
 var columns = 0;
 //	this array holds the tilePosition sets the default value to 0 and upon students interaction with the grid records his selectedtiles as input
 var studentInputArray = [];
-
-
+// this variable is used in the addTiles functions for holding all the colored tiles that are added in it
+var tileadded = [];
 //this variable is used to hold the value of tiles selected to identify which tile is selected and will placed in the play grids
 var selectedTile = 0;
 
@@ -29,34 +29,36 @@ var tileaddingSound;
 var highlighted1 = [false, false];
 //	this highlighted array holds the glowTile image status
 var highlighted = [];
-var winningSound2;
 
 // this is a array used to define the correct answer of the pattern and this is used to validate against studentInputArray
 
-var correctAnswer = [2,1,1,1,
-					 1,1,1,1,
-					 1,1,1,1,
-					 2,1,1,1,	
+var correctAnswer = [0,0,2,2,0,0,
+					 0,0,2,2,0,0,
+					 2,2,2,2,2,2,
+					 2,2,2,2,2,2,
+					 0,0,2,2,0,0,
+					 0,0,2,2,0,0,
 					 ];
-var submit;
-var gridAnswerRows = 4
-var gridAnswerColumns = 4
-var tileadded = [];
-var winningSound2;
+
+var gridAnswerRows = 6
+var gridAnswerColumns =6
+
+
 var attemptCount = 0;
 var reg = {};
-var activity4 = function (patternsRatio) {};
+var activity5 = function (patternsRatio) {};
 var inCorrectFeedbackTextAttempt1 = "Not quite right. \n Your pattern must: \n Fill the grid completely. \n Look like an enlarged version of the original pattern. \n Click TRYAGAIN to clear the grid and try again.";
-
+var submit;
+var winningSound2;
 var inCorrectFeedbackTextAttempt2 = "Not quite right. \n After scaling up the original pattern to fill the grid, it looks like this:";
 
 //here we create a phaser function or object which holds all the game logic
-activity4.prototype = {
+activity5.prototype = {
 
 	preload: function () {
-		this.load.image('a4q1Background', 'assets/images/activity4/BACK_GROUND.png');
-		this.load.image('question', 'assets/images/activity4/QUESTION.png');
-		this.load.image('answerActivity4','assets/images/activity4/answeActivity4.png');
+		this.load.image('a4q1Background', 'assets/images/activity5/BACK_GROUND.png');
+		this.load.image('question', 'assets/images/activity5/QUESTION.png');
+		this.load.image('answerActivity5','assets/images/activity5/answeActivity5.png');
 	},
 
 	create: function () {
@@ -66,12 +68,12 @@ activity4.prototype = {
 		//		adding background image
 		var backGround = this.add.image(this.world.centerX, this.world.centerY, 'a4q1Background');
 		backGround.anchor.setTo(0.5);
-		//		console.log(backGround);
 		
 		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
 		
 		winningSound2 = this.game.add.audio('childrenScream');
 		
+
 		tileaddingSound = this.game.add.audio('tileAdding');
 
 
@@ -96,26 +98,23 @@ activity4.prototype = {
 
 
 		//		adding question image
-		var question = this.add.image(25, 212, 'question');
+		var question = this.add.image(120, 212, 'question');
 
 		//		adding the question text
-		var questionText = "Scale down the pattern by a factor of 2."
+		var questionText = "క్రింద ఇవ్వబడిన ఆకారాన్ని ఎరుపు టైల్స్ ని గ్రిడ్‌లో డ్రాగ్ చేసి\nమరియు డ్రాప్ చేయడం ద్వారా కారకం 2 తో స్కేలు పెంచండి"
 		var questionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "black",
 			align: "left"
 		};
 		var questionTextOnDisplay = this.add.text(30, 61, questionText, questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
-		
-		this.soundButton = this.game.add.button(750,580, 'soundMute',this.toggleMute,this,'',1);
-
 
 		//		adding the instructional text
-		var instructionText = "Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer."
+		var instructionText = "మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి."
 		var instructionTextStyle = {
-			font: "14px Arial",
+			font: "16px Arial",
 			fill: "blue	",
 			align: "left"
 		};
@@ -132,7 +131,7 @@ activity4.prototype = {
 			this.placeTiles(rows, columns)
 		}
 		//		the below function addes the green tile with all the control logic
-		this.greenTile();
+//		this.greenTile();
 		this.pinkTile();
 		this.eventListener();
 		reg.modal = new gameModal(patternsRatio);
@@ -142,7 +141,6 @@ activity4.prototype = {
 	update: function () {
 		this.highlight();
 		this.submitDisable();
-		
 	},
 
 
@@ -201,7 +199,7 @@ activity4.prototype = {
 	},
 
 	pinkTile: function () {
-		var pinktile = this.add.sprite(600, 439, 'tiles',3);
+		var pinktile = this.add.sprite(575, 439, 'tiles',3);
 		pinktile.inputEnabled = true;
 		//		pinktile.enableSnap = (gridTileRectWidth,gridTileRectWidth,true,true);
 		pinktile.value = 2;
@@ -222,7 +220,7 @@ activity4.prototype = {
 				highlighted1[1] = false;
 			}
 		} else if (selectedTile == 2 && highlighted1[1] == false) {
-			highlighted[1] = this.add.image(600, 439, 'tiles',1);
+			highlighted[1] = this.add.image(575, 439, 'tiles',1);
 			highlighted[1].anchor.setTo(0.23)
 			highlighted1[1] = true;
 			if (highlighted1[0] == true) {
@@ -238,7 +236,6 @@ activity4.prototype = {
 				};
 			}
 		}
-		
 	},
 
 	//	This function is used to check if the array are identical or not
@@ -264,8 +261,8 @@ activity4.prototype = {
 		}
 		return -1;
 	},
-	
-	addTileGrid: function (pointer) {
+
+		addTileGrid: function (pointer) {
 		if (pointer.x < gridTileStartPointX || pointer.x > gridTileStartPointX + gridTileRectWidth * columns || pointer.y < gridTileStartPointY || pointer.y > gridTileStartPointY + gridTileRectWidth * rows) {
 			
 		} 
@@ -300,7 +297,7 @@ activity4.prototype = {
 								if(studentInputArray[tileposition] != 2){
 									tileaddingSound.play('', 0, 10);
 									tileadded.push(this.add.sprite(gridtile[i].x, gridtile[i].y, 'tiles',3));
-									studentInputArray[tileposition] = 2
+									studentInputArray[tileposition] = 2;
 								}
 								else{
 									console.log('notadded');
@@ -312,6 +309,7 @@ activity4.prototype = {
 			}
 		}
 	},
+	
 	toggleMute: function () {
 		console.log(!thememusic.mute)
 		if (!thememusic.mute) {
@@ -331,7 +329,6 @@ activity4.prototype = {
 			return element == 0;
 		}
 		var test = studentInputArray.every(submitDisableCheck);
-		console.log(test);
 		if(test == true){
 			submit.tint = 0x666677;
 			submit.inputEnabled = false;
@@ -343,10 +340,13 @@ activity4.prototype = {
 		
 	},
 	/********************************Modal Type *****************************************************************************/
+	
 	createModals: function(){
 		
 	/*************************************Validation 2 for tiles placeing *************************************************/
+	
 	/**************************************feedback correct Answer **************************************************/
+	
 	reg.modal.createModal({
             type:"correctAnswer",
             includeBackground: true,
@@ -359,34 +359,32 @@ activity4.prototype = {
                     offsetY: -50,
                     contentScale: 1,
                 },
-				 {
-                     type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -170,
-					offsetX: 195,
-					contentScale: 1,
-					callback: function(){
-						winningSound2.stop();
-                      reg.modal.hideModal("correctAnswer");
-                    } 
-                },
-				
+//				 {
+//                  type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                  offsetY: -170,
+//					offsetX: 195,
+//					contentScale: 1,
+//					callback: function(){
+//						winningSound2.stop();
+//                      reg.modal.hideModal("correctAnswer");
+//                    } 
+//                },	
 				{
-                    type: "sprite",
+                     type: "sprite",
 					atlasParent:"popupsItems",
 					content: "SMILEY_HAPPY.png",
                     offsetY: -130,
 					offsetX: -180,
                     contentScale: 1
                 },
-				
 				  {
                     type: "text",
-                    content: "Good work!",
+                    content: "మంచి పని!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -394,48 +392,45 @@ activity4.prototype = {
 				
 				  {
                     type: "text",
-                    content: "You have scaled up the pattern correctly and solved \nthe puzzle.You’re one step closer to winning the prize!",
+                    content: "మీరు ఆకారం సరిగా స్కేలు చేసారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు ఒక అడుగు సమీపంలో ఉన్నారు!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align: "left",
                     color: "black",
                     offsetY:-80,
                     offsetX:-15
                 },
-				
-				  {
-                    type: "text",
-                    content: "Click NEXT to continue",
-                    fontFamily: "Arial",
-                    fontSize:12,
-                    color: "0xFF0000",
-					align: "left",
-                    offsetY:-40,
-                    offsetX:-90
-                },
-				
 				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: -10,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-					winningSound2.stop();
-					selectedTile = 0;
-					highlighted1 = [false, false];
-					rows = 0
-					gridtile1 = [];
-					columns = 0;
-					studentInputArray = []	
-					patternsRatio.state.start('activity4q1')
-                 }
-				}
+                    type: "text",
+                    content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
+                    fontFamily: "Arial",
+                    fontSize:16,
+                    color: "0xFF0000",
+                    offsetY:-10,
+                    offsetX:-20
+                },
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: -10,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//					winningSound2.stop();
+//					selectedTile = 0;
+//					rows = 0
+//					gridtile1 = [];
+//					columns = 0;
+//					studentInputArray = []	
+//					patternsRatio.state.start('activity5q1')
+//                 }
+//				}
 				]
 			}),
+	
 	/****************************************feedback 1 incorrect ***********************************************/ 		
 				
 	reg.modal.createModal({
@@ -472,56 +467,57 @@ activity4.prototype = {
                 },
 				{
                     type: "text",
-                    content:"You’re almost there!",
+                    content:"మీరు దాదాపు చేసారు!",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-90
                 },
 				{
                     type: "text",
-                    content:"You have drawn the grid correctly,but your\npattern does not quite match the original pattern.",
+                    content:"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన ఆకారం ఒరిజినల్\nఆకారంతో జతకాలేదు",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40
                 },		
 				{
                     type: "text",
-                    content:"Click TRY AGAIN to clear the grid and try again",
+                    content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:12,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:-35,
-                    offsetX:-50
+                    offsetX:-10
                 },
 				
 				
 				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+                     type: "button",
+					atlasParent: "buttons",
+					content: "RESET_NORMAL_new.png",
+					buttonHover: "RESET_OVER_new.png",
+					buttonActive: "RESET_DOWN_new.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
                     callback: function () {
                   		selectedTile = 0;
-						highlighted1 = [false, false];
 						rows = 0
 						gridtile1 = [];
 						columns = 0;
-						studentInputArray = []
-						patternsRatio.state.start('activity4')      
+						studentInputArray = [];
+						highlighted1 = [false, false];
+						patternsRatio.state.start('activity5')      
                  }
 				}
 		
 			]
         });
-/********************************* feedback 2  showing answer ****************************************/
+		
+	/********************************* feedback 2  showing answer ****************************************/
 
 	reg.modal.createModal({
             type:"IncorrectAnswerAttempt2",
@@ -538,24 +534,24 @@ activity4.prototype = {
                 },
 				{
                     type: "image",
-                    content: "answerActivity4",
+                    content: "answerActivity5",
                     offsetY: 0,
                     offsetX: -15,
                     contentScale: 1
                 },	
 				
-				{
-                     type: "button",
-					atlasParent:'popupsItems',
-					content: "close_button_normal.png",
-					buttonHover:"close_button_mouse_over.png",
-                    offsetY: -290,
-					offsetX: 200,
-					contentScale: 1,
-					callback: function(){
-                      reg.modal.hideModal("IncorrectAnswerAttempt2");
-                    } 
-                },
+//				{
+//                     type: "button",
+//					atlasParent:'popupsItems',
+//					content: "close_button_normal.png",
+//					buttonHover:"close_button_mouse_over.png",
+//                    offsetY: -290,
+//					offsetX: 200,
+//					contentScale: 1,
+//					callback: function(){
+//                      reg.modal.hideModal("IncorrectAnswerAttempt2");
+//                    } 
+//                },
 				{
                     type: "sprite",
 					atlasParent:"popupsItems",
@@ -566,55 +562,55 @@ activity4.prototype = {
                 },
 				  {
                     type: "text",
-                    content:"Not quite right." ,
+                    content:"సరియైనది కాదు." ,
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-260,
                     offsetX:-100
                 },
 				{
                     type: "text",
-                    content:"When the original pattern is scaled down by a\nfactor of 2, it looks like this:",
+                    content:"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు పెంచినప్పుడు, ఇది ఇలా ఉంటుంది:",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
 					align:"left",
                     color: "black",
                     offsetY:-215,
-                    offsetX:-40
+                    offsetX:-10
                 },
 				{
                     type: "text",
-                    content:"Click NEXT to continue",
+                    content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:200,
+                    offsetX:-20
                 },
-				{
-                    type: "button",
-					atlasParent: "popupButtons",
-					content: "NEXT_BUTTON_NORMAL.png",
-					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
-					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
-                    offsetY: 230,
-                    offsetX: -10,
-                    contentScale: 1,
-                    callback: function () {
-						selectedTile = 0;
-						highlighted1 = [false, false];
-						rows = 0
-						gridtile1 = [];
-						columns = 0;
-						studentInputArray = []
-                        patternsRatio.state.start("activity4q1")
-                 }
-				}
+//				{
+//                    type: "button",
+//					atlasParent: "popupButtons",
+//					content: "NEXT_BUTTON_NORMAL.png",
+//					buttonHover: "NEXT_BUTTON_MOUSE_OVER.png",
+//					buttonActive: "NEXT_BUTTON_MOUSE_DOWN.png",
+//                    offsetY: 230,
+//                    offsetX: -10,
+//                    contentScale: 1,
+//                    callback: function () {
+//						selectedTile = 0;
+//						rows = 0
+//						gridtile1 = [];
+//						columns = 0;
+//						studentInputArray = []
+//                        patternsRatio.state.start("activity5q1")
+//                 }
+//				}
 		
 			]
         });
-		
-/***************************************** Validation 1 Modals for girdsize testing ****************************************/
+
+	/***************************************** Validation 1 Modals for girdsize testing ****************************************/
 	
 	/*************feedback1 for incorrect answer *****************************/
 	
@@ -631,7 +627,7 @@ activity4.prototype = {
                     contentScale: 1
                 },
 				 {
-                    type: "button",
+                      type: "button",
 					atlasParent:'popupsItems',
 					content: "close_button_normal.png",
 					buttonHover:"close_button_mouse_over.png",
@@ -652,55 +648,46 @@ activity4.prototype = {
                 },
 				{
                     type: "text",
-                    content:"Not quite right.",
+                    content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
                 },
 				{
                     type: "text",
-                    content:"The size of the grid you have drawn is incorrect.",
+                    content:"మీరు గీసిన గ్రిడ్ సైజు సరికాదు. ఇవ్వబడిన ఆకారాన్ని మీరు\nకారకం 2 తో స్కేలు పెంచాలి. మళ్ళీ గ్రిడ్‌ని గీయండి",
                     fontFamily: "Arial",
-                    fontSize:14,
-                    color: "black",
-                    offsetY:-100,
-                    offsetX:-40,
-                },
-				{
-                    type: "text",
-                    content:"You have to scale down the given pattern by a factor of 2.",
-                    fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "black",
                     offsetY:-80,
-                    offsetX:-10		
+                    offsetX:-40,
                 },
-					{
-                    type: "text",
-                    content:"Draw the grid again.",
-                    fontFamily: "Arial",
-                    fontSize:14,
-                    color: "black",
-                    offsetY:-60,
-                    offsetX:-125		
-                },
+//				{
+//                    type: "text",
+//                    content:"You have to scale down the given pattern by a factor of 2.Draw the grid again.",
+//                    fontFamily: "Arial",
+//                    fontSize:14,
+//                    color: "black",
+//                    offsetY:-70,
+//                    offsetX:-10		
+//                },
 				{
                     type: "text",
-                    content:"Click Reset to clear the grid and try again.",
+                    content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:14,
+                    fontSize:16,
                     color: "0xFF0000",
                     offsetY:-35,
-                    offsetX:-60
+                    offsetX:-10
                 },
 				{
-                   type: "button",
-					atlasParent: "popupButtons",
-					content: "TRY_AGAIN_BUTTON_NORMAL.png",
-					buttonHover: "TRY_AGAIN_BUTTON_MOUSE_OVER.png",
-					buttonActive: "TRY_AGAIN_BUTTON_MOUSE_DOWN.png",
+                     type: "button",
+					atlasParent: "buttons",
+					content: "RESET_NORMAL_new.png",
+					buttonHover: "RESET_OVER_new.png",
+					buttonActive: "RESET_DOWN_new.png",
                     offsetY: -0,
                     offsetX: -10,
                     contentScale: 1,
@@ -711,7 +698,7 @@ activity4.prototype = {
 						columns = 0;
 						studentInputArray = [];
 						highlighted1 = [false, false];
-						patternsRatio.state.start('activity4')      
+						patternsRatio.state.start('activity5')      
                  }
 				}
 		
@@ -723,6 +710,7 @@ activity4.prototype = {
 	showModalIncorrectGridAnswerAttempt1: function(){
 		selectedTile = 0;
 		reg.modal.showModal("IncorrectGridAnswerAttempt1");
+
 	},
 	showModalCorrectAttempt: function(){
 		selectedTile = 0;
@@ -741,6 +729,7 @@ activity4.prototype = {
 	},
 	
 	/*************************************** Add and removing rows and columns ****************************************************/
+/***********cleantile tessting function****/
 	cleanColoredTile: function(){
 		if(tileadded.length != 0){
 			for (var mn = 0;mn < tileadded.length;mn++){
@@ -764,11 +753,12 @@ activity4.prototype = {
 			}
 			columns++
 			selectedTile = 0;
-			highlighted1 = [false, false];
 			studentInputArray = []
+			highlighted1 = [false, false];
 			allgridCoordinates = [];
 			this.placeTiles(rows, columns);
 			console.log(columns)
+			
 		}
 	},
 
@@ -783,12 +773,11 @@ activity4.prototype = {
 			rows++
 			selectedTile = 0;
 			highlighted1 = [false, false];
-			studentInputArray = [];
 			allgridCoordinates = [];
+			studentInputArray = [];
 			this.placeTiles(rows, columns);
 		}
 	},
-
 	decrementor_Rows: function () {
 		this.cleanColoredTile();
 		var xyz = Number(gridtile1.length);
@@ -801,8 +790,8 @@ activity4.prototype = {
 			rows--;
 			selectedTile = 0;
 			highlighted1 = [false, false];
-			studentInputArray = [];
 			allgridCoordinates = [];
+			studentInputArray = [];
 			this.placeTiles(rows, columns);
 		}
 	},
@@ -818,15 +807,15 @@ activity4.prototype = {
 			gridtile1 = [];
 			selectedTile = 0;
 			highlighted1 = [false, false];
-			studentInputArray = [];
 			allgridCoordinates = [];
-			selectedTile = 0;
+			studentInputArray = [];
 			this.placeTiles(rows, columns);
 		}
 	},
 	/**************************************************VALIDATION CODE*************************************************************/
+
 	onSubmit: function () {
-		if (rows == 4 && columns == 4){
+		if (rows == gridAnswerRows && columns == gridAnswerRows){
 			if (this.arraysIdentical(studentInputArray, correctAnswer) == true) {
 				this.showModalCorrectAttempt();
 			}
@@ -838,7 +827,7 @@ activity4.prototype = {
 				this.showModal_InCorrectAttempt_Morethan_2();
 			}
 		}
-		else if (rows != 4 || columns != 4){
+		else if (rows != gridAnswerRows || columns != gridAnswerRows){
 			if(attemptCount < 2){
 			this.showModalIncorrectGridAnswerAttempt1();
 			attemptCount ++
@@ -848,14 +837,15 @@ activity4.prototype = {
 			}
 		}
 	},
+	
+	
 	onReset: function () {
 		selectedTile = 0;
-		highlighted1 = [false, false];
 		rows = 0
 		gridtile1 = [];
 		columns = 0;
 		studentInputArray = []
-		this.state.start('activity4')
+		this.state.start('activity5')
 	}
 
 };
