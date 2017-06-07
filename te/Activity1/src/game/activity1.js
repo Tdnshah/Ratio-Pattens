@@ -558,13 +558,13 @@ activity1.prototype = {
                 },
 				{
 					type: "text",
-					content: "After scaling up the original pattern to fill the grid, \n it looks like this:",
+					content: "గ్రిడ్‌ని  నింపడానికి ఒరిజినల్ ఆకారాన్ని తగ్గించిన తరువాత, ఇది ఇలా\nకనిపిస్తుంది:",
 					fontFamily: "Arial",
-					fontSize: 14,
+					fontSize: 16,
 					align: "left",
 					color: "black",
 					offsetY: -215,
-					offsetX: -40
+					offsetX: -10
                 },
 				{
 					type: "text",
