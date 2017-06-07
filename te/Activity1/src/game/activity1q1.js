@@ -44,7 +44,7 @@ activity1q1.prototype = {
 		
 //		adding the question text
 		var questionText ="ఒరిజినల్ దానితో పోల్చినప్పుడు మీ ఆకారం ఎన్ని రెట్లు\nపెద్దగా ఉన్నది?  " 
-		var questionTextStyle = {font: "16px Arial", fill: "black", align:"left"};	
+		var questionTextStyle = {font: "14px Arial", fill: "black", align:"left"};	
 		var questionTextOnDisplay = this.add.text(30,61,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
@@ -140,7 +140,7 @@ activity1q1.prototype = {
                     type: "text",
                     content: "బాగా చేసారు!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -150,7 +150,7 @@ activity1q1.prototype = {
                     type: "text",
                     content: "మీరు తయారు చేసిన ఆకారం ఒరిజినల్ దానికన్నా\nమూడు రెట్లు పెద్దగా ఉన్నది.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-90,
@@ -160,7 +160,7 @@ activity1q1.prototype = {
                     type: "text",
                     content: "మీరు మీ ఆకారాన్ని కారకం 3తో పెంచారని దీని అర్థం.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-55,
@@ -170,7 +170,7 @@ activity1q1.prototype = {
                     type: "text",
                     content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-10,
                     offsetX:-20
@@ -319,7 +319,7 @@ activity1q1.prototype = {
                     type: "text",
                     content:"“సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
@@ -328,7 +328,7 @@ activity1q1.prototype = {
                     type: "text",
                     content:"మీరు  ఒరిజినల్ దాని కన్నా మూడు రెట్లు పెద్దగా ఉన్న ఆకారాన్ని తయారు\nచేయాలి. మీరు ఒరిజినల్ ఆకారాన్ని కారకం 3 తో స్కేలు పెంచాలి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align:"left",
                     color: "black",
                     offsetY:-70,
@@ -338,7 +338,7 @@ activity1q1.prototype = {
                     type: "text",
                     content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-10,
                     offsetX:-20

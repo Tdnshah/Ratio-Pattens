@@ -27,29 +27,29 @@ activity4q1.prototype = {
 		
 //		adding the question text
 		var questionText ="ఒరిజినల్‌తో  స్కేలు పెంచిన ఆకారాన్ని పొల్చండి మరియు క్రింది\nపట్టికను పూర్తి చేయండి." 
-		var questionTextStyle = {font: "16px Arial", fill: "black", align:"left"};	
+		var questionTextStyle = {font: "14px Arial", fill: "black", align:"left"};	
 		var questionTextOnDisplay = this.add.text(30,61,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
 
 //		adding the instructional text
 		var instructionText = "మీ జవాబుని పూర్ణ సంఖ్య రూపంలో నమోదు చేయండి\nమరియు మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్\nక్లిక్ చేయండి"
-		var instructionTextStyle = {font: "16px Arial", fill: "blue	", align:"left"};
+		var instructionTextStyle = {font: "14px Arial", fill: "blue	", align:"left"};
 		var instructionTextOnDisplay = this.add.text(30,128,instructionText,instructionTextStyle)
 		instructionTextOnDisplay.anchor.setTo(0);
 		instructionTextOnDisplay.lineSpacing =-8;
 		
 //		text for heading the answer inputs
-		var columns_headingTextStyle = {font: "16px Arial", fill: "black", align:"left"};
-		columns_heading = this.add.text(505,453,'No of Green Tiles',columns_headingTextStyle)
-		columns_heading = this.add.text(650,453,'No of Pink Tiles',columns_headingTextStyle)
+		var columns_headingTextStyle = {font: "14px Arial", fill: "black", align:"left"};
+		columns_heading = this.add.text(505,453,'ఆకుపచ్చ టైల్స్ సంఖ్య',columns_headingTextStyle)
+		columns_heading = this.add.text(650,453,'ఎరుపు టైల్స్ సంఖ్య',columns_headingTextStyle)
 		
 		
 		
-		var rows_headingTextStyle = {font: "16px Arial", fill: "blue", align:"left"};
-		rows_heading1 = this.add.text(430,483,'Original\nPattern',rows_headingTextStyle)
+		var rows_headingTextStyle = {font: "14px Arial", fill: "blue", align:"left"};
+		rows_heading1 = this.add.text(430,483,'ఒరిజినల్\nఆకారం',rows_headingTextStyle)
 		rows_heading1.lineSpacing = -6;
-		rows_heading2 = this.add.text(430,523,'Scaled\nPattern',rows_headingTextStyle)
+		rows_heading2 = this.add.text(430,523,'స్కేల్ చేసిన\nఆకారం',rows_headingTextStyle)
 		rows_heading2.lineSpacing = -6;
 		
 		
@@ -166,7 +166,7 @@ activity4q1.prototype = {
                     type: "text",
                     content: "బాగా చేసారు!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -176,7 +176,7 @@ activity4q1.prototype = {
                     type: "text",
                     content: "రెండు ఆకారాలలోనూ మీరు ఆకుపచ్చ మరియు\nఎరుపు టైల్స్ ని సరిగా లెక్కించారు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-80,
@@ -187,7 +187,7 @@ activity4q1.prototype = {
                     type: "text",
                     content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-10,
                     offsetX:-20
@@ -253,7 +253,7 @@ activity4q1.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
@@ -262,7 +262,7 @@ activity4q1.prototype = {
                     type: "text",
                     content:"ఒరిజినల్ ఆకారంలో 8 ఎరుపు టైల్స్ మరియు 56 ఆకుపచ్చ టైల్స్ ఉన్నాయి.\nస్కేలు చేసిన ఆకారంలో 2 ఎరుపు టైల్స్ మరియు 14 ఆకుపచ్చ టైల్స్ ఉన్నాయి.",
                     fontFamily: "Arial",
-                    fontSize:15,
+                    fontSize:14,
                     color: "black",
                     offsetY:-80,
                     offsetX:-10
@@ -271,7 +271,7 @@ activity4q1.prototype = {
                     type: "text",
                     content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-10,
                     offsetX:-20

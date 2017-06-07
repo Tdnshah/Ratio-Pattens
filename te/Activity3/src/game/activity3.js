@@ -100,7 +100,7 @@ activity3.prototype = {
 		//		adding the question text
 		var questionText = "క్రింద ఇవ్వబడిన ఆకారాన్ని ఆకుపచ్చ మరియు ఎరుపు టైల్స్\nగ్రిడ్‌లో డ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా కారకం\n2 తో స్కేలు పెంచండి"
 		var questionTextStyle = {
-			font: "16px Arial",
+			font: "14px Arial",
 			fill: "black",
 			align: "left"
 		};
@@ -111,7 +111,7 @@ activity3.prototype = {
 		//		adding the instructional text
 		var instructionText = "మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి."
 		var instructionTextStyle = {
-			font: "16px Arial",
+			font: "14px Arial",
 			fill: "blue	",
 			align: "left"
 		};
@@ -377,7 +377,7 @@ activity3.prototype = {
                     type: "text",
                     content: "మంచి పని!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -387,7 +387,7 @@ activity3.prototype = {
                     type: "text",
                     content: "మీరు ఆకారం సైజుని సరిగా పెంచారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు ఒక అడుగు సమీపంలో ఉన్నారు!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-80,
@@ -398,7 +398,7 @@ activity3.prototype = {
                     type: "text",
                     content: "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
 					align: "left",
                     offsetY:-40,
@@ -466,7 +466,7 @@ activity3.prototype = {
                     type: "text",
                     content:"మీరు దాదాపు చేసారు!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-80
@@ -475,7 +475,7 @@ activity3.prototype = {
                     type: "text",
                     content:"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన ఆకారం\nఒరిజినల్ ఆకారంతో సరిగా జతకాలేదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40
@@ -484,7 +484,7 @@ activity3.prototype = {
                     type: "text",
                     content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-20
@@ -560,7 +560,7 @@ activity3.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు." ,
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-260,
                     offsetX:-100
@@ -569,7 +569,7 @@ activity3.prototype = {
                     type: "text",
                     content:"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు పెంచినప్పుడు, ఇది ఇలా ఉంటుంది:",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align:"left",
                     color: "black",
                     offsetY:-215,
@@ -648,7 +648,7 @@ activity3.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
@@ -657,7 +657,7 @@ activity3.prototype = {
                     type: "text",
                     content:"మీరు గీసిన గ్రిడ్ సైజు సరికాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-100,
                     offsetX:-68,
@@ -666,7 +666,7 @@ activity3.prototype = {
                     type: "text",
                     content:"ఇవ్వబడిన ఆకారాన్ని కారం 2తో స్కేలు పెంచాలి,\nకావున గ్రిడ్‌ని దాని ప్రకారం గీయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-70,
                     offsetX:-21
@@ -675,7 +675,7 @@ activity3.prototype = {
                     type: "text",
                     content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-20

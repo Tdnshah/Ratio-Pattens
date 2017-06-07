@@ -81,7 +81,7 @@ activity6.prototype = {
 		//		adding the question text
 		var questionText = "గ్రిడ్‌లో సరిపోవునట్లు ఆకుపచ్చ మరియు ఎరుపు టైల్స్ గ్రిడ్‌లోకి\nడ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా ఈ ఆకారాన్ని\nతగ్గించండి. స్"
 		var questionTextStyle = {
-			font: "16px Arial",
+			font: "14px Arial",
 			fill: "black",
 			align: "left"
 		};
@@ -92,7 +92,7 @@ activity6.prototype = {
 		//		adding the instructional text
 		var instructionText = "కేలు తగ్గించిన ఆకారం ఖచ్చితంగా ఒరిజినల్ ఆకారంలో\nఉండాలి."
 		var instructionTextStyle = {
-			font: "16px Arial",
+			font: "14px Arial",
 			fill: "blue	",
 			align: "left"
 		};
@@ -363,7 +363,7 @@ activity6.prototype = {
 						type: "text",
 						content: "బాగా చేసారు!",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						color: "black",
 						offsetY: -130,
 						offsetX: -120
@@ -373,7 +373,7 @@ activity6.prototype = {
 						type: "text",
 						content: "మీరు ఆకారం సైజుని సరిగా తగ్గించారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు చాలా సమీపంలో ఉన్నారు!",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						align: "left",
 						color: "black",
 						offsetY: -80,
@@ -384,7 +384,7 @@ activity6.prototype = {
 						type: "text",
 						content: "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						color: "0xFF0000",
 						align: "left",
 						offsetY: -40,
@@ -457,7 +457,7 @@ activity6.prototype = {
 						type: "text",
 						content: "మీ ఆకారం తప్పక:",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						color: "black",
 						offsetY: -100,
 						offsetX: -110
@@ -466,7 +466,7 @@ activity6.prototype = {
 						type: "text",
 						content: "1.గ్రిడ్‌ని పూర్తిగా నింపాలి. ",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						color: "black",
 						offsetY: -80,
 						offsetX: -90
@@ -475,7 +475,7 @@ activity6.prototype = {
 						type: "text",
 						content: "2.ఒరిజినల్ ఆకారానికి చిన్నని  వెర్షన్ లాగా కనిపిస్తోంది.",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						color: "black",
 						offsetY: -60,
 						offsetX: -15
@@ -485,7 +485,7 @@ activity6.prototype = {
 						type: "text",
 						content: "గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి  రీసెట్ క్లిక్  చేయండి.",
 						fontFamily: "Arial",
-						fontSize: 16,
+						fontSize: 14,
 						color: "0xFF0000",
 						offsetY: -35,
 						offsetX: -15
@@ -561,7 +561,7 @@ activity6.prototype = {
 					type: "text",
 					content: "సరియైనది కాదు.",
 					fontFamily: "Arial",
-					fontSize: 16,
+					fontSize: 14,
 					color: "black",
 					offsetY: -260,
 					offsetX: -100
@@ -570,7 +570,7 @@ activity6.prototype = {
 					type: "text",
 					content: "గ్రిడ్‌ని  నింపడానికి ఒరిజినల్ ఆకారాన్ని తగ్గించిన తరువాత, ఇది ఇలా\nకనిపిస్తుంది:",
 					fontFamily: "Arial",
-					fontSize: 16,
+					fontSize: 14,
 					align: "left",
 					color: "black",
 					offsetY: -215,
@@ -580,7 +580,7 @@ activity6.prototype = {
 					type: "text",
 					content: "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
 					fontFamily: "Arial",
-					fontSize: 16,
+					fontSize: 14,
 					color: "0xFF0000",
 					offsetY: 200,
                 },

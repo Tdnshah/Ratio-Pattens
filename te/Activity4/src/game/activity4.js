@@ -101,7 +101,7 @@ activity4.prototype = {
 		//		adding the question text
 		var questionText = "క్రింద ఇవ్వబడిన ఆకారాన్ని ఆకుపచ్చ మరియు ఎరుపు టైల్\nస్ ని గ్రిడ్‌లో డ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా కారకం 2\nతో స్కేలు తగ్గించండి."
 		var questionTextStyle = {
-			font: "16px Arial",
+			font: "14px Arial",
 			fill: "black",
 			align: "left"
 		};
@@ -115,7 +115,7 @@ activity4.prototype = {
 		//		adding the instructional text
 		var instructionText = "మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి."
 		var instructionTextStyle = {
-			font: "16px Arial",
+			font: "14px Arial",
 			fill: "blue	",
 			align: "left"
 		};
@@ -386,7 +386,7 @@ activity4.prototype = {
                     type: "text",
                     content: "మంచి పని!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -396,7 +396,7 @@ activity4.prototype = {
                     type: "text",
                     content: "మీరు ఆకారం సైజుని సరిగా తగ్గించారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు ఒక అడుగు సమీపంలో ఉన్నారు!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-80,
@@ -407,7 +407,7 @@ activity4.prototype = {
                     type: "text",
                     content: "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
 					align: "left",
                     offsetY:-40,
@@ -483,7 +483,7 @@ activity4.prototype = {
                     type: "text",
                     content:"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన\nఆకారం ఒరిజినల్ ఆకారంతో జతకాలేదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40
@@ -492,7 +492,7 @@ activity4.prototype = {
                     type: "text",
                     content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-15
@@ -568,7 +568,7 @@ activity4.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు." ,
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-260,
                     offsetX:-100
@@ -577,7 +577,7 @@ activity4.prototype = {
                     type: "text",
                     content:"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు తగ్గించినప్పుడు, ఇది ఇలా ఉంటుంది:",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align:"left",
                     color: "black",
                     offsetY:-215,
@@ -654,7 +654,7 @@ activity4.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
@@ -663,7 +663,7 @@ activity4.prototype = {
                     type: "text",
                     content:"మీరు గీసిన గ్రిడ్ సైజు సరికాదు. ఇవ్వబడిన ఆకారాన్ని మీరు\nకారకం 2 తో స్కేలు తగ్గించాలి. మళ్ళీ గ్రిడ్‌ని గీయండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-80,
                     offsetX:-40,
@@ -690,7 +690,7 @@ activity4.prototype = {
                     type: "text",
                     content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-20

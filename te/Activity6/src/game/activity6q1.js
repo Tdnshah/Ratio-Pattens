@@ -33,7 +33,7 @@ activity6q1.prototype = {
 		
 //		adding the question text
 		var questionText ="ఒరిజినల్ ఆకారం తగ్గించబడిన కారకాన్ని కనుగొనండి." 
-		var questionTextStyle = {font: "16px Arial", fill: "black", align:"left"};	
+		var questionTextStyle = {font: "14px Arial", fill: "black", align:"left"};	
 		var questionTextOnDisplay = this.add.text(30,75,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
 		questionTextOnDisplay.lineSpacing = -5;
@@ -133,7 +133,7 @@ activity6q1.prototype = {
                     type: "text",
                     content: "బాగా చేసారు!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-120
@@ -143,7 +143,7 @@ activity6q1.prototype = {
                     type: "text",
                     content: "చిన్నని ఆకారం ఒరిజినల్ ఆకారం కన్నా ⅔ రెట్లు ఉన్నది.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-100,
@@ -155,7 +155,7 @@ activity6q1.prototype = {
                     type: "text",
                     content: "ఒరిజినల్ ఆకారం కారకం 2/3 స్కేలు తగ్గించబడినది అర్థం.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align: "left",
                     color: "black",
                     offsetY:-60,
@@ -165,7 +165,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-10,
                     offsetX:-20
@@ -225,7 +225,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
@@ -234,7 +234,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"ఒరిజినల్ లో గ్రిడ్ సైజు మరియు స్కేలు తగ్గించిన ఆకారాన్ని పోల్చండి.\nమళ్ళీ ప్రయత్నించండి!",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align:"left",
                     color: "black",
                     offsetY:-80,
@@ -263,7 +263,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్ చేయండి.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-35,
                     offsetX:-10
@@ -324,7 +324,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"సరియైనది కాదు.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "black",
                     offsetY:-130,
                     offsetX:-110
@@ -333,7 +333,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"మీరు ఒరిజినల్ ఆకారానికి 2/3 రెట్లు ఉన్న ఒక ఆకారాన్ని మీరు\nతయారు చేయాలి.మీరు ఒరిజినల్ ఆకారాన్ని కారకం 2/3 తో స్కేలు\nతగ్గించాలని దీని అర్థం.",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
 					align:"left",
                     color: "black",
                     offsetY:-70,
@@ -362,7 +362,7 @@ activity6q1.prototype = {
                     type: "text",
                     content:"టాబ్ను మూసివేసి ముందుకు సాగండి",
                     fontFamily: "Arial",
-                    fontSize:16,
+                    fontSize:14,
                     color: "0xFF0000",
                     offsetY:-10,
                     offsetX:-20
