@@ -43,7 +43,7 @@ activity1q1.prototype = {
 		console.log(!thememusic.mute)
 		
 //		adding the question text
-		var questionText ="आपकी बनायी आकृति मूल आकृति से कितना गुना बड़ी है ?" 
+		var questionText ="आपकी बनायी आकृति मूल आकृति से कितना गुना स्केल अप\nकिया गया है ?" 
 		var questionTextStyle = {font: "16px Arial", fill: "black", align:"left"};	
 		var questionTextOnDisplay = this.add.text(30,61,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
@@ -147,7 +147,7 @@ activity1q1.prototype = {
 				
 				  {
                     type: "text",
-                    content: "आपने जो आकृति बनाई, वह मूल आकृति से तीन गुना बड़ी थी।",
+                    content: "यह पैटर्न पहले पैटर्न से 9 गुणा बड़ा है, इसका मतलब,\nइसकी हरेक भुजा 3 गुणा बढ़ायी गयी है।",
                     fontFamily: "Arial",
                     fontSize:16,
 					align: "left",
@@ -157,13 +157,13 @@ activity1q1.prototype = {
                 },		
 				  {
                     type: "text",
-                    content: "इसका अर्थ हुआ की आपने आकृति को 3 के गुणक से बड़ा किया ।",
+                    content: "अर्थात्, पूरे पैटर्न को 3 से स्केल अप किया गया है।",
                     fontFamily: "Arial",
                     fontSize:16,
 					align: "left",
                     color: "black",
-                    offsetY:-60,
-                    offsetX:-8
+                    offsetY:-50,
+                    offsetX:-25
                 },
 				  {
                     type: "text",
@@ -317,7 +317,7 @@ activity1q1.prototype = {
                 },
 				{
                     type: "text",
-                    content:"आपको मूल आकृति से तीन गुना बड़ी आकृति बनानी है।\nआपको मूल आकृति को 3 के गुणक से बड़ा करना  होगा ।",
+                    content:"यह पैटर्न पहले पैटर्न से 9 गुणा बड़ा है,\nइसका मतलब, इसकी हरेक भुजा 3 गुणा बढ़ायी गयी है।\nअर्थात्, पूरे पैटर्न को 3 से स्केल अप किया गया है।",
                     fontFamily: "Arial",
                     fontSize:16,
 					align:"left",
@@ -332,7 +332,7 @@ activity1q1.prototype = {
                     fontSize:16,
                     color: "0xFF0000",
 					align: "left",
-                    offsetY:-20,
+                    offsetY:-10,
                     offsetX:-30
                 },		
 //				{

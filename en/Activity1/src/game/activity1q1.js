@@ -43,7 +43,7 @@ activity1q1.prototype = {
 		console.log(!thememusic.mute)
 		
 //		adding the question text
-		var questionText ="How many times larger is your pattern compared to \n the original one? " 
+		var questionText ="How many times scaled up is your pattern compared to \n the original one? " 
 		var questionTextStyle = {font: "14px Arial", fill: "black", align:"left"};	
 		var questionTextOnDisplay = this.add.text(30,61,questionText,questionTextStyle)
 		questionTextOnDisplay.anchor.setTo(0);
@@ -148,23 +148,23 @@ activity1q1.prototype = {
 				
 				  {
                     type: "text",
-                    content: "The pattern you created was three times \nas large as the original one.",
+                    content: "The pattern created is 9 times bigger than the original\npattern,this means, each side is multiplied by a factor\nof 3.",
                     fontFamily: "Arial",
                     fontSize:14,
 					align: "left",
                     color: "black",
-                    offsetY:-90,
-                    offsetX:-40
+                    offsetY:-80,
+                    offsetX:-10
                 },		
 				  {
                     type: "text",
-                    content: "That means, you scaled the pattern up by a factor of 3.",
+                    content: "Therefore, the whole pattern is scaled up by a factor of 3",
                     fontFamily: "Arial",
                     fontSize:14,
 					align: "left",
                     color: "black",
-                    offsetY:-60,
-                    offsetX:0
+                    offsetY:-40,
+                    offsetX:-10
                 },
 				{
                     type: "text",
@@ -326,13 +326,13 @@ activity1q1.prototype = {
                 },
 				{
                     type: "text",
-                    content:"The pattern you created was three times as large \nas the original one. \nThat means, you scaled the pattern up by a factor of 3.",
+                    content:"The pattern created is 9 times bigger than the original\npattern, this means, each side is multiplied by a factor\nof 3.Therefore, the whole pattern is scaled up by a\nfactor of 3",
                     fontFamily: "Arial",
                     fontSize:14,
 					align:"left",
                     color: "black",
                     offsetY:-70,
-                    offsetX:-10
+                    offsetX:0
                 },		
 				{
                     type: "text",
