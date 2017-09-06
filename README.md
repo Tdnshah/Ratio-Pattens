@@ -26,11 +26,11 @@ This interactive tool is designed by the CLIx Mathematics Team and MIT, based on
 2. [Tejas shah](https://github.com/Tdnshah)
 3. [Tanvi Domadia](https://github.com/tanvidom)
 
-#### Technology Behind the development.
+### Technology Behind the development.
 
 This interactive is purely developed using open source HTML5 & javascript game framework named [Phaser](https://phaser.io/).
 
-### How to install this game and use/embed this.
+### How to install/embed this.
  
 ## Standalone Installation instructions
 
