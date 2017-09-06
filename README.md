@@ -15,7 +15,7 @@ This interactive tool is designed by the CLIx Mathematics Team and MIT, based on
 2. Arindam Bose
 3. Shweta 
 4. Saurabh Khanna
-5. Arati
+5. Arati Bapat
 
 #### MIT.
 
