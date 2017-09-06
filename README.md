@@ -39,7 +39,7 @@ Step 1:- To install the game you have to clone the git repository in you local c
     
 ```git clone https://github.com/Tdnshah/Ratio-Patterns.git```
     
-Step 2:- Unzip this folder and copy this in the root directory of your server.If you using apache in linux, then your root Directory would be at:- 
+Step 2:- Unzip this folder and copy it in the root directory of your server.If you using apache in linux, then your root Directory would be at:- 
 
 ```/var/www/html```
     
@@ -64,7 +64,7 @@ Step 1:- To install the game you have to clone the git repository in you local c
     
 ```git clone https://github.com/Tdnshah/Ratio-Patterns.git```
     
-Step 2:- Unzip this folder and copy this in the root directory of your server.If you using apache in linux, then your root Directory would be at:- 
+Step 2:- Unzip this folder and copy it in the root directory of your server.If you using apache in linux, then your root Directory would be at:- 
 
 ```/var/www/html```
     
