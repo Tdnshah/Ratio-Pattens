@@ -35,22 +35,22 @@ This interactive is purely developed using open source HTML5 & javascript game f
 Step 1:- To install the game you have to clone the git repository in you local computer. Type the commands to your terminal.
         (Preriqusite git software has to be installed in)
     
-    ``` git clone https://github.com/Tdnshah/Ratio-Patterns.git```
+    ```git clone https://github.com/Tdnshah/Ratio-Patterns.git
     
 Step 2:- Unzip this folder and copy this in the root directory of your server.If you using apache in linux, then your root Directory would be at:- 
 
-    ``` /var/www/html```
+    ```/var/www/html
     
 Or you can use brackets editor and open this folder in brackets and click on the electricity icon on the top right corner of your editor screen for live preview this will create a temporary local server for your development enviornment.
 
 Step 3:- This step is optional but recommended to change the permission of you direcctory to 755.To do so below is the command
 
-    ```chmod -R 755 /var/www/html/Ratio-Patterns```
+    ```chmod -R 755 /var/www/html/Ratio-Patterns
 
 Step 4:- Just visit the url of the server. If your are running a local server then the url will be 
     
-    ``` localhost:8080```
+    ``` localhost:8080
     
 If you are putting it on a live server then url will be 
 
-    ```http://example.com/name-of-directory-in-which-you-have-copied-the-repository```
+    ```http://example.com/name-of-directory-in-which-you-have-copied-the-repository
