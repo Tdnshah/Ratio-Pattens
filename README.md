@@ -1,6 +1,6 @@
 # Ratio-Patterns.
 
-![Ration-Patterns Game]()
+![Ration-Patterns Game](https://github.com/Tdnshah/Ratio-Patterns/blob/development/Screenshot%20from%202017-09-06%2015-11-21.png)
 
 Ratio Patterns is an activity based interactive tool, designed and developed by [Connected Learning Initiative (CLIx)](https://clix.tiss.edu).
 This interactive tool is designed by the CLIx Mathematics Team and MIT, based on the digital pedagogy concepts of Ratio and Proportions for high school students. This design was then converted into the digital tool by the CLIx technology team.This interactive consist of 6 Activities and is developed activity wise.
