@@ -19,7 +19,7 @@ This interactive tool is designed by the CLIx Mathematics Team and MIT, based on
 
 1. Scott
 
-#### Development Team
+### Development Team
 1. Ashwin Nagappa
 2. Tejas shah
 3. Tanvi Domadia
