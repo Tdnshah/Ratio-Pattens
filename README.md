@@ -64,3 +64,23 @@ If you are putting it on a live server then url will be
 Step 5:- Put the HTML Iframe in your code where you want to embed this tool. You can also embed this activity wise by just adding the url of the particular activity you want to embed. Below is the code for the same 
 
 ``` <iframe src="http://example.com/en/Activity1/" width="some pixels" height="somepixels"></iframe>```
+
+# Design Documentation 
+
+This tool(game) was designed during the MIT Design Camp held in 2016 November. The CLIx Maths Team and MIT Curriculum Team was involved in pedagogy behind the game and its conceptional design. 
+
+The concept of the game as designed in the MIT design camp was discussed with us CLIx TISS Technology Team and futher development of the scripting document and game development started under the guidance of Maths Team, Technology Team and Jaya and Jatshree maam.
+
+## Concept behind the game
+
+The game was designed to simplify the concept of Ratios and Proportions of high school mathematics.
+
+The idea was to use shapes and patterns and asking questions to enlarge or shrink the given shapes and patterns with some ratio by drawing the visually alike but enlarged or shrinked version of the given shape or pattern.
+
+# Future Scope 
+
+Their is a lot of scope in further development of this tool, presently this tool has limited set of activites and their is no scope of designing customised activities for teachers. Hence an authoring interface can be designed so that teachers can use this interface to design thei own activity and use their creativity to enhance learning objective of the tools. 
+
+Also we can make the game more interactive but adding scoring to its level so that i makes the tools more like game than a tool.
+
+
