@@ -1,52 +1,85 @@
-# Unplatform-Windows-Packaging
-This is the script for making the windows installer for Unplatform (CLIxModule) using a software named Inno Setup 
+# Ratio-Patterns.
 
-# Index
-1. Change Log
-2. Software requirements
-3. Script Execution guide. 
+![Ration-Patterns Game](https://github.com/Tdnshah/Ratio-Patterns/blob/development/Screenshot%20from%202017-09-06%2015-11-21.png)
 
-# Change Log 
+Ratio Patterns is an activity based interactive tool, designed and developed by [Connected Learning Initiative (CLIx)](https://clix.tiss.edu).
+This interactive tool is designed by the CLIx Mathematics Team and MIT, based on the digital pedagogy concepts of Ratio and Proportions for high school students. This design was then converted into the digital tool by the CLIx technology team.This interactive consist of 6 Activities and is developed activity wise. This activities are also available in two different Indian languages :- English,Hindi,Telgu.
 
- Date|Notes|By 
------------- | ------------- | -------------
-15/03/2017 | Scripting Execution Guide | Tejas.S
+## Contributors.
+    
+### Conceptualising and Designing.
 
-# Software Requirement
+#### CLIx Curriculum Team.
 
-* Inno Setup Compiler 
+1. Suchi 
+2. Arindam Bose
+3. Shweta 
+4. Saurabh Khanna
+5. Arati Bapat
 
-	* Download the Inno Setup Compiler at this [link](http://www.jrsoftware.org/isdl.php).
+#### MIT.
 
-* Inno script for making the windows clixmodules installer at this [link](https://drive.google.com/a/clixindia.org/file/d/0B8jO_EmBxRInQi1IMFA3RXAxZk0/view?usp=sharing).
+1. Scott Osterweil
 
-# Script Execution Guide:- 
+### Development Team
+1. Ashwin Nagappa
+2. [Tejas shah](https://github.com/Tdnshah)
+3. [Tanvi Domadia](https://github.com/tanvidom)
 
-* Step 1 :- Download the Inno Setup Compiler Software from the above given link.
+### Technology Behind the development.
 
-* Step 2 :- Download the script for packaging clixmodules for windows from the above given links
+This interactive is developed using open source HTML5 & javascript game framework named [Phaser](https://phaser.io/).
 
-* Step 3 :- Open the downloaded packaging script by double clicking on the script file.
+### How to install/embed this.
+ 
+## Standalone Installation instructions
 
-* Step 4:-  Find the following lines in the script and change the locations as per the location (file paths) to the clixmodules in your computer.
-	
-```
-[Setup]
-	
-	OutputDir=(Please put the path where you want the packaged output file is to be stored in your computer)
-	SetupIconFile=(Please give the path to the setup icon of the clixmodules square icon which is used exclusively for clixmodules setup files)
+Step 1:- To install the game you have to clone the git repository in you local computer. Type the commands to your terminal.
+        (Preriqusite git software has to be installed in)
+    
+```git clone https://github.com/Tdnshah/Ratio-Patterns.git```
+    
+Step 2:- Unzip this folder and copy it in the root directory of your server.If you using apache in linux, then your root Directory would be at:- 
 
-[Files]
-	
-	Source: (here set the path to the unplatform_win32_ssl.bat file in the clixmodule in your computer)
-	Source: (here set the path to the complete folder of the clixmodules /* defines all the files inside clixmodules)
-```
+```/var/www/html```
+    
+Or you can use brackets editor and open this folder in brackets and click on the electricity icon on the top right corner of your editor screen for live preview this will create a temporary local server for your development enviornment.
 
-* After Changing this files paths press on the green arrow (Run) button located on the top menu in the inno software. This will start the compiling and this will take
-a bit longer and time depends on the total size of the complete clixmodules.
+Step 3:- This step is optional but recommended to change the permission of you direcctory to 755.To do so below is the command
 
-* After completion of the compiling process the inno software will automatically run created .exe installer and test it.
+```chmod -R 755 /var/www/html/Ratio-Patterns```
 
-* If everything works well you will get the success message and clixmodule will be installed in you completed.
+Step 4:- Just visit the url of the server. If your are running a local server then the url will be 
+    
+``` localhost:8080```
+    
+If you are putting it on a live server then url will be 
 
-* Now to distrubute clixmodules you can file the clixmodules-setup.exe installer file at the location you mentioned in the [setup] outputdir section in the script.
+```http://example.com/name-of-directory-in-which-you-have-copied-the-repository```
+
+## Embeding in you WebProject Using Iframe
+
+1st to 4th steps as it is with the additional 5 step as given below. 
+
+Step 5:- Put the HTML Iframe in your code where you want to embed this tool. You can also embed this activity wise by just adding the url of the particular activity you want to embed. Below is the code for the same 
+
+``` <iframe src="http://example.com/en/Activity1/" width="some pixels" height="somepixels"></iframe>```
+
+# Design Documentation 
+
+This tool(game) was designed during the MIT Design Camp held in 2016 November. The CLIx Maths Team and MIT Curriculum Team was involved in pedagogy behind the game and its conceptional design. 
+
+The concept of the game as designed in the MIT design camp was discussed with us CLIx TISS Technology Team and futher development of the scripting document and game development started under the guidance of Maths Team, Technology Team and Jaya and Jatshree maam.
+
+## Concept behind the game
+
+The game was designed to simplify the concept of Ratios and Proportions of high school mathematics.
+
+The idea was to use shapes and patterns and asking questions to enlarge or shrink the given shapes and patterns with some ratio by drawing the visually alike but enlarged or shrinked version of the given shape or pattern.
+
+# Future Scope 
+
+Their is a lot of scope in further development of this tool, presently this tool has limited set of activites and their is no scope of designing customised activities for teachers. Hence an authoring interface can be designed so that teachers can use this interface to design thei own activity and use their creativity to enhance learning objective of the tools. 
+
+Also we can make the game more interactive but adding scoring to its level so that i makes the tools more like game than a tool.
+
