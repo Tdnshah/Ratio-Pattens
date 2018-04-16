@@ -1,0 +1,102 @@
+{
+    "activityLevel1Q1":{ 
+        "en":{
+            "questionText": "Scale up the given pattern so that it completely fills \nthe grid.The scaled up pattern must look exactly like \nthe original pattern but bigger.",
+            "instructionText":"Drag the green and red tiles over the grid to colour it.\nClick Submit to check your answer.",
+            "correctAnswerModalText1" : "Well done!",
+            "correctAnswerModalText2" : "You have scaled up the pattern correctly and \nsolved the puzzle!",
+            "correctAnswerModalText3" : "Click NEXT to continue.",
+            "incorrectAnswerModal<2attemptsText1":"Not quite right.",            
+            "incorrectAnswerModal<2attemptsText2":"Your pattern must:",
+            "incorrectAnswerModal<2attemptsText3":"Fill the grid completely.",
+            "incorrectAnswerModal<2attemptsText4":"2. Look like an enlarged version of the original pattern.",
+            "incorrectAnswerModal<2attemptsText5":"Click RESET to clear the grid and try again",
+            "incorrectAnswerModal>2attemptsText1":"Not quite right.",
+            "incorrectAnswerModal>2attemptsText2":"After scaling up the original pattern to fill the grid, \n it looks like this:",
+            "incorrectAnswerModal>2attemptsText3":"Click NEXT to continue."
+            
+            },
+         
+        
+        "hi":{
+            "questionText": "नीचे दिए गए पैटर्न को इस प्रकार बड़ा करें ताकि यह ग्रिड\nको पूरी तरह से भर दे।यह नया पैटर्न बिल्कुल मूल पैटर्न जैसा\nदिखना चाहिए, सिर्फ़ साईज़ बड़ा हो।",
+            "instructionText":"हरे और लाल रंगपट्टी से ग्रिड को भरें। अपने उत्तर की जांच\nके लिए सबमिट पर क्लिक करें।",
+            "correctAnswerModalText1" : "अच्छा किया!",
+            "correctAnswerModalText2" : "आपने सही तरीके से आकृति को बड़ा किया\nऔर पहेली को हल कर लिया है !",
+            "correctAnswerModalText3" : "जारी रखने के लिए अगला पर क्लिक करो। .",
+            "incorrectAnswerModal<2attemptsText1":"पूरा सही नहीं है।",            
+            "incorrectAnswerModal<2attemptsText2":"आपकी आकृति आवश्यक रूप से :",
+            "incorrectAnswerModal<2attemptsText3":"1.ग्रिड को पूरा भर दे। ",
+            "incorrectAnswerModal<2attemptsText4":"2.मूल आकृति के बड़े रूप जैसा दिखे।",
+            "incorrectAnswerModal<2attemptsText5":"ग्रिड को साफ करने के लिए दुबारा सजायें (रीसेट) पर क्लिक करे।",
+            "incorrectAnswerModal>2attemptsText1":"पूरी तरह से सही नहीं है",
+            "incorrectAnswerModal>2attemptsText2":"जब मूल आकृति को बड़ा किया जाता है और ग्रिड भर जाती है,\nतो वह ऐसी लगती है:",
+            "incorrectAnswerModal>2attemptsText3":"जारी रखने के लिए अगला पर क्लिक करें।"
+        },
+
+        "te":{
+            "questionText": "ఇవ్వబడిన ఆకారం సైజుని పెంచండి అలా పజిల్‌కి\nఆకుపచ్చ మరియు ఎరుపు టైల్స్ డ్రాగ్ చేసి మరియు డ్రాప్\nచేయడం ద్వారా పూర్తి చేయండి. స్కేలు పెంచిన ఆకారం\nఖచ్చితంగా ఒరిజినల్ ఆకారంలో ఉండాలి కానీ పెద్దగా ఉండాలి.",
+            "instructionText":"మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి.",
+            "correctAnswerModalText1" : "బాగా చేసారు!",
+            "correctAnswerModalText2" : "మీరు ఆకారం సైజుని సరిగా పెంచారు మరియు పజిల్‌ని సాధించారు!",
+            "correctAnswerModalText3" : "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
+            "incorrectAnswerModal<2attemptsText1":"సరియైనది కాదు. ",            
+            "incorrectAnswerModal<2attemptsText2":"మీ ఆకారం తప్పక:",
+            "incorrectAnswerModal<2attemptsText3":"1.గ్రిడ్‌ని పూర్తిగా నింపాలి. ",
+            "incorrectAnswerModal<2attemptsText4":"2.ఒరిజినల్ ఆకారానికి పెంచిన వెర్షన్ లాగా కనిపిస్తోంది.",
+            "incorrectAnswerModal<2attemptsText5":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
+            "incorrectAnswerModal>2attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModal>2attemptsText2":"గ్రిడ్‌ని  నింపడానికి ఒరిజినల్ ఆకారాన్ని తగ్గించిన తరువాత, ఇది ఇలా\nకనిపిస్తుంది:",
+            "incorrectAnswerModal>2attemptsText3":"కొనసాగడానికి  తరువాత క్లిక్ చేయండి."
+        }
+    }   ,
+
+    "activityLevel1Q2":{ 
+        "en":{
+            "questionText": "How many times scaled up is your pattern compared to \n the original one? ",
+            "instructionText":"Enter your answer in the form of a whole number and click Submit to check \nyour answer.",
+            "correctAnswerModalText1" : "Well done!",
+            "correctAnswerModalText2" : "The pattern created is 9 times bigger than the original\npattern,this means, each side is multiplied by a factor\nof 3.",
+            "correctAnswerModalText3" : "Therefore, the whole pattern is scaled up by a factor of 3",
+            "correctAnswerModalText4" : "Close the tab and proceed",
+            "incorrectAnswerModal<2attemptsText1":"Not quite right.",            
+            "incorrectAnswerModal<2attemptsText2":"Compare the size of the grid in the original \nand scaled up patterns. Try again!",
+            "incorrectAnswerModal<2attemptsText3":"Click TRY AGAIN to clear the grid and try again.",
+            "incorrectAnswerModal>2attemptsText1":"Not quite right.",
+            "incorrectAnswerModal>2attemptsText2":"The pattern created is 9 times bigger than the original\npattern, this means, each side is multiplied by a factor\nof 3.Therefore, the whole pattern is scaled up by a\nfactor of 3",
+            "incorrectAnswerModal>2attemptsText3":"Close the tab and proceed"
+            
+            },
+         
+        
+        "hi":{
+            "questionText": "आपकी बनायी आकृति मूल आकृति से कितना गुना स्केल अप\nकिया गया है ?",
+            "instructionText":"अपना उत्तर पूर्ण संख्या के रूप में एंटर करें और अपने उत्तर की जांच के \nलिए सबमिट पर क्लिक करें ।",
+            "correctAnswerModalText1" : "अच्छा किया !",
+            "correctAnswerModalText2" : "यह पैटर्न पहले पैटर्न से 9 गुणा बड़ा है, इसका मतलब,\nइसकी हरेक भुजा 3 गुणा बढ़ायी गयी है।",
+            "correctAnswerModalText3" : "अर्थात्, पूरे पैटर्न को 3 से स्केल अप किया गया है।",
+            "correctAnswerModalText4" : "आगे बढ़ने के लिए टैब को बंद करें|",
+            "incorrectAnswerModal<2attemptsText1":"पूरी तरह से सही नहीं है।",            
+            "incorrectAnswerModal<2attemptsText2":"ग्रिड के मूल साइज़ और बड़ी की गई आकृति के साइज़ की तुलना करें।\nफिर से प्रयास करें! ”",
+            "incorrectAnswerModal<2attemptsText3":"जारी रखने के लिए अगला पर क्लिक करो। .",
+            "incorrectAnswerModal>2attemptsText1":"पूरी तरह से सही नहीं है।",
+            "incorrectAnswerModal>2attemptsText2":"यह पैटर्न पहले पैटर्न से 9 गुणा बड़ा है,\nइसका मतलब, इसकी हरेक भुजा 3 गुणा बढ़ायी गयी है।\nअर्थात्, पूरे पैटर्न को 3 से स्केल अप किया गया है।",
+            "incorrectAnswerModal>2attemptsText3":"आगे बढ़ने के लिए टैब को बंद करें|"
+        },
+
+        "te":{
+            "questionText": "ఒరిజినల్ దానితో పోల్చినప్పుడు మీ ఆకారం ఎన్ని రెట్లు\nపెద్దగా ఉన్నది?",
+            "instructionText":"మీ జవాబుని పూర్ణ సంఖ్య రూపంలో నమోదు చేయండి మరియు మీ\nజవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి.",
+            "correctAnswerModalText1" : "బాగా చేసారు!",
+            "correctAnswerModalText2" : "మీరు తయారు చేసిన ఆకారం ఒరిజినల్ దానికన్నా\nమూడు రెట్లు పెద్దగా ఉన్నది.",
+            "correctAnswerModalText3" : "మీరు మీ ఆకారాన్ని కారకం 9 తో పెంచారని దీని అర్థం.",
+            "correctAnswerModalText4" : "టాబ్ను మూసివేసి ముందుకు సాగండి",
+            "incorrectAnswerModal<2attemptsText1":"సరియైనది కాదు. ",            
+            "incorrectAnswerModal<2attemptsText2":"ఒరిజినల్‌లో గ్రిడ్ సైజు మరియు స్కేలు పెంచిన ఆకారాన్ని పోల్చండి.\nమళ్ళీ ప్రయత్నించండి!”",
+            "incorrectAnswerModal<2attemptsText3":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి. ",
+            "incorrectAnswerModal>2attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModal>2attemptsText2":"మీరు  ఒరిజినల్ దాని కన్నా మూడు రెట్లు పెద్దగా ఉన్న ఆకారాన్ని తయారు\nచేయాలి. మీరు ఒరిజినల్ ఆకారాన్ని కారకం 9 తో స్కేలు పెంచాలి.",
+            "incorrectAnswerModal>2attemptsText3":"టాబ్ను మూసివేసి ముందుకు సాగండి"
+        }
+    }   
+}

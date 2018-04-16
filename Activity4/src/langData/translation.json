@@ -1,0 +1,97 @@
+{
+    "activityLevel1Q1":{ 
+        "en":{
+            "questionText": "Scale down the pattern by a factor of 2..",
+            "instructionText":"Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer.",
+            "correctAnswerModalText1" : "Good work!",
+            "correctAnswerModalText2" : "You have scaled up the pattern correctly and solved \nthe puzzle.You’re one step closer to winning the prize!",
+            "correctAnswerModalText3" : "Click NEXT to continue",
+            "incorrectAnswerModal<2attemptsText1":"You’re almost there!",            
+            "incorrectAnswerModal<2attemptsText2":"You have drawn the grid correctly,but your\npattern does not quite match the original pattern.",
+            "incorrectAnswerModal<2attemptsText3":"Click TRY AGAIN to clear the grid and try again",
+            "incorrectAnswerModal>2attemptsText1":"Not quite right.",
+            "incorrectAnswerModal>2attemptsText2":"When the original pattern is scaled up by a\nfactor of 2, it looks like this:",
+            "incorrectAnswerModal>2attemptsText3":"Click NEXT to continue",
+            "incorrectAnswerModalGrid1attemptsText1":"Not quite right.",
+            "incorrectAnswerModalGrid1attemptsText2":"The size of the grid you have drawn is incorrect.",
+            "incorrectAnswerModalGrid1attemptsText3":"You have to scale down the given pattern by a factor of 2.",
+            "incorrectAnswerModalGrid1attemptsText4":"Draw the grid again.",
+            "incorrectAnswerModalGrid1attemptsText5":"Click Reset to clear the grid and try again."
+            
+            },
+         
+        
+        "hi":{
+            "questionText": "दिए गए पैटर्न को 2 के गुणक में छोटा  करें।",
+            "instructionText":"उपयुक्त साईज़ का एक ग्रिड बनायें और उसमें दी गई आकृति\nको बनाने के लिए हरी और लाल पट्टी खींच कर ग्रिड में डालें।\nअपने उत्तर की जांच के लिए सबमिट पर क्लिक करें। ",
+            "correctAnswerModalText1" : "अच्छा कार्य !",
+            "correctAnswerModalText2" : "आपने सही तरीके से आकृति को छोटा किया और पहेली को हल\nकर लिया है।आप इनाम जीतने से एक कदम दूर हैं !",
+            "correctAnswerModalText3" : "जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
+            "incorrectAnswerModal<2attemptsText1":"आप निकट हैं !",            
+            "incorrectAnswerModal<2attemptsText2":"आपने ग्रिड सही तरीके से खींचा है, परंतु आप द्वारा\nतैयार की गई आकृति मूल आकृति से मेल नहीं खाती ।",
+            "incorrectAnswerModal<2attemptsText3":"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।",
+            "incorrectAnswerModal>2attemptsText1":"पूरी तरह से सही नहीं ",
+            "incorrectAnswerModal>2attemptsText2":"जब मूल आकृति को 2 के गुणक से घटाया जाता है, तो यह इस\nप्रकार दिखता है :",
+            "incorrectAnswerModal>2attemptsText3":"जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
+            "incorrectAnswerModalGrid1attemptsText1":"पूरी तरह से सही नहीं ",
+            "incorrectAnswerModalGrid1attemptsText2":"आप द्वारा खींची गई आकृति का साइज़ गलत है।",
+            "incorrectAnswerModalGrid1attemptsText3":"आपको आकृति का साइज़ 2 के गुणक से घटाना  है।",
+            "incorrectAnswerModalGrid1attemptsText4":"ग्रिड फिर से खींचें ।",
+            "incorrectAnswerModalGrid1attemptsText5":"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।"
+        },
+
+        "te":{
+            "questionText": "క్రింద ఇవ్వబడిన ఆకారాన్ని ఆకుపచ్చ మరియు ఎరుపు టైల్\nస్ ని గ్రిడ్‌లో డ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా కారకం 2\nతో స్కేలు తగ్గించండి.",
+            "instructionText":"మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి.",
+            "correctAnswerModalText1" : "మంచి పని!",
+            "correctAnswerModalText2" : "మీరు ఆకారం సైజుని సరిగా తగ్గించారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు ఒక అడుగు సమీపంలో ఉన్నారు!",
+            "correctAnswerModalText3" : "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
+            "incorrectAnswerModal<2attemptsText1":"మీరు దాదాపు చేసారు!",            
+            "incorrectAnswerModal<2attemptsText2":"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన\nఆకారం ఒరిజినల్ ఆకారంతో జతకాలేదు.",
+            "incorrectAnswerModal<2attemptsText3":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
+            "incorrectAnswerModal>2attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModal>2attemptsText2":"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు తగ్గించినప్పుడు, ఇది ఇలా ఉంటుంది:",
+            "incorrectAnswerModal>2attemptsText3":"కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
+            "incorrectAnswerModalGrid1attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModalGrid1attemptsText2":"మీరు గీసిన గ్రిడ్ సైజు సరికాదు. ఇవ్వబడిన ఆకారాన్ని మీరు\nకారకం 2 తో స్కేలు తగ్గించాలి. మళ్ళీ గ్రిడ్‌ని గీయండి",
+            "incorrectAnswerModalGrid1attemptsText3":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి."
+      
+        }
+    }   ,
+
+    "activityLevel1Q2":{ 
+        "en":{
+            "questionText": "Compare the original and the scaled up pattern and\ncomplete the table below.  ",
+            "instructionText":"Enter your answers in the form of whole numbers and \nclick Submit to check your answers.",
+            "correctAnswerModalText1" : "Well done!",
+            "correctAnswerModalText2" : "You have correctly calculated the number of green \nand red tiles in both patterns.",
+            "correctAnswerModalText3" : "Close the tab and proceed",
+            "incorrectAnswerModal<2attemptsText1":"Not quite right.",            
+            "incorrectAnswerModal<2attemptsText2":"The original pattern has 8 red tile and 56 green tiles.\nThe scaled pattern has 2 red tiles and 14 green tiles.",
+            "incorrectAnswerModal<2attemptsText3":"Close the tab and proceed"           
+            },
+         
+        
+        "hi":{
+            "questionText": "मूल और छोटी की गई आकृतियों की तुलना करें और नीचे \nदी गई सारणी को पूरा करें। ",
+            "instructionText":"अपना उत्तर पूर्ण संख्या के रूप में एंटर करें और अपने उत्तर की \nजांच के लिए सबमिट पर क्लिक करें । ",
+            "correctAnswerModalText1" : "अच्छा किया !",
+            "correctAnswerModalText2" : "आपने दोनों आकृतियों में हरी और लाल पट्टियों की संख्या\nकी गणना सही की है।",
+            "correctAnswerModalText3" : "आगे बढ़ने के लिए टैब को बंद करें|",
+            "incorrectAnswerModal<2attemptsText1":"पूरी तरह से सही नहीं है।",            
+            "incorrectAnswerModal<2attemptsText2":"मूल आकृति में 8 लाल और 56 हरी पट्टियाँ हैं।\nबड़ी हुई आकृति में 2 लाल और 14 हरी पट्टियाँ हैं। ",
+            "incorrectAnswerModal<2attemptsText3":"आगे बढ़ने के लिए टैब को बंद करें|"
+        },
+
+        "te":{
+            "questionText": "ఒరిజినల్‌తో  స్కేలు పెంచిన ఆకారాన్ని పొల్చండి మరియు క్రింది\nపట్టికను పూర్తి చేయండి.",
+            "instructionText":"మీ జవాబుని పూర్ణ సంఖ్య రూపంలో నమోదు చేయండి\nమరియు మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్\nక్లిక్ చేయండి",
+            "correctAnswerModalText1" : "బాగా చేసారు!",
+            "correctAnswerModalText2" : "రెండు ఆకారాలలోనూ మీరు ఆకుపచ్చ మరియు\nఎరుపు టైల్స్ ని సరిగా లెక్కించారు.",
+            "correctAnswerModalText3" : "టాబ్ను మూసివేసి ముందుకు సాగండి",
+            "incorrectAnswerModal<2attemptsText1":"సరియైనది కాదు.",            
+            "incorrectAnswerModal<2attemptsText2":"ఒరిజినల్ ఆకారంలో 8 ఎరుపు టైల్స్ మరియు 56 ఆకుపచ్చ టైల్స్ ఉన్నాయి.\nస్కేలు చేసిన ఆకారంలో 2 ఎరుపు టైల్స్ మరియు 14 ఆకుపచ్చ టైల్స్ ఉన్నాయి.",
+            "incorrectAnswerModal<2attemptsText3":"టాబ్ను మూసివేసి ముందుకు సాగండి"
+        }
+    }   
+}
