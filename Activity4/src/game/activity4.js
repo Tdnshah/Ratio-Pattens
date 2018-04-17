@@ -971,6 +971,7 @@ activity4.prototype = {
 		columns = 0;
 		studentInputArray = []
 		winningSound2.stop();
+		gameEndTime = new Date();
 		activityLevel1['Level1EndTime'] = gameEndTime.getFullYear() + "-" + gameEndTime.getMonth() + "-" + gameEndTime.getDate()+":"+gameEndTime.getHours()+":"+gameEndTime.getMinutes()+":"+gameEndTime.getSeconds();
 		activityLevel1['attempts'] = attempts;
 		attempts = {};

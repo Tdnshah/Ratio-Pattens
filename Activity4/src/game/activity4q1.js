@@ -595,7 +595,7 @@ activity4q1.prototype = {
 
 	dataPost: function(){
 	
-		gameEndTime = new Date().toString();
+		gameEndTime = new Date();
 		activityLevel2['Level2EndTime']=gameEndTime.getFullYear() + "-" + gameEndTime.getMonth() + "-" + gameEndTime.getDate()+":"+gameEndTime.getHours()+":"+gameEndTime.getMinutes()+":"+gameEndTime.getSeconds();
 		activityLevel2['attempts']=attempts;
 		appData['Activity4Q1'] = activityLevel1;

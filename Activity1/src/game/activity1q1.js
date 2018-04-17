@@ -9,7 +9,6 @@ var inCorrectFeedbackTextAttempt2q2 = "Not quite right.\n You have to create a p
 
 var activityLevel2 = {
 	activityQuestionNo : 2,
-	Level2StartTime:gameEndTime.getFullYear() + "-" + gameEndTime.getMonth() + "-" + gameEndTime.getDate()+":"+gameEndTime.getHours()+":"+gameEndTime.getMinutes()+":"+gameEndTime.getSeconds(),
 }
 
 /* rev2.0 Code ended */

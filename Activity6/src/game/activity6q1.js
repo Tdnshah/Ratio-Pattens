@@ -485,8 +485,8 @@ activity6q1.prototype = {
 		gameEndTime = new Date();
 		activityLevel2['Level2EndTime']=gameEndTime.getFullYear() + "-" + gameEndTime.getMonth() + "-" + gameEndTime.getDate()+":"+gameEndTime.getHours()+":"+gameEndTime.getMinutes()+":"+gameEndTime.getSeconds();
 		activityLevel2['attempts']=attempts;
-		appData['Activity2Q1'] = activityLevel1;
-		appData['Activity2Q2'] = activityLevel2;
+		appData['Activity6Q1'] = activityLevel1;
+		appData['Activity6Q2'] = activityLevel2;
 		appData['eventType'] = 'Stage End';
 		appData['gameOverallEndTime'] = gameEndTime.getFullYear() + "-" + gameEndTime.getMonth() + "-" + gameEndTime.getDate()+":"+gameEndTime.getHours()+":"+gameEndTime.getMinutes()+":"+gameEndTime.getSeconds();
 		data.Reporter.submitData('url',appData);
