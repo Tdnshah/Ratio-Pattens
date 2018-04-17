@@ -1,0 +1,59 @@
+{
+    "activityLevel1Q1":{ 
+        "en":{
+            "questionText": "Scale up the pattern given below by a factor of 2.",
+            "instructionText":"Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer.",
+            "correctAnswerModalText1" : "Well done!",
+            "correctAnswerModalText2" : "You have scaled up the pattern correctly and \nsolved the puzzle.",
+            "correctAnswerModalText3" : "Close the tab and proceed.",
+            "incorrectAnswerModal<2attemptsText1":"You’re close!",            
+            "incorrectAnswerModal<2attemptsText2":"You have drawn the grid correctly, but your\npattern does not quite match the original.",
+            "incorrectAnswerModal<2attemptsText3":"Click TRY AGAIN to clear the grid and try again",
+            "incorrectAnswerModal>2attemptsText1":"Not quite right.",
+            "incorrectAnswerModal>2attemptsText2":"After scaling up the original pattern to fill the grid, \n it looks like this:",
+            "incorrectAnswerModal>2attemptsText3":"Close the tab and proceed",
+            "incorrectAnswerModalGrid1attemptsText1":"Not quite right.",
+            "incorrectAnswerModalGrid1attemptsText2":"The size of the grid you have drawn is incorrect.",
+            "incorrectAnswerModalGrid1attemptsText3":"Remember, you have to scale up the given pattern by\n a factor of 2,so your grid should be drawn accordingly.",
+            "incorrectAnswerModalGrid1attemptsText4":"Click Reset to clear the grid and try again."
+            
+            },
+         
+        
+        "hi":{
+            "questionText": "नीचे दिए गए पैटर्न को 2 के गुणक से बड़ा करें।",
+            "instructionText":"अपने उत्तर की जांच के लिए सबमिट पर क्लिक करें।",
+            "correctAnswerModalText1" : "अच्छा किया !",
+            "correctAnswerModalText2" : "आपने सही तरीके से आकृति को बड़ा किया और पहेली को सुलझाया!",
+            "correctAnswerModalText3" : "आगे बढ़ने के लिए टैब को बंद करें|",
+            "incorrectAnswerModal<2attemptsText1":"आप सही उत्तर के निकट हैं!",            
+            "incorrectAnswerModal<2attemptsText2":"आपने ग्रिड सही तरीके से खींचा है, परंतु आपके द्वारा \nतैयार की गई आकृति मूल आकृति से मेल नहीं खाती ।",
+            "incorrectAnswerModal<2attemptsText3":"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करें।",
+            "incorrectAnswerModal>2attemptsText1":"पूरी तरह से सही नहीं है।",
+            "incorrectAnswerModal>2attemptsText2":"Aजब मूल आकृति को 2 के गुणक से बड़ा किया जाता है, तो वह \nऐसी लगती है:",
+            "incorrectAnswerModal>2attemptsText3":"आगे बढ़ने के लिए टैब को बंद करें|",
+            "incorrectAnswerModalGrid1attemptsText1":"पूरी तरह से सही नहीं है।",
+            "incorrectAnswerModalGrid1attemptsText2":"आप द्वारा खींची गई आकृति का साइज़ गलत है।",
+            "incorrectAnswerModalGrid1attemptsText3":" याद रखें, आपको आकृति का साइज़ 2 के गुणक से \nबढ़ाना है,अत: आपको इसी के अनुरूप ग्रिड खींचना चाहिए।",
+            "incorrectAnswerModalGrid1attemptsText4":"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।"
+        },
+
+        "te":{
+            "questionText": "క్రింద ఇవ్వబడిన ఆకారాన్ని ఆకుపచ్చ మరియు ఎరుపు\nటైల్స్ గ్రిడ్‌లో డ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా\nకారకం 2 తో స్కేలు పెంచండి",
+            "instructionText":"మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి.",
+            "correctAnswerModalText1" : "బాగా చేసారు!",
+            "correctAnswerModalText2" : "మీరు ఆకారం సైజుని సరిగా పెంచారు మరియు పజిల్‌ని సాధించారు.",
+            "correctAnswerModalText3" : "టాబ్ను మూసివేసి ముందుకు సాగండి",
+            "incorrectAnswerModal<2attemptsText1":"మీరు సమీపంగా ఉన్నారు!",            
+            "incorrectAnswerModal<2attemptsText2":"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన ఆకారం ఒరిజినల్‌తో\nసరిగా జతకాలేదు.",
+            "incorrectAnswerModal<2attemptsText3":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
+            "incorrectAnswerModal>2attemptsText1":"సరియైనది కాదు.సరియైనది కాదు.",
+            "incorrectAnswerModal>2attemptsText2":"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు పెంచినప్పుడు, ఇది ఇలా ఉంటుంది:",
+            "incorrectAnswerModal>2attemptsText3":"టాబ్ను మూసివేసి ముందుకు సాగండి",
+            "incorrectAnswerModalGrid1attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModalGrid1attemptsText2":"మీరు గీసిన గ్రిడ్ సైజు సరికాదు.",
+            "incorrectAnswerModalGrid1attemptsText3":" గుర్తుంచుకోండి, ఇవ్వబడిన ఆకారాన్ని కారం 2తో\nస్కేలు పెంచాలి,కావున మీ గ్రిడ్ దాని ప్రకారం గీయాలి.",
+            "incorrectAnswerModalGrid1attemptsText4":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి."
+        }
+    }    
+}

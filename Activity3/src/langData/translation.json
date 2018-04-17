@@ -1,0 +1,96 @@
+{
+    "activityLevel1Q1":{ 
+        "en":{
+            "questionText": "Scale up the pattern given below by a factor of 2.",
+            "instructionText":"Draw the grid. Then drag the green and red tiles \nover the grid to colour it. Click Submit to check \nyour answer.",
+            "correctAnswerModalText1" : "Good work!",
+            "correctAnswerModalText2" : "You have scaled up the pattern correctly and solved \nthe puzzle.You’re one step closer to winning the prize!",
+            "correctAnswerModalText3" : "Click NEXT to continue",
+            "incorrectAnswerModal<2attemptsText1":"You’re close!",            
+            "incorrectAnswerModal<2attemptsText2":"You have drawn the grid correctly, but your\npattern does not quite match the original.",
+            "incorrectAnswerModal<2attemptsText3":"Click TRY AGAIN to clear the grid and try again",
+            "incorrectAnswerModal>2attemptsText1":"Not quite right.",
+            "incorrectAnswerModal>2attemptsText2":"When the original pattern is scaled up by a\nfactor of 2, it looks like this:",
+            "incorrectAnswerModal>2attemptsText3":"Click NEXT to continue",
+            "incorrectAnswerModalGrid1attemptsText1":"Not quite right.",
+            "incorrectAnswerModalGrid1attemptsText2":"The size of the grid you have drawn is incorrect.",
+            "incorrectAnswerModalGrid1attemptsText3":"Remember, you have to scale up the given pattern by\n a factor of 2,so your grid should be drawn accordingly.",
+            "incorrectAnswerModalGrid1attemptsText4":"Click Reset to clear the grid and try again."
+            
+            },
+         
+        
+        "hi":{
+            "questionText": "नीचे दिए गए पैटर्न को 2 के गुणक में बड़ा करें।",
+            "instructionText":"अपने उत्तर की जांच के लिए सबमिट पर क्लिक करें।",
+            "correctAnswerModalText1" : "अच्छा कार्य !",
+            "correctAnswerModalText2" : "आपने सही तरीके से आकृति को बड़ा किया और पहेली\nको हल कर लिया है। आप इनाम जीतने से एक कदम दूर हैं !",
+            "correctAnswerModalText3" : "जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
+            "incorrectAnswerModal<2attemptsText1":"आप बिलकुल पास हैं !",            
+            "incorrectAnswerModal<2attemptsText2":"आपने ग्रिड सही तरीके से खींचा है, परंतु आप द्वारा \nतैयार की गई आकृति मूल आकृति से मेल नहीं खाती । ",
+            "incorrectAnswerModal<2attemptsText3":"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।",
+            "incorrectAnswerModal>2attemptsText1":"पूरी तरह से सही नहीं है।",
+            "incorrectAnswerModal>2attemptsText2":"जब मूल आकृति को 2 के गुणक से बढ़ाया जाता है, तो \nयह इस प्रकार दिखती है :",
+            "incorrectAnswerModal>2attemptsText3":"जारी रखने के लिए नेक्स्ट पर क्लिक करो।",
+            "incorrectAnswerModalGrid1attemptsText1":"पूरी तरह से सही नहीं है।",
+            "incorrectAnswerModalGrid1attemptsText2":"आप द्वारा खींची गई आकृति का साइज़ गलत है।",
+            "incorrectAnswerModalGrid1attemptsText3":" आपको आकृति का साइज़ 2 के गुणक\nसे बढ़ान है।ग्रिड फिर से खींचें ।",
+            "incorrectAnswerModalGrid1attemptsText4":"ग्रिड को साफ करने के लिए रीसेट पर क्लिक करे।"
+            
+        },
+
+        "te":{
+            "questionText": "క్రింద ఇవ్వబడిన ఆకారాన్ని ఆకుపచ్చ మరియు ఎరుపు టైల్స్\nగ్రిడ్‌లో డ్రాగ్ చేసి మరియు డ్రాప్ చేయడం ద్వారా కారకం\n2 తో స్కేలు పెంచండి",
+            "instructionText":"మీ జవాబు సరైందో కాదో చూసుకొనుటకు సబ్మిట్ క్లిక్ చేయండి.।",
+            "correctAnswerModalText1" : "మంచి పని!",
+            "correctAnswerModalText2" : "మీరు ఆకారం సైజుని సరిగా పెంచారు మరియు పజిల్‌ని సాధించారు.\nబహుమతిని గెలవడానికి మీరు ఒక అడుగు సమీపంలో ఉన్నారు!",
+            "correctAnswerModalText3" : "కొనసాగడానికి  తరువాత క్లిక్ చేయండి.",
+            "incorrectAnswerModal<2attemptsText1":"మీరు దాదాపు చేసారు!",            
+            "incorrectAnswerModal<2attemptsText2":"మీరు గ్రిడ్‌ని సరిగా గీసారు, కానీ మీరు చేసిన ఆకారం\nఒరిజినల్ ఆకారంతో సరిగా జతకాలేదు. ",
+            "incorrectAnswerModal<2attemptsText3":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి.",
+            "incorrectAnswerModal>2attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModal>2attemptsText2":"ఒరిజినల్ ఆకారం కారకం 2 తో స్కేలు పెంచినప్పుడు, ఇది ఇలా ఉంటుంది:",
+            "incorrectAnswerModal>2attemptsText3":"కొనసాగడానికి  తరువాత క్లిక్ చేయండి",
+            "incorrectAnswerModalGrid1attemptsText1":"సరియైనది కాదు.",
+            "incorrectAnswerModalGrid1attemptsText2":"మీరు గీసిన గ్రిడ్ సైజు సరికాదు.",
+            "incorrectAnswerModalGrid1attemptsText3":" ఇవ్వబడిన ఆకారాన్ని కారం 2తో స్కేలు పెంచాలి,\nకావున గ్రిడ్‌ని దాని ప్రకారం గీయండి.",
+            "incorrectAnswerModalGrid1attemptsText4":"గ్రిడ్ క్లియర్ చేసి మరియు మళ్ళీ ప్రయత్నించడానికి రీసెట్ క్లిక్  చేయండి."
+        }
+    }   ,
+
+    "activityLevel1Q2":{ 
+        "en":{
+            "questionText": "Compare the original and the scaled up pattern and\ncomplete the table below.  ",
+            "instructionText":"Enter your answers in the form of whole numbers and \nclick Submit to check your answers.",
+            "correctAnswerModalText1" : "Well done!",
+            "correctAnswerModalText2" : "You have correctly calculated the number of green \nand red tiles in both patterns.",
+            "correctAnswerModalText3" : "Close the tab and proceed",
+            "incorrectAnswerModal<2attemptsText1":"Not quite right.",            
+            "incorrectAnswerModal<2attemptsText2":"The original pattern has 1 red tile and 8 green tiles.\nThe scaled pattern has 4 red tiles and 32 green tiles.",
+            "incorrectAnswerModal<2attemptsText3":"Close the tab and proceed"           
+            },
+         
+        
+        "hi":{
+            "questionText": "आपकी बनायी आकृति मूल आकृति से कितना गुना बड़ी है ?  ",
+            "instructionText":"अपना उत्तर पूर्ण संख्या के रूप में एंटर करें और\nअपने उत्तर की जांच के लिए सबमिट पर क्लिक करें ।",
+            "correctAnswerModalText1" : "अच्छा किया !",
+            "correctAnswerModalText2" : "आपने दोनों आकृतियों में हरी और लाल टाइलों\nकी संख्या की गणना सही की है।",
+            "correctAnswerModalText3" : "आगे बढ़ने के लिए टैब को बंद करें|",
+            "incorrectAnswerModal<2attemptsText1":"पूरी तरह से सही नहीं है।",            
+            "incorrectAnswerModal<2attemptsText2":"मूल आकृति में 1 लाल और 8 हरी पट्टी हैं ।\n बढ़ी हुई आकृति में 4 लाल और 32 हरी पट्टी हैं।",
+            "incorrectAnswerModal<2attemptsText3":"आगे बढ़ने के लिए टैब को बंद करें|"
+        },
+
+        "te":{
+            "questionText": "ఒరిజినల్‌తో  స్కేలు పెంచిన ఆకారాన్ని పొల్చండి మరియు\nక్రింది పట్టికను పూర్తి చేయండి. ",
+            "instructionText":"మీ జవాబుని పూర్ణ సంఖ్య రూపంలో నమోదు చేయండి\nమరియు మీ జవాబు సరైందోకాదో చూసుకొనుటకు సబ్మిట్\nక్లిక్ చేయండి",
+            "correctAnswerModalText1" : "బాగా చేసారు!",
+            "correctAnswerModalText2" : "రెండు ఆకారాలలోనూ మీరు ఆకుపచ్చ మరియు\nఎరుపు టైల్స్ సరిగా లెక్కించారు.",
+            "correctAnswerModalText3" : "టాబ్ను మూసివేసి ముందుకు సాగండి",
+            "incorrectAnswerModal<2attemptsText1":"సరియైనది కాదు.",            
+            "incorrectAnswerModal<2attemptsText2":"ఒరిజినల్ ఆకారంలో 1 ఎరుపు టైల్ మరియు 8 ఆకుపచ్చ టైల్స్\nఉన్నాయి.స్కేలు పెంచిన ఆకారంలో 4 ఎరుపు టైల్\nమరియు 32 ఆకుపచ్చ టైల్స్ ఉన్నాయి.",
+            "incorrectAnswerModal<2attemptsText3":"కొనసాగడానికి  తరువాత క్లిక్ చేయండి."
+        }
+    }   
+}
