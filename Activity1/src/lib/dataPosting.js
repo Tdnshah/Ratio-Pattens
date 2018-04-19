@@ -51,8 +51,8 @@ var gameReporter = gameReporter || {};
 			data_string['language'] = language
 			data_string['appData'] = data;
 			console.log(data_string);
-			// for (var key in data) {data_string[key] = data[key];};
-			data_string = JSON.stringify(data_string);
+			
+			var data_string = JSON.stringify(data_string);
 			console.log(data_string)
 
 

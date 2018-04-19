@@ -427,50 +427,55 @@ activity1q1.prototype = {
 	onSubmit: function(){
 		if (input.value == 3){
 			attemptCount ++;
-			this.showModalCorrectAttempt();
 			/*rev 2.0 code*/
 			var attempt = {};
 			attempt['attemptNo'] = attemptCount;
 			attempt['correctAnswer'] = (input.value == 3);
 			attempt['StudentInputAnswer'] = input.value;
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModalCorrectAttempt();
+			
 			// console.log(activityLevel);
 			/*rev 2.0 code ended*/
 		}
 		else if (input.value != 3 && attemptCount < 2){
 			attemptCount ++;
-			this.showModal_InCorrectAttempt_Lessthan_2();
 			/*rev 2.0 code*/
 			var attempt = {};
 			attempt['attemptNo'] = attemptCount;
 			attempt['correctAnswer'] = (input.value == 3);
 			attempt['StudentInputAnswer'] = input.value;
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModal_InCorrectAttempt_Lessthan_2();
+			
 		
 			/*rev 2.0 code ended*/
 		}
 		else if(input.value != 3 && attemptCount >= 2){
 			attemptCount ++;
-			this.showModal_InCorrectAttempt_Morethan_2();
 			/*rev 2.0 code*/
 			var attempt = {};
 			attempt['attemptNo'] = attemptCount;
 			attempt['correctAnswer'] = (input.value == 3);
 			attempt['StudentInputAnswer'] = input.value;
 			attempts['attempt'+attemptCount]=attempt;
-		
+			this.showModal_InCorrectAttempt_Morethan_2();
+			
+			
 			/*rev 2.0 code ended*/
 		}
+		
 	},
 	
 	onReset: function () {		
 		this.state.start('activity1q1')
 	},
-
-	dataPost: function(){
 	
+	dataPost: function(){
+		
 		gameEndTime = new Date();
 		activityLevel2['Level2EndTime']=gameEndTime.getFullYear() + "-" + gameEndTime.getMonth() + "-" + gameEndTime.getDate()+":"+gameEndTime.getHours()+":"+gameEndTime.getMinutes()+":"+gameEndTime.getSeconds();
+		attempts['attempt-t']='attempt';
 		activityLevel2['attempts']=attempts;
 		appData['Activity1Q1'] = activityLevel1;
 		appData['Activity1Q2'] = activityLevel2;

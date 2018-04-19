@@ -536,7 +536,6 @@ activity4q1.prototype = {
 	
 	onSubmit: function(){
 		if (input1.value == 56 && input2.value == 8 && input3.value == 14 && input4.value == 2){
-			this.showModalCorrectAttempt();
 			/*rev 2.0 code*/
 			var attempt = {};
 			attempt['attemptNo'] = attemptCount;
@@ -546,13 +545,13 @@ activity4q1.prototype = {
 			attempt['StudentInputAnswer3'] = input3.value;
 			attempt['StudentInputAnswer4'] = input4.value;
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModalCorrectAttempt();
 			// console.log(activityLevel);
 			/*rev 2.0 code ended*/
 		}
 		else if (input1.value != 56 || input2.value != 8 || input3.value != 14 || input4.value != 2){
 			if(attemptCount < 1){
 				attemptCount ++;
-				this.showModal_InCorrectAttempt_Lessthan_2();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -562,6 +561,7 @@ activity4q1.prototype = {
 				attempt['StudentInputAnswer3'] = input3.value;
 				attempt['StudentInputAnswer4'] = input4.value;
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Lessthan_2();
 				// console.log(activityLevel);
 				/*rev 2.0 code ended*/
 				}

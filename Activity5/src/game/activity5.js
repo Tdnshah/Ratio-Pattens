@@ -867,7 +867,6 @@ activity5.prototype = {
 		if (rows == gridAnswerRows && columns == gridAnswerColumns){
 			if (this.arraysIdentical(studentInputArray, correctAnswer) == true) {
 				attemptCount++;
-				this.showModalCorrectAttempt();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -878,12 +877,12 @@ activity5.prototype = {
 				attempt["answerGridCorrect"] = (rows == gridAnswerRows && columns == gridAnswerColumns);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModalCorrectAttempt();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
 			else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount < 2) {
 				attemptCount++;
-				this.showModal_InCorrectAttempt_Lessthan_2();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -894,11 +893,11 @@ activity5.prototype = {
 				attempt["answerGridCorrect"] = (rows == gridAnswerRows && columns == gridAnswerColumns);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Lessthan_2();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
 			else {
-				this.showModal_InCorrectAttempt_Morethan_2();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -909,6 +908,7 @@ activity5.prototype = {
 				attempt["answerGridCorrect"] = (rows == gridAnswerRows && columns == gridAnswerColumns);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Morethan_2();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
@@ -916,7 +916,6 @@ activity5.prototype = {
 		else if (rows != gridAnswerRows || columns != gridAnswerColumns){
 			if(attemptCount < 2){
 				attemptCount ++
-				this.showModalIncorrectGridAnswerAttempt1();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -927,12 +926,12 @@ activity5.prototype = {
 				attempt["answerGridCorrect"] = (rows == gridAnswerRows && columns == gridAnswerColumns);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModalIncorrectGridAnswerAttempt1();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
 			else{
 				attemptCount ++
-				this.showModal_InCorrectAttempt_Morethan_2();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -943,6 +942,7 @@ activity5.prototype = {
 				attempt["answerGridCorrect"] = (rows == gridAnswerRows && columns == gridAnswerColumns);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Morethan_2();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}

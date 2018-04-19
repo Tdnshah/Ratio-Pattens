@@ -427,18 +427,17 @@ activity6q1.prototype = {
 		studentsAnswer = input.value;
 		if (studentsAnswer == actualAnswer){
 			attemptCount ++;
-			this.showModalCorrectAttempt();
 			/*rev 2.0 code*/
 			var attempt = {};
 			attempt['attemptNo'] = attemptCount;
 			attempt['correctAnswer'] = (studentsAnswer == actualAnswer);
 			attempt['StudentInputAnswer'] =studentsAnswer;
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModalCorrectAttempt();
 			// console.log(activityLevel);
 			/*rev 2.0 code ended*/
 		}
 		else if (input.value != 2/3 && attemptCount < 2){
-			this.showModal_InCorrectAttempt_Lessthan_2();
 			attemptCount ++;
 			/*rev 2.0 code*/
 			var attempt = {};
@@ -446,18 +445,19 @@ activity6q1.prototype = {
 			attempt['correctAnswer'] = (studentsAnswer == actualAnswer);
 			attempt['StudentInputAnswer'] = studentsAnswer;
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModal_InCorrectAttempt_Lessthan_2();
 			// console.log(activityLevel);
 			/*rev 2.0 code ended*/
 		}
 		else if(input.value != 2/3 && attemptCount >= 2){
 			attemptCount ++
-			this.showModal_InCorrectAttempt_Morethan_2();
 			/*rev 2.0 code*/
 			var attempt = {};
 			attempt['attemptNo'] = attemptCount;
 			attempt['correctAnswer'] = (studentsAnswer == actualAnswer);
 			attempt['StudentInputAnswer'] =studentsAnswer;
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModal_InCorrectAttempt_Morethan_2();
 			// console.log(activityLevel);
 			/*rev 2.0 code ended*/
 		}

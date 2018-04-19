@@ -898,7 +898,6 @@ activity2.prototype = {
 		if (rows == 2 && columns == 6){
 			if (this.arraysIdentical(studentInputArray, correctAnswer) == true) {
 				attemptCount++;
-				this.showModalCorrectAttempt();
 				console.log("tested == true correct in 1st attempt");
 				/*rev 2.0 code*/
 				var attempt = {};
@@ -910,12 +909,12 @@ activity2.prototype = {
 				attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModalCorrectAttempt();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
 			else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount < 2) {
 				attemptCount++;
-				this.showModal_InCorrectAttempt_Lessthan_2();
 				console.log("tested == true incorrect attempt" + attemptCount)
 				/*rev 2.0 code*/
 				var attempt = {};
@@ -927,12 +926,12 @@ activity2.prototype = {
 				attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Lessthan_2();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
 			else {
 				attemptCount ++
-				this.showModal_InCorrectAttempt_Morethan_2();
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -943,31 +942,15 @@ activity2.prototype = {
 				attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Morethan_2();
 				console.log(attempts);
 				/*rev 2.0 code ended*/
 			}
 		}
 		else if (rows != 2 || columns != 6){
 			if(attemptCount < 2){
-			this.showModalIncorrectGridAnswerAttempt1();
-			attemptCount ++
-			console.log("tested == true grid wrong" + attemptCount)
-			/*rev 2.0 code*/
-			var attempt = {};
-			attempt['attemptNo'] = attemptCount;
-			attempt['correctAnswer'] = this.arraysIdentical(studentInputArray, correctAnswer);
-			attempt['No Of Rows'] = rows;
-			attempt['No Of Colums'] = columns;
-			attempt["answerPatternCorrect"] = this.arraysIdentical(studentInputArray, correctAnswer);
-			attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
-			attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
-			attempts['attempt'+attemptCount]=attempt;
-			console.log(attempts);
-			/*rev 2.0 code ended*/
-			}
-			else {
 				attemptCount ++
-				this.showModal_InCorrectAttempt_Morethan_2();
+				console.log("tested == true grid wrong" + attemptCount)
 				/*rev 2.0 code*/
 				var attempt = {};
 				attempt['attemptNo'] = attemptCount;
@@ -978,6 +961,23 @@ activity2.prototype = {
 				attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
 				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 				attempts['attempt'+attemptCount]=attempt;
+				this.showModalIncorrectGridAnswerAttempt1();
+				console.log(attempts);
+			/*rev 2.0 code ended*/
+			}
+			else {
+				attemptCount ++
+				/*rev 2.0 code*/
+				var attempt = {};
+				attempt['attemptNo'] = attemptCount;
+				attempt['correctAnswer'] = this.arraysIdentical(studentInputArray, correctAnswer);
+				attempt['No Of Rows'] = rows;
+				attempt['No Of Colums'] = columns;
+				attempt["answerPatternCorrect"] = this.arraysIdentical(studentInputArray, correctAnswer);
+				attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
+				attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
+				attempts['attempt'+attemptCount]=attempt;
+				this.showModal_InCorrectAttempt_Morethan_2();
 				console.log(attempts);
 				/*rev 2.0 code ended*/;
 			}
@@ -985,7 +985,6 @@ activity2.prototype = {
 		
 		else if (this.arraysIdentical(studentInputArray, correctAnswer) == false && attemptCount >= 2) {
 			attemptCount ++
-			this.showModal_InCorrectAttempt_Morethan_2();
 			console.log("tested == true more than 2" + attemptCount)
 			/*rev 2.0 code*/
 			var attempt = {};
@@ -997,6 +996,7 @@ activity2.prototype = {
 			attempt["answerGridCorrect"] = (rows == 2 && columns == 6);
 			attempt['studentInputPattern']= this.listToMatrix(studentInputArray,columns);
 			attempts['attempt'+attemptCount]=attempt;
+			this.showModal_InCorrectAttempt_Morethan_2();
 			console.log(attempts);
 			/*rev 2.0 code ended*/
 		}	
